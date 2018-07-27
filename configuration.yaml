@@ -1,71 +1,177 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: 0
-  longitude: 0
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 0
-  # metric for Metric, imperial for Imperial
+  name: SD60
+  latitude: 59.911525
+  longitude: 10.831530
+  elevation: 120
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: UTC
-  # Customization file
+  time_zone: Europe/Oslo
   customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
 
-# Show links to resources in log and frontend
-introduction:
-
-# Enables the frontend
 frontend:
 
-# Enables configuration UI
 config:
 
 http:
-  # Secrets are defined in the file secrets.yaml
-  # api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  api_password: !secret http_password
+  base_url: https://hass.malt.no
+  cors_allowed_origins:
+    - https://sunscreen.malt.no
+    - https://hass.malt.no
+    - https://www.malt.no
+    - http://localhost:3000
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
+hassio:
+
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+  include_used_components: true
 
-# Discover some devices automatically
 discovery:
+  # ignore:
+  #   - songpal
 
-# Allows you to issue voice commands from the frontend in enabled browsers
+ios:
+
+homekit:
+  auto_start: false
+  filter:
+    exclude_domains:
+      - binary_sensor
+    exclude_entities:
+      - light.hue_camera
+  entity_config:
+    lock.front_door_lock_locked:
+      code: 1910
+
 conversation:
 
-# Enables support for tracking state changes over time
-history:
-
-# View all events in a logbook
-logbook:
-
-# Enables a map showing the location of tracked devices
 map:
 
-# Track the sun
 sun:
+
+# recorder:
+#  purge_keep_days: 10
+
+        # history:
+        # exclude:
+        # domains:
+        # - automation
+        # - weblink
+        # - updater
 
 # Weather prediction
 sensor:
   - platform: yr
+    name: Yr.no
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: load_5m
+      - type: processor_use
+      - type: memory_use_percent
 
 # Text to speech
 tts:
   - platform: google
 
-# Cloud
+## Cloud
 cloud:
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+hue:
+  bridges:
+    - host: 192.168.71.22
+
+media_player:
+  - platform: braviatv
+    host: 192.168.71.134
+  - platform: spotify
+    client_id: c57f686ac1e74b2d92e728c03fd20c14
+    client_secret: c1bf839379f844d0891d8601c4431d1c
+
+# Example configuration.yaml entry
+netatmo:
+  api_key: !secret netatmo_apikey
+  secret_key: !secret netatmo_secret_key
+  username: thomas@malt.no
+  password: !secret netatmo_password
+ 
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: "0x1A, 0x08, 0x47, 0x04, 0x07, 0x0A, 0x0B, 0x0C, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"
+  device_config:
+    cover.downstairs_sunscreen_level:
+      invert_openclose_buttons: true
+    cover.downstairs_sunscreen_switch:
+      invert_openclose_buttons: true
+
+mqtt: !secret mqtt_config
+
+mqtt_eventstream:
+  publish_topic: '/homeassistant/eventstream'
+
+  # mqtt_statestream:
+  # base_topic: '/homeassistant/statestream'
+  # publish_attributes: true
+
+switch:
+  - platform: mqtt
+    name: "Martha Heater Switch"
+    state_topic: /zipato/attributes/d956bf74-dc47-4d3c-8d4f-37cccb0bf3b3/value
+    command_topic: /zipato/request/attributes/d956bf74-dc47-4d3c-8d4f-37cccb0bf3b3/textValue
+    value_template: '{{value_json.value}}'
+    payload_on: true
+    payload_off: false
+    optimistic: false
+    qos: 2
+    retain: true
+  - platform: mqtt
+    name: "TV Heater Switch"
+    state_topic: /zipato/attributes/490dca82-8b56-4e20-834a-ec0e54975711/value 
+    command_topic: /zipato/request/attributes/490dca82-8b56-4e20-834a-ec0e54975711/textValue
+    value_template: '{{value_json.value}}'
+    payload_on: true
+    payload_off: false
+    optimistic: false
+    qos: 2
+    retain: true
+
+input_select:
+  sd60_mode:
+    name: "SD60 Modes"
+    options:
+      - Morning
+      - Day
+      - Evening
+      - Night
+      - Party
+    initial: Day
+  home_away:
+    name: "Home or Away"
+    options:
+      - Home
+      - Away
+      - Vacation
+    initial: Home
+
+group: !include_dir_merge_named groups/
+automation: !include_dir_merge_list automation/
+script: !include_dir_named scripts/

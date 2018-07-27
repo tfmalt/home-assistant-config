@@ -1,0 +1,26 @@
+# -----------
+# Motion detection in utility room
+# ------------
+- alias: 'Utility room - Turn lights on when motion detected'
+  trigger:
+    - platform: state
+      entity_id: sensor.utility_room_sensor_burglar
+      from: "0"
+      to: "8"
+  action: 
+    - service: light.turn_on
+      entity_id: group.utility_room_lights
+      data:
+        brightness: 255
+        kelvin: 2700
+        transition: 2
+
+- alias: 'Utility room - Turn off lights when no motion'
+  trigger:
+    - platform: state
+      entity_id: sensor.utility_room_sensor_burglar
+      from: "8"
+      to: "0"
+  action:
+    - service: light.turn_off
+      entity_id: group.utility_room_lights

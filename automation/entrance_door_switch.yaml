@@ -1,0 +1,38 @@
+- alias: "Entrance Door right on"
+  trigger:
+    platform: mqtt
+    topic: /nexa/entrance/right/state
+    payload: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.entrance_lights
+      data:
+        transition: 2
+        brightness: 255
+        kelvin: 2700
+
+- alias: "Entrance Door right off"
+  trigger:
+    platform: mqtt
+    topic: /nexa/entrance/right/state
+    payload: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: group.entrance_lights
+
+- alias: "Entrance Door Left on"
+  trigger:
+    platform: mqtt
+    topic: /nexa/entrance/left/state
+    payload: 'on'
+  action:
+    - service: script.tv_bright
+
+- alias: "Entrance Door Left off"
+  trigger:
+    platform: mqtt
+    topic: /nexa/entrance/left/state
+    payload: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights

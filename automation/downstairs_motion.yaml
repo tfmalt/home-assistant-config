@@ -1,0 +1,74 @@
+# --------------------------------------------------------------------------- 
+# Downstairs motion
+# --------------------------------------------------------------------------- 
+- alias: 'Set state to Home when downstairs motion'
+  trigger:
+    - platform: state
+      entity_id: sensor.downstairs_sensor_burglar
+      from: "0"
+      to: "8"
+  condition: 
+    condition: state
+    entity_id: input_select.home_away
+    state: Away
+  action:
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Downstairs motion when away"
+        message: "Setting state to Home."
+    - service: input_select.select_option
+      entity_id: input_select.home_away
+      data:
+        option: Home
+    
+- alias: 'Turning on lights after sunset when Downstairs Motion'
+  trigger: 
+    - platform: state
+      entity_id: sensor.downstairs_sensor_burglar
+      to: '8'
+  condition:
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+  action:
+    - service: light.turn_on
+      entity_id: 
+        - light.kitchen_counter_lights_level
+        - light.kitchen_serving_area_lights_level
+        - group.stairs_light
+      data:
+        transition: 2
+    - service: script.downstairs_bright
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Downstairs Motion after sunset"
+        message: >
+          Downstairs motion detected. Luminance is
+          {{ states.sensor.downstairs_sensor_luminance.state }}
+          lux, so turning on lights.
+
+- alias: 'Downstairs No Motion at Night'
+  trigger:
+    - platform: state
+      entity_id: sensor.downstairs_sensor_burglar
+      from: '8'
+      to: '0'
+  condition:
+    condition: state
+    entity_id: input_select.sd60_mode
+    state: Night
+  action:
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Downstairs no Motion at night"
+        message: "No Motion triggered. And it's night."
+    - service: light.turn_off
+      entity_id:
+        - group.dining_lights
+        - group.kitchen_lights
+        - group.stairs_light
+      data:
+        transition: 2

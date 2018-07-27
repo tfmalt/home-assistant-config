@@ -1,0 +1,62 @@
+- alias: "Evening mood transition"
+  trigger:
+    platform: time
+    at: '21:45:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.sd60_mode
+        state: Evening
+      - condition: state
+        entity_id: input_select.home_away
+        state: Home
+  action:
+    - service: light.turn_on
+      entity_id: group.tv_couch_lights
+      data:
+        brightness: 128
+        transition: 1800
+    - service: light.turn_on
+      entity_id: group.tv_spotlights
+      data:
+        brightness: 96
+        transition: 1800
+    - service: light.turn_on
+      entity_id: light.stairs_light_level
+      data:
+        brightness: 8
+        transition: 1800
+    - service: light.turn_on
+      entity_id: light.upstairs_bathroom_light_level
+      data:
+        brightness: 3
+        transition: 1800
+    - service: light.turn_on
+      entity_id: group.tv_hue_lights
+      data:
+        brightness: 104
+        transition: 1800
+        kelvin: 2000
+    - service: light.turn_on
+      entity_id: group.entrance_lights
+      data:
+        brightness: 80
+        kelvin: 2000
+        transition: 1800
+    - service: light.turn_on
+      entity_id: group.picture_wall_lights
+      data:
+        brightness: 80
+        kelvin: 2000
+        transition: 1800
+    - service: light.turn_on
+      entity_id: light.upstairs_bathroom_hallway_light
+      data:
+        brightness: 80
+        kelvin: 2000
+        transition: 1800
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Evening transition!"
+        message: "Dimming TV Lights"

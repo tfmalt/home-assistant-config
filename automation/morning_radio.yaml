@@ -1,0 +1,27 @@
+- alias: "Morning Radio - Start"
+  trigger:
+    platform: time
+    at: '07:15:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_select.home_away
+        state: Home
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.nede
+        volume_level: 0.3
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.nede
+        media_content_id: http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
+        media_content_type: 'audio/aac'

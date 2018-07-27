@@ -1,0 +1,61 @@
+- alias: "Temperature Low in Marthas room"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.netatmo_soverom_martha_temperature
+    below: 17.0
+  # condition:
+  #   condition: or
+  #   conditions:
+  #     - condition: time
+  #       after: '04:00:00'
+  #       before: '08:00:00'
+  #     - condition: time
+  #       after: '16:00:00'
+  #       before: '21:00:00'
+  action: 
+    - service: notify.ios_tmobil_x
+      data:
+        title: Temperature in Marthas room is low
+        message: >
+          Temperature is
+          {{ states.sensor.netatmo_soverom_martha_temperature.state_with_unit }}
+          . Turning on heat.
+    - service: switch.turn_on
+      entity_id: switch.martha_heater_switch
+
+- alias: "Temperature high in Marthas room"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.netatmo_soverom_martha_temperature
+    above: 17.0
+  action: 
+    - service: notify.ios_tmobil_x
+      data:
+        title: Temperature in Marthas room is high
+        message: >
+          Temperature is
+          {{ states.sensor.netatmo_soverom_martha_temperature.state_with_unit }}
+          . Turning off heat.
+    - service: switch.turn_off
+      entity_id: switch.martha_heater_switch
+
+- alias: "Failsafe Low Marthas room"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.netatmo_soverom_martha_temperature
+    below: 16.2
+  action: 
+    - service: notify.ios_tmobil_x
+      data:
+        title: Temperature in Marthas room is way to low
+        message: >
+          Temperature is
+          {{ states.sensor.netatmo_soverom_martha_temperature.state_with_unit }}
+          . Turning off heat.
+    - service: switch.turn_off
+      entity_id: switch.martha_heater_switch
+    - delay: '00:00:02'
+    - service: switch.turn_on
+      entity_id: switch.martha_heater_switch
+
+

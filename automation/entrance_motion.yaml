@@ -1,0 +1,95 @@
+# -----------
+# Motion detection in Entrance
+# ------------
+- alias: 'Entrance - Turn lights on when motion detected'
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_sensor_burglar
+      from: "0"
+      to: "8"
+  condition:
+    condition: numeric_state
+    entity_id: sensor.entrance_sensor_luminance
+    below: 40
+  action: 
+    - service: light.turn_on
+      entity_id: 
+        - group.stairs_light
+      data_template:
+        brightness: > 
+          {% if is_state('input_select.sd60_mode', 'Day') %}
+            255
+          {% else %}
+            {{ states.light.stairs_light_level.attributes.brightness }}
+          {% endif %}
+        transition: 2
+    - service: light.turn_on
+      entity_id:
+        - group.entrance_lights
+      data_template:
+        brightness: > 
+          {% if is_state('input_select.sd60_mode', 'Day') %}
+            255
+          {% else %}
+            {{ states.light.entrance_door.attributes.brightness }}
+          {% endif %}
+        kelvin: >
+          {% if is_state('input_select.sd60_mode', 'Day') %}
+            2700
+          {% else %}
+            {{ states.light.entrance_door.attributes.kelvin }}
+          {% endif %}
+        transition: 2
+    - service: light.turn_on
+      entity_id:
+        - group.picture_wall_lights
+      data_template:
+        brightness: > 
+          {% if is_state('input_select.sd60_mode', 'Day') %}
+            255
+          {% else %}
+            {{ states.light.picture_wall_spot_1.attributes.brightness }}
+          {% endif %}
+        kelvin: >
+          {% if is_state('input_select.sd60_mode', 'Day') %}
+            2700
+          {% else %}
+            {{ states.light.picture_wall_spot_1.attributes.kelvin }}
+          {% endif %}
+        transition: 2
+    - service: notify.ios_tmobil_x
+      data:
+        title: Entrance Motion
+        message: >
+          Turning on light. 
+          {{ states.sensor.entrance_sensor_luminance.state_with_unit }}.
+          Stairs brightness
+          {{ states.light.stairs_light_level.attributes.brightness }}.
+          Entrance brightness
+          {{ states.light.entrance_door.attributes.brightness }}
+          Picture Wall brightness
+          {{ states.light.picture_wall_spot_1.attributes.brightness }}
+
+- alias: 'Entrance - Turn off lights when no motion'
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_sensor_burglar
+      from: "8"
+      to: "0"
+      for:
+        minutes: 10
+  condition:
+    condition: state
+    entity_id: input_select.sd60_mode
+    state: Night
+  action:
+    - service: light.turn_off
+      entity_id: 
+        - group.entrance_lights
+        - group.stairs_light
+        - group.picture_wall_lights
+    - service: notify.ios_tmobil_x
+      data:
+        title: 'Entrance No Motion'
+        message: >
+          It is night. Turning off lights in entrance.

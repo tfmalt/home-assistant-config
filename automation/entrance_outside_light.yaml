@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# Outside lights
+# ---------------------------------------------------------------------------
+- alias: 'Entrance Outdoor Light On'
+  trigger:
+    - platform: sun
+      event: sunset
+      # offset: '-00:30:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.entrance_switch_switch
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Entrance Lights Outside"
+        message: >
+          Turned on because darkness. Luminance 
+          {{ states.sensor.outside_sensor_luminance.state_with_unit }}
+  
+# ---------------------------------------------------------------------------
+# Outside lights
+# ---------------------------------------------------------------------------
+- alias: 'Entrance Outdoor Light Off'
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: '00:30:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.entrance_switch_switch
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Entrance Lights Outside"
+        message: >
+          Turned off because light. Luminance 
+          {{ states.sensor.outside_sensor_luminance.state_with_unit }}
+  

@@ -1,0 +1,31 @@
+# -----------
+# Motion detection in downstairs bathroom
+# ------------
+- alias: 'Downstairs Bathroom - Turn lights on when motion detected'
+  trigger:
+    - platform: state
+      entity_id: sensor.downstairs_bathroom_burglar
+      from: "0"
+      to: "8"
+  action: 
+    - service: light.turn_on
+      entity_id: light.downstairs_bathroom_lights_level
+      data:
+        brightness: 192
+        transition: 2
+
+- alias: 'Downstairs Bathroom - Turn off lights when no motion'
+  trigger:
+    - platform: state
+      entity_id: sensor.downstairs_bathroom_burglar
+      from: "8"
+      to: "0"
+      for:
+        minutes: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.downstairs_bathroom_lights_level
+    - service: notify.ios_tmobil_x
+      data:
+        title: Downstairs Bathroom
+        message: No Motion, turning lights off

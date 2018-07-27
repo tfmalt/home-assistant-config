@@ -1,0 +1,35 @@
+- alias: "Hamster Climate Temperature - Low"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.netatmo_hamsterrommet_temperature
+    below: 20.0
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '21:00:00'
+  action: 
+    - service: notify.ios_tmobil_x
+      data:
+        title: Hamster temperature is low
+        message: >
+          Temperature is
+          {{ states.sensor.netatmo_hamsterrommet_temperature.state_with_unit }}
+          . Turning on heat.
+    - service: switch.turn_on
+      entity_id: switch.tv_heater_switch
+
+- alias: "Hamster Climate Temperature - High"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.netatmo_hamsterrommet_temperature
+    above: 22.0
+  action: 
+    - service: notify.ios_tmobil_x
+      data:
+        title: Hamster temperature is high
+        message: >
+          Temperature is
+          {{ states.sensor.netatmo_hamsterrommet_temperature.state_with_unit }}
+          . Turning off heat.
+    - service: switch.turn_off
+      entity_id: switch.tv_heater_switch

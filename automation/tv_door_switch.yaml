@@ -1,0 +1,69 @@
+- alias: "TV door left on"
+  trigger:
+    platform: mqtt
+    topic: /nexa/tv/tv_door_left/state
+    payload: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.upstairs_bathroom_hallway
+      data:
+        flash: "short"
+    - service: script.tv_bright 
+    - service: notify.ios_tmobil_x
+      data:
+        title: "TV Door Switch "
+        message: "Door Left ON"
+
+- alias: "TV door left off"
+  trigger:
+    platform: mqtt
+    topic: /nexa/tv/tv_door_left/state
+    payload: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: light.upstairs_bathroom_hallway
+      data:
+        flash: "short"
+    - service: light.turn_off
+      entity_id: group.tv_lights
+      data:
+        transition: 2
+    - service: notify.ios_tmobil_x
+      data:
+        title: "TV Door Switch Left"
+        message: "Turning off TV lights"
+
+- alias: "TV door right on"
+  trigger:
+    platform: mqtt
+    topic: /nexa/tv/tv_door_right/state
+    payload: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.upstairs_bathroom_hallway
+      data:
+        flash: "short"
+    - service: script.tv_bright
+    - service: notify.ios_tmobil_x
+      data:
+        title: "TV Door Switch Right"
+        message: "Turning on TV Bright Script"
+
+- alias: "TV door right off"
+  trigger:
+    platform: mqtt
+    topic: /nexa/tv/tv_door_right/state
+    payload: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: light.upstairs_bathroom_hallway
+      data:
+        flash: "short"
+    - service: light.turn_off
+      entity_id: group.upstairs_light
+      data:
+        transition: 2
+    - service: notify.ios_tmobil_x
+      data:
+        title: "TV Door Switch Right"
+        message: "Turning off all light upstairs"
