@@ -1,0 +1,40 @@
+"sensor.netatmo_*_radio":
+  hidden: true
+"sensor.netatmo_*_wifi":
+  hidden: true
+"sensor.*_alarm_*":
+  hidden: true
+"switch.nede_stue_sofavegg_*":
+  hidden: true
+"sensor.*_unknown*":
+  hidden: true
+"sensor.*_exporting*":
+  hidden: true
+"sensor.*_power_*":
+  hidden: true
+"sensor.*_sourcenodeid*":
+  hidden: true
+"binary_sensor.*":
+  hidden: true
+"sensor.dining_*energ*":
+  hidden: true
+"sensor.*_interval":
+  hidden: true
+"sensor.*_heat":
+  hidden: true
+"sensor.*_system":
+  hidden: true
+"climate.*energy_heat":
+  hidden: true
+"sensor.*_ultraviolet":
+  hidden: true
+"sensor.*_previous_reading":
+  hidden: true
+"sensor.*_energy":
+  hidden: true
+# "switch.*switch*":
+#   hidden: true
+"sensor.tmobil_x_*_2":
+  hidden: true
+"sensor.*_current":
+  hidden: true
