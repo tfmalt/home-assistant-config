@@ -1,0 +1,19 @@
+
+marthas_sensors:
+  name: Marthas Sensors
+  entities:
+    - sensor.netatmo_soverom_martha_temperature
+    - sensor.netatmo_soverom_martha_co2
+    - sensor.netatmo_soverom_martha_humidity
+
+marthas_switches:
+  name: Marthas Switches
+  entities:
+    - switch.martha_heater_switch
+
+marthas_bedroom:
+  name: Marthas Bedroom
+  view: yes
+  entities:
+    - group.marthas_sensors
+    - group.marthas_switches

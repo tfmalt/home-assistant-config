@@ -1,0 +1,38 @@
+
+outside_sensors:
+  name: Outside Sensors
+  entities:
+    - sensor.netatmo_outside_temperature_2
+    - sensor.outside_sensor_temperature
+    - sensor.outside_sensor_burglar
+    - sensor.outside_sensor_luminance
+    - sensor.outside_sensor_relative_humidity
+    - sensor.netatmo_outside_humidity_2
+    - sensor.netatmo_tv_stue_pressure_2
+    - sensor.netatmo_regn_rain_2
+
+yr_sensors:
+  name: Yr Sensors
+  entities:
+    - sensor.yrno_temperature
+    - sensor.yrno_cloudiness
+    - sensor.yrno_dewpoint_temperature
+    - sensor.yrno_fog
+    - sensor.yrno_high_clouds
+    - sensor.yrno_humidity
+    - sensor.yrno_low_clouds
+    - sensor.yrno_medium_clouds
+    - sensor.yrno_precipitation
+    - sensor.yrno_pressure
+    - sensor.yrno_symbol
+    - sensor.yrno_temperature
+    - sensor.yrno_wind_direction
+    - sensor.yrno_wind_speed
+
+outside:
+  name: Outside
+  view: yes
+  entities:
+    - group.outside_sensors
+    - group.yr_sensors
+    - switch.entrance_switch_switch

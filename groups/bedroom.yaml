@@ -1,0 +1,36 @@
+
+
+
+bedroom_reading_lights:
+  name: Reading Lights
+  entities:
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+
+bedroom_spotlights:
+  name: Bedroom Spotlights
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+
+# 
+# Bedroom
+bedroom_lights:
+  name: Bedroom Lights
+  entities:
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+
+bedroom:
+  name: Bedroom
+  view: yes
+  entities:
+    - group.bedroom_lights
+    - group.bedroom_reading_lights
+    - group.bedroom_spotlights
+    - cover.bedroom_shutter_level
+    - media_player.soverom
