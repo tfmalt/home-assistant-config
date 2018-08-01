@@ -36,7 +36,7 @@ dining_lights:
 kitchen_lights:
   name: Kitchen Lights
   entities:
-    - light.kitchen_counter_lights_level
+    - light.kitchen_counter
     - light.kitchen_serving_area_lights_level
     - light.kitchen_ceiling_lights_level
 
