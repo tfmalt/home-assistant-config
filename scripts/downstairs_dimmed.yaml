@@ -1,0 +1,49 @@
+# This script turns all lights downstairs dimmed and cozy!
+alias: Downstairs Dimmed 
+sequence:
+  - service: light.turn_on
+    entity_id: light.dining_room_chandelier_level
+    data:
+      brightness: 50
+      transition: 2
+  - service: light.turn_on
+    entity_id: light.dining_room_couch_spotlights_level
+    data:
+      brightness: 50
+      transition: 2
+  - service: light.turn_on
+    entity_id: light.dining_room_carpet_spotlights_level
+    data:
+      brightness: 40
+      transition: 2
+  - service: light.turn_on
+    entity_id: light.globe
+    data:
+      brightness: 168
+      transition: 2
+      kelvin: 2300
+  - service: light.turn_on
+    entity_id: group.dining_room_paper
+    data:
+      brightness: 168
+      transition: 2
+      kelvin: 2300
+  - service: light.turn_on
+    entity_id: group.downstairs_couch_lights
+    data:
+      brightness: 168
+      transition: 2
+      kelvin: 2300
+  - service: light.turn_on
+    entity_id: light.kitchen_counter_lights_level
+  - service: light.turn_on
+    entity_id: light.kitchen_counter
+    data:
+      brightness: 220
+      transition: 2
+      kelvin: 2300
+  - service: light.turn_on
+    entity_id: light.kitchen_serving_area_lights_level
+    data:
+      brightness: 200
+      transition: 2

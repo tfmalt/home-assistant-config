@@ -1,0 +1,48 @@
+alias: TV Dimmed
+sequence:
+  - service: light.turn_on
+    entity_id: group.tv_couch_lights
+    data:
+      brightness: 104
+      transition: 2
+      kelvin: 2000
+  - service: light.turn_on
+    entity_id: group.tv_spotlights
+    data:
+      brightness: 96
+      transition: 2
+      kelvin: 2000
+  - service: light.turn_on
+    entity_id: light.stairs_light_level
+    data:
+      brightness: 8
+      transition: 2
+  - service: light.turn_on
+    entity_id: light.upstairs_bathroom_light_level
+    data:
+      brightness: 3
+      transition: 2
+  - service: light.turn_on
+    entity_id: group.tv_hue_lights
+    data:
+      brightness: 104
+      transition: 2
+      kelvin: 2000
+  - service: light.turn_on
+    entity_id: group.entrance_lights
+    data:
+      brightness: 80
+      kelvin: 2000
+      transition: 2
+  - service: light.turn_on
+    entity_id: group.picture_wall_lights
+    data:
+      brightness: 80
+      kelvin: 2000
+      transition: 2
+  - service: light.turn_on
+    entity_id: light.upstairs_bathroom_hallway_light
+    data:
+      brightness: 80
+      kelvin: 2000
+      transition: 2

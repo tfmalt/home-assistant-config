@@ -2520,7 +2520,7 @@ light.hue_tv_bookshelf_middle:
   unique_id: 00:17:88:01:04:eb:5b:d7-0b
 light.kitchen_counter:
   config_entry_id:
-  name:
+  name: Kitchen Counter Strip
   platform: hue
   unique_id: 00:17:88:01:03:e1:24:d7-0b
 light.hue_lightstrip_plus_1_2:
@@ -2543,3 +2543,13 @@ sensor.edith_anstad_sin_iphone_battery_level:
   name:
   platform: ios
   unique_id: level_edith_nstad_sin_iphone
+media_player.plex_web_chrome_2:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: dz4ztjjw9v
+media_player.chrome_2:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: jufdpj6nbtpk226z941rtqmb

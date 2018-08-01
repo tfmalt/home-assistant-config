@@ -1,0 +1,47 @@
+alias: TV Bright Slow
+sequence:
+  - service: light.turn_on
+    entity_id: group.tv_hue_lights
+    data:
+      brightness: 255
+      transition: 10
+      kelvin: 2700
+  - service: light.turn_on
+    entity_id: group.tv_couch_lights
+    data:
+      brightness: 255
+      transition: 10
+      kelvin: 2700
+  - service: light.turn_on
+    entity_id: group.tv_spotlights
+    data:
+      brightness: 255
+      transition: 10
+  - service: light.turn_on
+    entity_id: group.entrance_lights
+    data:
+      brightness: 255
+      kelvin: 2700
+      transition: 10
+  - service: light.turn_on
+    entity_id: light.stairs_light_level
+    data:
+      brightness: 255
+      transition: 10
+  - service: light.turn_on
+    entity_id: light.upstairs_bathroom_light_level
+    data:
+      brightness: 224
+      transition: 10
+  - service: light.turn_on
+    entity_id: group.picture_wall_lights
+    data:
+      brightness: 255
+      kelvin: 2700
+      transition: 10
+  - service: light.turn_on
+    entity_id: light.upstairs_bathroom_hallway_light
+    data:
+      brightness: 255
+      kelvin: 2700
+      transition: 10
