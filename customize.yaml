@@ -139,3 +139,13 @@ switch.bedroom_shutter_second_switch:
   hidden: true
 switch.tv_shutter_second_switch:
   hidden: true
+sensor.heat_marthas_bedroom_dimmer:
+  hidden: true
+sensor.upstairs_bathroom_dimmer_heat_2:
+  hidden: true
+light.upstairs_bathroom_dimmer_disable:
+  hidden: true
+sensor.upstairs_bathroom_dimmer_system_2:
+  hidden: true
+sensor.system_marthas_bedroom_dimmer:
+  hidden: true
