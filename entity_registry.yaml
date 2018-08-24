@@ -1,80 +1,80 @@
 light.picture_wall_spot_1:
-  config_entry_id:
-  name:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
+  name: Picture Wall Spot 1j
   platform: hue
   unique_id: 00:17:88:01:02:e4:82:84-0b
 light.paper_1:
-  config_entry_id:
-  name:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
+  name: Paper Top
   platform: hue
   unique_id: 00:17:88:01:03:40:12:9d-0b
 light.tv_hue_right:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:03:61:4b:3b-0b
 light.picture_wall_spot_3:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:e4:5c:0b-0b
 light.picture_wall_spot_2:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:61:ac:f7-0b
 light.globe:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:03:40:2b:d6-0b
 light.tv_hue_left:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:03:56:9d:a7-0b
 light.utility_room_ceiling_light:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:04:c4:ab-0b
 light.upstairs_bathroom_hallway_light:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:78:ad:76-0b
 light.kids_bedroom_spot_2:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:38:21:eb-0b
 light.kids_bedroom_spot_3:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:69:dd:e3-0b
 light.entrance_wardrobe:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:38:1c:76-0b
 light.paper_2:
-  config_entry_id:
-  name:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
+  name: Paper Middle
   platform: hue
   unique_id: 00:17:88:01:03:40:2e:c7-0b
 light.kids_bedroom_spot_1:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:69:dd:a7-0b
 light.paper_3:
-  config_entry_id:
-  name:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
+  name: Paper Bottom
   platform: hue
   unique_id: 00:17:88:01:03:40:36:7f-0b
 light.entrance_door:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:02:de:81:6d-0b
@@ -208,84 +208,24 @@ sensor.tmobil_x_battery_state_2:
   name:
   platform: ios
   unique_id: state_tmobil_x
-switch.dining_room_couch_spotlights_switch:
+switch.switch_dining_room_couch_dimmer:
   config_entry_id:
-  name:
+  name: Switch Dining Room Couch
   platform: zwave
   unique_id: 3-72057594093060096
-switch.dining_room_couch_spotlights_switch_2:
+light.dimmer_dining_room_couch:
   config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-144115188130988032
-switch.dining_room_couch_spotlights_switch_3:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-216172782168915968
-switch.dining_room_couch_spotlights_switch_4:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-288230376206843904
-switch.dining_room_couch_spotlights_switch_5:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-360287970244771840
-light.dining_room_couch_spotlights_level:
-  config_entry_id:
-  name: Dining Room Couch Spotlights
+  name: Dimmer Dining Room Couch
   platform: zwave
   unique_id: 3-72057594093076481
-light.dining_room_couch_spotlights_level_2:
+binary_sensor.dining_room_couch:
   config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-144115188131004417
-light.dining_room_couch_spotlights_level_3:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-216172782168932353
-light.dining_room_couch_spotlights_level_4:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-288230376206860289
-light.dining_room_couch_spotlights_level_5:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-360287970244788225
-binary_sensor.dining_room_couch_spotlights_sensor:
-  config_entry_id:
-  name:
+  name: Binary Sensor Dining Room Couch
   platform: zwave
   unique_id: 3-72057594093240320
-binary_sensor.dining_room_couch_spotlights_sensor_2:
+sensor.energy_dining_room_couch:
   config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-144115188131168256
-binary_sensor.dining_room_couch_spotlights_sensor_3:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-216172782169096192
-binary_sensor.dining_room_couch_spotlights_sensor_4:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-288230376207024128
-binary_sensor.dining_room_couch_spotlights_sensor_5:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-360287970244952064
-sensor.dining_room_couch_spotlights_energy:
-  config_entry_id:
-  name:
+  name: Energy Dining Room Couch Spotlights
   platform: zwave
   unique_id: 3-72057594093273090
 sensor.dining_room_couch_spotlights_unknown:
@@ -293,24 +233,9 @@ sensor.dining_room_couch_spotlights_unknown:
   name:
   platform: zwave
   unique_id: 3-144115188131201026
-sensor.dining_room_couch_spotlights_unknown_2:
+sensor.power_dining_room_couch:
   config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-216172782169128962
-sensor.dining_room_couch_spotlights_unknown_3:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-288230376207056898
-sensor.dining_room_couch_spotlights_unknown_4:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 3-360287970244984834
-sensor.dining_room_couch_spotlights_power:
-  config_entry_id:
-  name: Dining Room Couch Spotlights Power
+  name: Power Dining Room Couch
   platform: zwave
   unique_id: 3-72057594093273218
 sensor.dining_room_couch_spotlights_exporting:
@@ -1068,11 +993,6 @@ sensor.downstairs_hallway_lights_system:
   name:
   platform: zwave
   unique_id: 16-72057594312409281
-switch.utility_room_heater_switch:
-  config_entry_id:
-  name: Water Heater Switch
-  platform: zwave
-  unique_id: 17-72057594327941120
 sensor.utility_room_heater_energy:
   config_entry_id:
   name:
@@ -1083,11 +1003,6 @@ sensor.utility_room_heater_previous_reading:
   name:
   platform: zwave
   unique_id: 17-72057594328154130
-sensor.utility_room_heater_power:
-  config_entry_id:
-  name: Water Heater Power
-  platform: zwave
-  unique_id: 17-72057594328154242
 sensor.utility_room_heater_previous_reading_2:
   config_entry_id:
   name:
@@ -1315,7 +1230,7 @@ sensor.front_door_lock_sourcenodeid:
   unique_id: 23-72057594429849633
 sensor.front_door_lock_access_control:
   config_entry_id:
-  name:
+  name: Lock Front Door Access Control
   platform: zwave
   unique_id: 23-72057594429849745
 switch.upstairs_bathroom_light_switch:
@@ -1470,7 +1385,7 @@ switch.computers_switch_switch:
   unique_id: 28-72057594512490496
 sensor.computers_switch_power:
   config_entry_id:
-  name: Computers Power
+  name: Computers
   platform: zwave
   unique_id: 28-72057594512687170
 sensor.computers_switch_energy:
@@ -1518,49 +1433,49 @@ sensor.downstairs_sunscreen_power:
   name: Garden Sunscreen Power
   platform: zwave
   unique_id: 29-72057594529480834
-binary_sensor.outside_sensor_sensor:
+binary_sensor.dining_area_sensor:
   config_entry_id:
   name:
   platform: zwave
   unique_id: 31-72057594563002368
-sensor.outside_sensor_temperature:
+sensor.dining_area_temperature:
   config_entry_id:
-  name: Outside Sensor Temperature
+  name: Dining Area Temperature
   platform: zwave
   unique_id: 31-72057594563018770
-sensor.outside_sensor_luminance:
+sensor.dining_area_luminance:
   config_entry_id:
   name: Dining Area Luminance
   platform: zwave
   unique_id: 31-72057594563018802
-sensor.outside_sensor_relative_humidity:
+sensor.dining_area_relative_humidity:
   config_entry_id:
-  name: Outside Sensor Relative Humidity
+  name: Dining Area Relative Humidity
   platform: zwave
   unique_id: 31-72057594563018834
-sensor.outside_sensor_ultraviolet:
+sensor.dining_area_ultraviolet:
   config_entry_id:
-  name:
+  name: Dining Area Ultraviolet
   platform: zwave
   unique_id: 31-72057594563019186
-sensor.outside_sensor_alarm_type:
+sensor.dining_area_alarm_type:
   config_entry_id:
   name:
   platform: zwave
   unique_id: 31-72057594564067329
-sensor.outside_sensor_alarm_level:
+sensor.dining_area_alarm_level:
   config_entry_id:
   name:
   platform: zwave
   unique_id: 31-72057594564067345
-sensor.outside_sensor_sourcenodeid:
+sensor.dining_area_sourcenodeid:
   config_entry_id:
   name:
   platform: zwave
   unique_id: 31-72057594564067361
-sensor.outside_sensor_burglar:
+sensor.dining_area_burglar:
   config_entry_id:
-  name: Outside Motion
+  name: Dining Area Motion
   platform: zwave
   unique_id: 31-72057594564067489
 switch.entrance_switch_switch:
@@ -1704,17 +1619,17 @@ media_player.anne_og_ediths_rom:
   platform: cast
   unique_id: 6f2aafb4-ca61-3339-bc09-821441ebfc78
 media_player.nede:
-  config_entry_id:
+  config_entry_id: 162883549fb545de9a92fab93f221dc0
   name:
   platform: cast
   unique_id: 41b4bcd8-6c75-65a9-8d7a-4dc005878a51
 media_player.oppe:
-  config_entry_id:
+  config_entry_id: 162883549fb545de9a92fab93f221dc0
   name:
   platform: cast
   unique_id: 3a919819-7782-a165-6f17-54158da42847
 media_player.fjernsyn:
-  config_entry_id:
+  config_entry_id: 162883549fb545de9a92fab93f221dc0
   name:
   platform: cast
   unique_id: 6a4807ee-43a4-313f-0fb4-110cd1c0812a
@@ -2189,7 +2104,7 @@ sensor.node_36_unknown:
   platform: zwave
   unique_id: 36-72057594646921218
 light.hue_lightstrip_plus_1:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name: Utility Room Counter Strip
   platform: hue
   unique_id: 00:17:88:01:03:f4:f3:c5-0b
@@ -2289,22 +2204,22 @@ light.soverom:
   platform: tradfri
   unique_id: group-7e15515204400010-159019
 light.hue_downstairs_couch_stairs:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name: Downstairs Couch Stairs
   platform: hue
   unique_id: 00:17:88:01:03:6b:39:e4-0b
 light.hue_tv_couch_window:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name: TV Couch Window
   platform: hue
   unique_id: 00:17:88:01:03:ba:cc:5d-0b
 light.hue_tv_couch_desk:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name: TV Couch Desk
   platform: hue
   unique_id: 00:17:88:01:03:6b:3a:62-0b
 light.hue_downstairs_couch_window:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name: Downstairs Couch Window
   platform: hue
   unique_id: 00:17:88:01:03:6b:47:25-0b
@@ -2328,51 +2243,11 @@ sensor.qubino_zmnhcdx_flush_shutter_previous_reading_2:
   name:
   platform: zwave
   unique_id: 41-72057594730807442
-zwave.aeotec_zw090_zstick_gen5_eu:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: node-1
-zwave.qubino_zmnhdd1_flush_dimmer:
-  config_entry_id:
-  name: 'Dining Room Couch Spotlights Dimmer '
-  platform: zwave
-  unique_id: node-3
-zwave.qubino_zmnhdd1_flush_dimmer_2:
-  config_entry_id:
-  name: Dining Room Carpet Spotlights
-  platform: zwave
-  unique_id: node-5
-zwave.thermofloor_as_heatit_thermostat_tf_021:
-  config_entry_id:
-  name: Dining Room Heating
-  platform: zwave
-  unique_id: node-6
-zwave.qubino_zmnhdd1_flush_dimmer_3:
-  config_entry_id:
-  name: Kitchen Counter Lights Dimmer
-  platform: zwave
-  unique_id: node-9
 zwave.qubino_zmnhdd1_flush_dimmer_4:
   config_entry_id:
   name: Kitchen Serving Area Spotlights Dimmer
   platform: zwave
   unique_id: node-10
-zwave.qubino_zmnhdd1_flush_dimmer_5:
-  config_entry_id:
-  name: Kitchen Ceiling Spotlights Dimmer
-  platform: zwave
-  unique_id: node-11
-zwave.fibaro_system_fgd212_dimmer_2:
-  config_entry_id:
-  name: Downstairs Bathroom Lights Dimmer
-  platform: zwave
-  unique_id: node-12
-zwave.thermofloor_as_heatit_thermostat_tf_021_2:
-  config_entry_id:
-  name: Downstairs Bathroom Heating
-  platform: zwave
-  unique_id: node-13
 zwave.thermofloor_as_heatit_thermostat_tf_021_3:
   config_entry_id:
   name: Utility Room Heating
@@ -2383,36 +2258,16 @@ zwave.fibaro_system_fgd212_dimmer_2_2:
   name: Utility Room Counter Lights Dimmer
   platform: zwave
   unique_id: node-15
-zwave.fibaro_system_fgd212_dimmer_2_3:
-  config_entry_id:
-  name: Downstairs Hallway Lights Dimmer
-  platform: zwave
-  unique_id: node-16
-zwave.aeotec_zw075_smart_switch_gen5:
-  config_entry_id:
-  name: Water Heater Switch
-  platform: zwave
-  unique_id: node-17
 zwave.fibaro_system_fgwpef_wall_plug_gen5:
   config_entry_id:
   name: Toaster Switch
   platform: zwave
   unique_id: node-18
-zwave.aeotec_zw099_smart_dimmer_6:
-  config_entry_id:
-  name: TV Spotlights Dimmer
-  platform: zwave
-  unique_id: node-19
 zwave.fibaro_system_fgd212_dimmer_2_4:
   config_entry_id:
   name: Stairs Spotlight Dimmer
   platform: zwave
   unique_id: node-22
-zwave.polycontrol_danalock_v3_btze:
-  config_entry_id:
-  name: Front Door Lock
-  platform: zwave
-  unique_id: node-23
 zwave.qubino_zmnhdd1_flush_dimmer_6:
   config_entry_id:
   name: Upstairs Bathroom Lights Dimmer
@@ -2428,56 +2283,6 @@ zwave.fibaro_system_fgwpef_wall_plug_gen5_2:
   name: MoccaMaster Switch
   platform: zwave
   unique_id: node-27
-zwave.fibaro_system_fgwpef_wall_plug_gen5_3:
-  config_entry_id:
-  name: Computers Switch
-  platform: zwave
-  unique_id: node-28
-zwave.qubino_zmnhcdx_flush_shutter:
-  config_entry_id:
-  name: Garden Sunscreen
-  platform: zwave
-  unique_id: node-29
-zwave.aeotec_zw100_multisensor_6:
-  config_entry_id:
-  name: Outside Sensor
-  platform: zwave
-  unique_id: node-31
-zwave.fibaro_system_fgs223_double_relay:
-  config_entry_id:
-  name: Entrance Double Switch
-  platform: zwave
-  unique_id: node-32
-zwave.aeotec_zw100_multisensor_6_2:
-  config_entry_id:
-  name: Utility Room Sensor
-  platform: zwave
-  unique_id: node-35
-zwave.aeotec_zw100_multisensor_6_3:
-  config_entry_id:
-  name: Upstairs Bathroom Sensor
-  platform: zwave
-  unique_id: node-36
-zwave.fibaro_system_fgd212_dimmer_2_5:
-  config_entry_id:
-  name: Dining Room Chandelier Dimmer
-  platform: zwave
-  unique_id: node-37
-zwave.aeotec_zw100_multisensor_6_4:
-  config_entry_id:
-  name: Downstairs Sensor
-  platform: zwave
-  unique_id: node-38
-zwave.aeotec_zw100_multisensor_6_5:
-  config_entry_id:
-  name: Entrance Sensor
-  platform: zwave
-  unique_id: node-39
-zwave.aeotec_zw100_multisensor_6_6:
-  config_entry_id:
-  name: Downstairs Bathroom Sensor
-  platform: zwave
-  unique_id: node-40
 zwave.qubino_zmnhcdx_flush_shutter_2:
   config_entry_id:
   name: TV Sunscreen
@@ -2514,17 +2319,17 @@ media_player.ipad:
   platform: plex
   unique_id: F1E299A1-CDCD-4278-BD74-551B2641DE0D
 light.hue_tv_bookshelf_middle:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name: TV Bookshelf Middle
   platform: hue
   unique_id: 00:17:88:01:04:eb:5b:d7-0b
 light.kitchen_counter:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name: Kitchen Counter Strip
   platform: hue
   unique_id: 00:17:88:01:03:e1:24:d7-0b
 light.hue_lightstrip_plus_1_2:
-  config_entry_id:
+  config_entry_id: a27498472092441b94d8e8d82cc46663
   name:
   platform: hue
   unique_id: 00:17:88:01:03:e1:21:aa-0b
@@ -2553,3 +2358,353 @@ media_player.chrome_2:
   name:
   platform: plex
   unique_id: jufdpj6nbtpk226z941rtqmb
+sensor.thermofloor_as_heatit_thermostat_tf_021_luminance:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 13-72057594261028914
+zwave.upstairs_bathroom_dimmer:
+  config_entry_id:
+  name: Upstairs Bathroom Dimmer
+  platform: zwave
+  unique_id: node-43
+light.upstairs_bathroom_dimmer_disable:
+  config_entry_id:
+  name: Upstairs Bathroom Dimmer Level Disable
+  platform: zwave
+  unique_id: 43-144115188802093057
+sensor.upstairs_bathroom_dimmer_power:
+  config_entry_id:
+  name: Upstairs Bathroom Dimmer Power
+  platform: zwave
+  unique_id: 43-72057594764361858
+sensor.upstairs_bathroom_dimmer_exporting_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 43-72057594764362240
+sensor.upstairs_bathroom_dimmer_energy:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 43-72057594764361730
+sensor.upstairs_bathroom_dimmer_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 43-72057594765393921
+sensor.upstairs_bathroom_dimmer_sourcenodeid_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 43-72057594765393953
+sensor.upstairs_bathroom_dimmer_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 43-72057594765393937
+sensor.upstairs_bathroom_dimmer_heat_2:
+  config_entry_id:
+  name: Upstairs Bathroom Dimmer Heat
+  platform: zwave
+  unique_id: 43-72057594765394033
+sensor.upstairs_bathroom_dimmer_power_management_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 43-72057594765394097
+sensor.upstairs_bathroom_dimmer_system_2:
+  config_entry_id:
+  name: Upstairs Bathroom Dimmer System
+  platform: zwave
+  unique_id: 43-72057594765394113
+sensor.upstairs_bathroom_dimmer_power_3:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 43-72057594764345410
+sensor.martha_bedroom_power_2:
+  config_entry_id:
+  name: Martha Bedroom Power 2
+  platform: zwave
+  unique_id: 44-72057594781139074
+sensor.martha_bedroom_exporting_3:
+  config_entry_id:
+  name: Martha Bedrom Exporting
+  platform: zwave
+  unique_id: 44-72057594781139456
+sensor.fibaro_system_fgd212_dimmer_2_alarm_type_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 44-72057594782171137
+sensor.fibaro_system_fgd212_dimmer_2_alarm_level_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 44-72057594782171153
+sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid_3:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 44-72057594782171169
+sensor.fibaro_system_fgd212_dimmer_2_power_management_3:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 44-72057594782171313
+sensor.martha_bedroom_power:
+  config_entry_id:
+  name: Martha Bedroom Power
+  platform: zwave
+  unique_id: 44-72057594781122626
+zwave.dimmer_marthas_bedroom:
+  config_entry_id:
+  name: Dimmer Marthas Bedroom
+  platform: zwave
+  unique_id: node-44
+light.level_marthas_bedroom:
+  config_entry_id:
+  name: Level Marthas Bedroom Dimmer
+  platform: zwave
+  unique_id: 44-72057594780942337
+light.marthas_bedroom_dimmer_disable:
+  config_entry_id:
+  name: Marthas Bedroom Dimmer Disable
+  platform: zwave
+  unique_id: 44-144115188818870273
+sensor.energy_marthas_bedroom:
+  config_entry_id:
+  name: Energy Marthas Bedroom
+  platform: zwave
+  unique_id: 44-72057594781138946
+sensor.heat_marthas_bedroom_dimmer:
+  config_entry_id:
+  name: Heat Marthas Bedroom Dimmer
+  platform: zwave
+  unique_id: 44-72057594782171249
+sensor.system_marthas_bedroom_dimmer:
+  config_entry_id:
+  name: System Marthas Bedroom Dimmer
+  platform: zwave
+  unique_id: 44-72057594782171329
+zwave.switch_computers:
+  config_entry_id:
+  name: Switch Computers
+  platform: zwave
+  unique_id: node-28
+zwave.dimmer_dining_room_carpet:
+  config_entry_id:
+  name: Dimmer Dining Room Carpet
+  platform: zwave
+  unique_id: node-5
+zwave.dimmer_dining_room_chandelier:
+  config_entry_id:
+  name: Dimmer Dining Room Chandelier
+  platform: zwave
+  unique_id: node-37
+zwave.dimmer_dining_room_couch:
+  config_entry_id:
+  name: Dimmer Dining Room Couch
+  platform: zwave
+  unique_id: node-3
+zwave.controller_hassio:
+  config_entry_id:
+  name: Controller Hassio
+  platform: zwave
+  unique_id: node-1
+binary_sensor.qubino_zmnhdd1_flush_dimmer_sensor_3:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 3-144115188131168256
+zwave.dimmer_tv_spotlights:
+  config_entry_id:
+  name: Dimmer TV Spotlights
+  platform: zwave
+  unique_id: node-19
+switch.utility_room_water_heater:
+  config_entry_id:
+  name: Switch Water Heater
+  platform: zwave
+  unique_id: 17-72057594327941120
+sensor.power_utility_room_water_heater:
+  config_entry_id:
+  name: Power Water Heater
+  platform: zwave
+  unique_id: 17-72057594328154242
+zwave.switch_utility_room_water_heater:
+  config_entry_id:
+  name: Switch Water Heater
+  platform: zwave
+  unique_id: node-17
+zwave.sensor_dining_area:
+  config_entry_id:
+  name: Sensor Dining Area
+  platform: zwave
+  unique_id: node-31
+zwave.heating_dining_room:
+  config_entry_id:
+  name: Heating Dining Room
+  platform: zwave
+  unique_id: node-6
+zwave.heating_downstairs_bathroom:
+  config_entry_id:
+  name: Heating Downstairs Bathroom
+  platform: zwave
+  unique_id: node-13
+zwave.dimmer_downstairs_bathroom:
+  config_entry_id:
+  name: Dimmer Downstairs Bathroom
+  platform: zwave
+  unique_id: node-12
+zwave.sensor_downstairs_bathroom:
+  config_entry_id:
+  name: Sensor Downstairs Bathroom
+  platform: zwave
+  unique_id: node-40
+zwave.dimmer_utility_room_hallway:
+  config_entry_id:
+  name: Dimmer Utility Room Hallway
+  platform: zwave
+  unique_id: node-16
+zwave.sensor_downstairs:
+  config_entry_id:
+  name: Sensor Downstairs
+  platform: zwave
+  unique_id: node-38
+zwave.switch_entrance:
+  config_entry_id:
+  name: Switch Entrance
+  platform: zwave
+  unique_id: node-32
+zwave.sensor_entrance:
+  config_entry_id:
+  name: Sensor Entrance
+  platform: zwave
+  unique_id: node-39
+zwave.lock_front_door:
+  config_entry_id:
+  name: Lock Front Door
+  platform: zwave
+  unique_id: node-23
+zwave.sunscreen_garden:
+  config_entry_id:
+  name: Sunscreen Garden
+  platform: zwave
+  unique_id: node-29
+zwave.dimmer_kitchen_ceiling:
+  config_entry_id:
+  name: Dimmer Kitchen Ceiling
+  platform: zwave
+  unique_id: node-11
+zwave.sensor_upstairs_bathroom:
+  config_entry_id:
+  name: Sensor Upstairs Bathroom Sensor
+  platform: zwave
+  unique_id: node-36
+light.dimmer_upstairs_bathroom:
+  config_entry_id:
+  name: Dimmer Upstairs Bathroom
+  platform: zwave
+  unique_id: 43-72057594764165121
+zwave.dimmer_kitchen_counter_old:
+  config_entry_id:
+  name: Dimmer Kitchen Counter OLD
+  platform: zwave
+  unique_id: node-9
+sensor.aeotec_zw100_multisensor_6_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 45-72057594798948353
+sensor.aeotec_zw100_multisensor_6_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 45-72057594798948369
+binary_sensor.aeotec_zw100_multisensor_6_sensor:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 45-72057594797883392
+sensor.aeotec_zw100_multisensor_6_temperature:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 45-72057594797899794
+zwave.sensor_utility_room_old:
+  config_entry_id:
+  name: Sensor Utility Room OLD
+  platform: zwave
+  unique_id: node-35
+zwave.sensor_utility_room:
+  config_entry_id:
+  name: Sensor Utility Room
+  platform: zwave
+  unique_id: node-45
+sensor.aeotec_zw100_multisensor_6_relative_humidity:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 45-72057594797899858
+sensor.aeotec_zw100_multisensor_6_luminance:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 45-72057594797899826
+sensor.aeotec_zw100_multisensor_6_ultraviolet:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 45-72057594797900210
+zwave.aeotec_zw100_multisensor_6:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-46
+binary_sensor.aeotec_zw100_multisensor_6_sensor_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594814660608
+sensor.aeotec_zw100_multisensor_6_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725601
+sensor.aeotec_zw100_multisensor_6_alarm_type_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725569
+sensor.aeotec_zw100_multisensor_6_alarm_level_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725585
+sensor.burglar_utility_room:
+  config_entry_id:
+  name: Sensor Burglar Utility Room
+  platform: zwave
+  unique_id: 46-72057594815725729
+sensor.luminance_utility_room:
+  config_entry_id:
+  name: Sensor Luminance Utility Room
+  platform: zwave
+  unique_id: 46-72057594814677042
+sensor.humidity_utility_room:
+  config_entry_id:
+  name: Sensor Humidity Utility Room
+  platform: zwave
+  unique_id: 46-72057594814677074
+sensor.temperature_utility_room:
+  config_entry_id:
+  name: Sensor Temperature Utility Room
+  platform: zwave
+  unique_id: 46-72057594814677010
+sensor.ultraviolet_utility_room:
+  config_entry_id:
+  name: Sensor Ultraviolet Utility Room
+  platform: zwave
+  unique_id: 46-72057594814677426
