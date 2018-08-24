@@ -13,12 +13,6 @@ sequence:
       brightness: 176
       transition: 2
   - service: light.turn_on
-    entity_id: light.hue_tv_bookshelf_middle
-    data:
-      brightness: 150
-      transition: 2
-      kelvin: 2500
-  - service: light.turn_on
     entity_id: group.tv_hue_lights
     data:
       brightness: 180

@@ -5,11 +5,18 @@ marthas_sensors:
     - sensor.netatmo_soverom_martha_temperature
     - sensor.netatmo_soverom_martha_co2
     - sensor.netatmo_soverom_martha_humidity
+    - sensor.energy_marthas_bedroom
+    - sensor.martha_bedroom_power
 
 marthas_switches:
   name: Marthas Switches
   entities:
     - switch.martha_heater_switch
+
+marthas_light:
+  name: Marthas Lights
+  entities:
+    - light.level_marthas_bedroom
 
 marthas_bedroom:
   name: Marthas Bedroom
@@ -17,3 +24,4 @@ marthas_bedroom:
   entities:
     - group.marthas_sensors
     - group.marthas_switches
+    - group.marthas_light

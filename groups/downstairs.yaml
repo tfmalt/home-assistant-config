@@ -18,6 +18,23 @@ dining_room_paper:
     - light.paper_2
     - light.paper_3
 
+downstairs_couch_area:
+  view: no
+  entities:
+    - light.hue_downstairs_couch_stairs
+    - light.hue_downstairs_couch_window
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+    - light.dimmer_dining_room_couch
+
+downstairs_dining_area:
+  view: no
+  entities:
+    - light.globe
+    - light.dining_room_chandelier_level
+    - light.dining_room_carpet_spotlights_level
+
 downstairs_couch_lights:
   name:  Downstairs Couch Lights
   entities:
@@ -28,7 +45,7 @@ dining_lights:
   name: Dining Room Lights
   entities:
     - light.dining_room_chandelier_level
-    - light.dining_room_couch_spotlights_level
+    - light.dimmer_dining_room_couch
     - light.dining_room_carpet_spotlights_level
     - group.downstairs_couch_lights
     - group.dining_room_hue
@@ -52,11 +69,15 @@ downstairs_sensors:
     - sensor.netatmo_nede_temperature_2
     - sensor.dining_room_heating_temperature
     - sensor.downstairs_sensor_temperature
+    - sensor.dining_area_temperature
     - sensor.netatmo_nede_co2_2
     - sensor.netatmo_nede_humidity
     - sensor.downstairs_sensor_relative_humidity
+    - sensor.dining_area_relative_humidity
     - sensor.downstairs_sensor_burglar
+    - sensor.dining_area_burglar
     - sensor.downstairs_sensor_luminance
+    - sensor.dining_area_luminance
 
 dining_climate:
   name: Downstairs Climate

@@ -7,7 +7,7 @@ sequence:
       brightness: 50
       transition: 2
   - service: light.turn_on
-    entity_id: light.dining_room_couch_spotlights_level
+    entity_id: light.dimmer_dining_room_couch
     data:
       brightness: 50
       transition: 2

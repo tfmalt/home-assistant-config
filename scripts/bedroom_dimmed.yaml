@@ -1,0 +1,8 @@
+alias: Bedroom Dimmed
+sequence:
+  - service: light.turn_on
+    entity_id: group.bedroom
+    data:
+      brightness: 96
+      transition: 2
+      kelvin: 2300

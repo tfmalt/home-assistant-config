@@ -5,7 +5,7 @@ electricity_consumption:
   entities:
     - sensor.computers_switch_power
     - sensor.dining_room_chandelier_power
-    - sensor.dining_room_couch_spotlights_power
+    - sensor.power_dining_room_couch
     - sensor.dining_room_carpet_spotlights_power
     - sensor.downstairs_bathroom_lights_power
     - sensor.downstairs_hallway_lights_power
@@ -20,13 +20,14 @@ electricity_consumption:
     - sensor.tv_spotlights_power
     - sensor.upstairs_bathroom_light_power
     - sensor.utility_room_counter_lights_power
-    - sensor.utility_room_heater_power
+    - sensor.power_utility_room_water_heater
 
 electricity_total:
   name: Electricity Totals
   entities:
     - sensor.entrance_switch_energy
     - sensor.entrance_switch_energy_2
+    - sensor.energy_dining_room_couch
 
 voltage:
   name: Power Grid Voltage
@@ -40,12 +41,14 @@ mobile_devices:
   entities: 
     - sensor.kirstifonen_battery_level
     - sensor.tmobil_x_battery_level
+    - sensor.edith_anstad_sin_iphone_battery_level
     - sensor.proppad_105_battery_level
     - sensor.martha_anstad_sin_iphone_battery_level
     - sensor.kirstifonen_battery_state
     - sensor.tmobil_x_battery_state
     - sensor.proppad_105_battery_state
     - sensor.martha_anstad_sin_iphone_battery_state
+    - sensor.edith_anstad_sin_iphone_battery_state
 
 system_monitor:
   name: System Monitor
@@ -63,6 +66,7 @@ netatmo_status:
     - sensor.netatmo_outside_battery_2
     - sensor.netatmo_soverom_martha_battery 
     - sensor.netatmo_soverom_battery_2
+    - sensor.netatmo_hamsterrommet_battery
     - sensor.netatmo_regn_battery_2
     - sensor.netatmo_nede_radio
     - sensor.netatmo_outside_radio_2

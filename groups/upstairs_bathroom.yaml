@@ -4,7 +4,7 @@
 upstairs_bathroom_light:
   name: Upstairs Bathroom Light
   entities:
-    - light.upstairs_bathroom_light_level
+    - light.dimmer_upstairs_bathroom
 
 upstairs_bathroom_sensors:
   name: Upstairs Bathroom Sensors

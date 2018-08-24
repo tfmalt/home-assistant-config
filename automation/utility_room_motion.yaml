@@ -4,7 +4,7 @@
 - alias: 'Utility room - Turn lights on when motion detected'
   trigger:
     - platform: state
-      entity_id: sensor.utility_room_sensor_burglar
+      entity_id: sensor.burglar_utility_room
       from: "0"
       to: "8"
   action: 
@@ -18,7 +18,7 @@
 - alias: 'Utility room - Turn off lights when no motion'
   trigger:
     - platform: state
-      entity_id: sensor.utility_room_sensor_burglar
+      entity_id: sensor.burglar_utility_room
       from: "8"
       to: "0"
   action:

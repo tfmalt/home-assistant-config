@@ -9,15 +9,15 @@
       to: "8"
   action: 
     - service: light.turn_on
-      entity_id: light.upstairs_bathroom_light_level
+      entity_id: light.dimmer_upstairs_bathroom
       data_template:
         brightness: >
           {% if is_state('input_select.sd60_mode', 'Day') or is_state('input_select.sd60_mode', 'Morning') %}
             240
           {% elif is_state('input_select.sd60_mode', 'Night') %}
-            3
+            4
           {% else %}
-            140
+            64
           {% endif %}
         transition: 2
 
@@ -28,7 +28,7 @@
       from: "8"
       to: "0"
       for:
-        minutes: 10
+        minutes: 15
   action:
     - service: light.turn_off
-      entity_id: light.upstairs_bathroom_light_level
+      entity_id: light.dimmer_upstairs_bathroom

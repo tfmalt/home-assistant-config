@@ -6,6 +6,7 @@ kids_bedroom_lights:
     - light.kids_bedroom_spot_1
     - light.kids_bedroom_spot_2
     - light.kids_bedroom_spot_3
+    - light.hue_lightstrip_plus_1_2
 
 kids_bedroom_heater:
   name: Kids Bedroom Heater

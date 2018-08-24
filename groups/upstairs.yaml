@@ -5,6 +5,7 @@ tv_hue_lights:
   entities:
     - light.tv_hue_right
     - light.tv_hue_left
+    - light.hue_tv_bookshelf_middle
 
 tv_spotlights:
   name: TV Spotlights
@@ -91,6 +92,7 @@ tv_scripts:
     - script.tv_bright
     - script.tv_medium_bright
     - script.tv_dimmed
+    - script.tv_off
 
 upstairs_light:
   name: Upstairs Light

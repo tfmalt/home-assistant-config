@@ -1,6 +1,3 @@
-
-
-
 bedroom_reading_lights:
   name: Reading Lights
   entities:
@@ -25,12 +22,22 @@ bedroom_lights:
     - light.bedroom_spot_2
     - light.bedroom_spot_3
 
+bedroom_scripts:
+  name: Bedroom Scripts
+  entities:
+    - script.bedroom_bright
+    - script.bedroom_dimmed
+    - script.bedroom_reading_evening
+    - script.bedroom_reading_night
+    - script.bedroom_night
+    - script.bedroom_off
+
 bedroom:
   name: Bedroom
   view: yes
   entities:
+    - group.bedroom_scripts
     - group.bedroom_lights
     - group.bedroom_reading_lights
     - group.bedroom_spotlights
-    - cover.bedroom_shutter_level
     - media_player.soverom
