@@ -21,6 +21,16 @@ http:
     - https://www.malt.no
     - http://localhost:3000
 
+panel_iframe:
+  router:
+    title: 'micronuke'
+    url: 'http://192.168.71.1/'
+    icon: 'mdi:router-wireless'
+  grafana:
+    title: 'grafana'
+    url: 'https://hass.malt.no/grafana/'
+    icon: 'mdi:television-guide'
+
 hassio:
 
 # For more information, please see:
@@ -103,9 +113,6 @@ hue:
 media_player:
   - platform: braviatv
     host: 192.168.71.134
-  - platform: spotify
-    client_id: c57f686ac1e74b2d92e728c03fd20c14
-    client_secret: c1bf839379f844d0891d8601c4431d1c
 
 # Example configuration.yaml entry
 netatmo:
