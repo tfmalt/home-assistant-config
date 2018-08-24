@@ -1,8 +1,8 @@
-- alias: 'Downstairs Luminance - Turning off Lights Downstairs'
+- alias: 'Downstairs Luminance - Turning off Lights'
   trigger:
     - platform: numeric_state
       entity_id: sensor.downstairs_sensor_luminance
-      above: 150
+      above: 200
   condition:
     - condition: state
       entity_id: input_select.sd60_mode
@@ -13,22 +13,21 @@
   action:
     - service: light.turn_off
       entity_id:
-        - group.dining_lights
-        - group.kitchen_lights
+        - group.downstairs_couch_area
       data:
         transition: 2
     - service: notify.ios_tmobil_x
       data: 
-        title: "Turning off lights downstairs"
+        title: "Turning off downstairs coach area lights"
         message: > 
           Luminance is
           {{ states.sensor.downstairs_sensor_luminance.state_with_unit }}
 
-- alias: 'Downstairs Luminance - Turning on Lights Downstairs'
+- alias: 'Downstairs Luminance - Turning on Lights'
   trigger:
     - platform: numeric_state
       entity_id: sensor.downstairs_sensor_luminance
-      below: 110
+      below: 180
   condition:
     - condition: state
       entity_id: input_select.sd60_mode
@@ -37,10 +36,10 @@
       entity_id: input_select.home_away
       state: Home
   action:
-    - service: script.downstairs_bright
+    - service: script.downstairs_couch_area_bright
     - service: notify.ios_tmobil_x
       data: 
-        title: "Turning on lights downstairs"
+        title: "Turning on downstairs couch area lights"
         message: > 
           Luminance is
           {{ states.sensor.downstairs_sensor_luminance.state_with_unit }}
