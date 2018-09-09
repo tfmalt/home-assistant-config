@@ -1,5 +1,6 @@
 # ---------------------------------------------------------------------------
 # Motion detection in upstairs bathroom
+# - remove windows line endings
 # ---------------------------------------------------------------------------
 - alias: 'Upstairs Bathroom - Turn lights on when motion detected'
   trigger:
@@ -7,7 +8,7 @@
       entity_id: sensor.upstairs_bathroom_sensor_burglar
       from: "0"
       to: "8"
-  action: 
+  action:
     - service: light.turn_on
       entity_id: light.dimmer_upstairs_bathroom
       data_template:
