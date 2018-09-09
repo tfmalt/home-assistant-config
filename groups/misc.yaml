@@ -22,6 +22,11 @@ electricity_consumption:
     - sensor.utility_room_counter_lights_power
     - sensor.power_utility_room_water_heater
 
+testing_light:
+  name: IoT Testing Lights
+  entities:
+    - light.esp32_development
+
 electricity_total:
   name: Electricity Totals
   entities:
@@ -105,5 +110,6 @@ misc:
     - group.voltage
     - group.system_monitor
     - group.netatmo_status
+    - group.testing_light
 
  
