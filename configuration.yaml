@@ -139,6 +139,26 @@ mqtt_eventstream:
   # base_topic: '/homeassistant/statestream'
   # publish_attributes: true
 
+light:
+  - platform: mqtt_json
+    name: "ESP32 Development"
+    state_topic: "/ledshelf/light/state"
+    command_topic: "/ledshelf/light/set"
+    availability_topic: "/ledshelf/status"
+    effect: true
+    effect_list:
+      - colorloop
+      - test
+    retain: false
+    payload_available: Online
+    payload_not_available: Disconnected
+    rgb: true
+    hs: true
+    white_value: true
+    color_temp: true
+    brightness: true
+    qos: 0
+
 switch:
   - platform: mqtt
     name: "Martha Heater Switch"
