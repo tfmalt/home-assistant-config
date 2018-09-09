@@ -43,7 +43,7 @@
     - service: climate.set_temperature
       entity_id: climate.upstairs_bathroom_heating_heating
       data: 
-        temperature: 20
+        temperature: 10
     - service: notify.ios_tmobil_x
       data:
         title: "Upstairs Bathroom Heating"
@@ -90,7 +90,7 @@
     - service: climate.set_temperature
       entity_id: climate.upstairs_bathroom_heating_heating
       data: 
-        temperature: 20
+        temperature: 10
     - service: notify.ios_tmobil_x
       data:
         title: "Upstairs Bathroom Heating"
