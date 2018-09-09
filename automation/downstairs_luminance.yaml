@@ -18,7 +18,7 @@
         transition: 2
     - service: notify.ios_tmobil_x
       data: 
-        title: "Turning off downstairs coach area lights"
+        title: "Turning off downstairs couch area lights"
         message: > 
           Luminance is
           {{ states.sensor.downstairs_sensor_luminance.state_with_unit }}
