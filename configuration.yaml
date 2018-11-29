@@ -7,7 +7,6 @@ homeassistant:
   time_zone: Europe/Oslo
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
-
 frontend:
 
 config:
@@ -98,6 +97,8 @@ sensor:
       - type: load_5m
       - type: processor_use
       - type: memory_use_percent
+#  - platform: ruter
+#    stop_id: 3011510
 
 # Text to speech
 tts:
@@ -120,24 +121,21 @@ netatmo:
   secret_key: !secret netatmo_secret_key
   username: thomas@malt.no
   password: !secret netatmo_password
- 
+
+verisure: !secret verisure_config
+
 zwave:
   usb_path: /dev/ttyACM0
   network_key: "0x1A, 0x08, 0x47, 0x04, 0x07, 0x0A, 0x0B, 0x0C, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"
-  device_config:
-    cover.downstairs_sunscreen_level:
-      invert_openclose_buttons: true
-    cover.downstairs_sunscreen_switch:
-      invert_openclose_buttons: true
 
 mqtt: !secret mqtt_config
 
 mqtt_eventstream:
   publish_topic: '/homeassistant/eventstream'
 
-  # mqtt_statestream:
-  # base_topic: '/homeassistant/statestream'
-  # publish_attributes: true
+mqtt_statestream:
+  base_topic: '/homeassistant/statestream'
+  publish_attributes: false
 
 light:
   - platform: mqtt_json
@@ -147,14 +145,19 @@ light:
     availability_topic: "/ledshelf/status"
     effect: true
     effect_list:
-      - colorloop
-      - test
+      - none
+      - BPM
+      - Confetti
+      - Glitter Rainbow
+      - Juggle
+      - Rainbow
+      - Sinelon
     retain: false
     payload_available: Online
     payload_not_available: Disconnected
     rgb: true
     hs: true
-    white_value: true
+    white_value: false
     color_temp: true
     brightness: true
     qos: 0
@@ -172,7 +175,7 @@ switch:
     retain: true
   - platform: mqtt
     name: "TV Heater Switch"
-    state_topic: /zipato/attributes/490dca82-8b56-4e20-834a-ec0e54975711/value 
+    state_topic: /zipato/attributes/490dca82-8b56-4e20-834a-ec0e54975711/value
     command_topic: /zipato/request/attributes/490dca82-8b56-4e20-834a-ec0e54975711/textValue
     value_template: '{{value_json.value}}'
     payload_on: true

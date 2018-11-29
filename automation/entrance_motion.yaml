@@ -11,23 +11,23 @@
     condition: numeric_state
     entity_id: sensor.entrance_sensor_luminance
     below: 40
-  action: 
+  action:
     - service: light.turn_on
-      entity_id: 
+      entity_id:
         - group.stairs_light
       data_template:
-        brightness: > 
+        brightness: >
           {% if is_state('input_select.sd60_mode', 'Day') %}
             255
           {% else %}
-            {{ states.light.stairs_light_level.attributes.brightness }}
+            64
           {% endif %}
         transition: 2
     - service: light.turn_on
       entity_id:
         - group.entrance_lights
       data_template:
-        brightness: > 
+        brightness: >
           {% if is_state('input_select.sd60_mode', 'Day') %}
             255
           {% else %}
@@ -44,7 +44,7 @@
       entity_id:
         - group.picture_wall_lights
       data_template:
-        brightness: > 
+        brightness: >
           {% if is_state('input_select.sd60_mode', 'Day') %}
             255
           {% else %}
@@ -61,7 +61,7 @@
       data:
         title: Entrance Motion
         message: >
-          Turning on light. 
+          Turning on light.
           {{ states.sensor.entrance_sensor_luminance.state_with_unit }}.
           Stairs brightness
           {{ states.light.stairs_light_level.attributes.brightness }}.
@@ -84,7 +84,7 @@
     state: Night
   action:
     - service: light.turn_off
-      entity_id: 
+      entity_id:
         - group.entrance_lights
         - group.stairs_light
         - group.picture_wall_lights

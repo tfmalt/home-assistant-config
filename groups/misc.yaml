@@ -43,7 +43,7 @@ voltage:
 mobile_devices:
   name: Mobile Devices
   view: no
-  entities: 
+  entities:
     - sensor.kirstifonen_battery_level
     - sensor.tmobil_x_battery_level
     - sensor.edith_anstad_sin_iphone_battery_level
@@ -69,7 +69,7 @@ netatmo_status:
   entities:
     - sensor.netatmo_nede_battery
     - sensor.netatmo_outside_battery_2
-    - sensor.netatmo_soverom_martha_battery 
+    - sensor.netatmo_soverom_martha_battery
     - sensor.netatmo_soverom_battery_2
     - sensor.netatmo_hamsterrommet_battery
     - sensor.netatmo_regn_battery_2
@@ -89,14 +89,8 @@ input_selects:
 locks:
   name: Locks
   entities:
+    - lock.ytterdr
     - lock.front_door_lock_locked
-
-sunscreens:
-  name: Sunscreens
-  entities:
-    - cover.tv_shutter_level
-    - cover.bedroom_shutter_level
-    - cover.downstairs_sunscreen_level
 
 misc:
   name: Misc
@@ -104,7 +98,6 @@ misc:
   entities:
     - group.input_selects
     - group.locks
-    - group.sunscreens
     - group.mobile_devices
     - group.electricity_consumption
     - group.voltage
@@ -112,4 +105,4 @@ misc:
     - group.netatmo_status
     - group.testing_light
 
- 
+

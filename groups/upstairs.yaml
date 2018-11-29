@@ -73,11 +73,6 @@ tv_sensors:
     - sensor.netatmo_tv_stue_humidity_2
     - sensor.netatmo_tv_stue_noise_2
 
-tv_cover:
-  name: TV Cover
-  entities:
-    - cover.tv_shutter_level
-
 entrance_sensors:
   name: Entrance Sensors
   entities:
@@ -109,7 +104,12 @@ upstairs_bathroom_hallway:
   name: Upstairs Bathroom Hallway Light
   entities:
     - light.upstairs_bathroom_hallway_light
-  
+
+lock:
+  name: Front Door Lock
+  entities:
+    - lock.ytterdr
+
 upstairs:
   name: Upstairs
   view: yes
@@ -131,3 +131,4 @@ upstairs:
     - group.upstairs_light
     - remote.atvoppe
     - group.tv_media_players
+    - group.lock
