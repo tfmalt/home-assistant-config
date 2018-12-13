@@ -25,7 +25,7 @@ electricity_consumption:
 testing_light:
   name: IoT Testing Lights
   entities:
-    - light.esp32_development
+    - light.marthas_bookshelf_all
 
 electricity_total:
   name: Electricity Totals
