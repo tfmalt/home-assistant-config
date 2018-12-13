@@ -34,12 +34,32 @@ light.stairs_light_level:
   homebridge_visible: true
 light.tv_spotlights_level:
   homebridge_visible: true
+
+###
+# Groups
 group.upstairs_light:
   homebridge_visible: true
 group.tv_couch_lights:
   homebridge_visible: true
 group.utility_room_lights:
   homebridge_visible: true
+group.upstairs:
+  order: 1
+group.downstairs:
+  order: 2
+group.utility_room:
+  order: 3
+group.bedroom:
+  order: 4
+group.marthas_bedroom:
+  order: 5
+group.kids_bedroom:
+  order: 6
+group.outside:
+  order: 7
+group.misc:
+  order: 8
+
 script.downstairs_bright:
   homebridge_visible: true
 script.downstairs_dimmed:
@@ -99,17 +119,7 @@ sensor.utility_room_sensor_burglar:
   icon: mdi:run
 sensor.entrance_sensor_burglar:
   icon: mdi:run
-cover.downstairs_sunscreen_level:
-  assumed_state: true
-cover.downstairs_sunscreen_switch:
-  assumed_state: true
-  hidden: true
 zone.home: {}
-zwave.__17:
-  new_entity_id: zwave.danalock_front_door
-  node_name: Danalock Front Door
-zwave.qubino_zmnhdd1_flush_dimmer_3:
-  node_name: Kitchen Counter Dimmer
 switch.kitchen_ceiling_lights_switch:
   hidden: true
 switch.kitchen_counter_lights_switch:
@@ -118,20 +128,6 @@ switch.kitchen_serving_area_lights_switch:
   hidden: true
 switch.upstairs_bathroom_light_switch:
   hidden: true
-cover.switch:
-  assumed_state: true
-  hidden: true
-cover.level:
-  assumed_state: true
-zwave.qubino_zmnhcdx_flush_shutter:
-  node_name: Soverom Shutter
-cover.switch_2:
-  assumed_state: true
-  friendly_name: Bedroom Shutter Switch
-  hidden: true
-cover.level_2:
-  assumed_state: true
-  friendly_name: Bedroom Shutter Level
 switch.downstairs_sunscreen_switch:
   hidden: true
 device_tracker.tmobil_x: {}
