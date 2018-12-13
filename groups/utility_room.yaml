@@ -11,7 +11,6 @@ utility_room_lights:
   entities:
     - light.utility_room_ceiling_light
     - light.hue_lightstrip_plus_1
-    # - light.utility_room_counter_lights_level
     - light.downstairs_hallway_lights_level
 
 utility_room_sensors:
@@ -25,13 +24,17 @@ utility_room_sensors:
     - sensor.utility_room_heater_energy
     - sensor.downstairs_bathroom_heating_temperature
     - sensor.utility_room_heating_temperature
-    - sensor.temperature_utility_room
+    - sensor.utility_room_hallway_temperature
+    - sensor.utilityroom_temperature
     - sensor.downstairs_bathroom_temperature
-    - sensor.luminance_utility_room
+    - sensor.utility_room_hallway_luminance
+    - sensor.utilityroom_luminance
     - sensor.downstairs_bathroom_luminance
-    - sensor.burglar_utility_room
+    - sensor.utility_room_hallway_burglar
+    - sensor.utilityroom_burglar
     - sensor.downstairs_bathroom_burglar
-    - sensor.humidity_utility_room
+    - sensor.utility_room_hallway_humidity
+    - sensor.utilityroom_relative_humidity
     - sensor.downstairs_bathroom_relative_humidity
 
 utility_room_heating:

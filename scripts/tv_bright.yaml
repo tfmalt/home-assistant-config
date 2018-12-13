@@ -14,12 +14,6 @@ sequence:
       transition: 2
       kelvin: 2700
   - service: light.turn_on
-    entity_id: group.tv_spotlights
-    data:
-      brightness: 255
-      transition: 2
-      kelvin: 2700
-  - service: light.turn_on
     entity_id: group.entrance_lights
     data:
       brightness: 255
