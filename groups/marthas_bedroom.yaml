@@ -18,6 +18,14 @@ marthas_light:
   entities:
     - light.level_marthas_bedroom
 
+marthas_bookshelf:
+  name: Bookshelf
+  entities:
+    - light.marthas_bookshelf_all
+    - light.marthas_bookshelf_top_left
+    - light.marthas_bookshelf_top_center
+    - light.marthas_bookshelf_top_right
+
 marthas_bedroom:
   name: Marthas Bedroom
   view: yes
@@ -25,3 +33,4 @@ marthas_bedroom:
     - group.marthas_sensors
     - group.marthas_switches
     - group.marthas_light
+    - group.marthas_bookshelf
