@@ -4,10 +4,12 @@
 - alias: 'Utility room - Turn lights on when motion detected'
   trigger:
     - platform: state
-      entity_id: sensor.burglar_utility_room
-      from: "0"
+      entity_id: sensor.utility_room_hallway_burglar
       to: "8"
-  action: 
+    - platform: state
+      entity_id: sensor.utilityroom_burglar
+      to: "8"
+  action:
     - service: light.turn_on
       entity_id: group.utility_room_lights
       data:
@@ -19,12 +21,24 @@
         title: "Utility Room Motion"
         message: "Motion was detected in utility room. Turning on lights"
 
-- alias: 'Utility room - Turn off lights when no motion'
+- alias: 'Utility Room Hallway - Turn off lights when no motion'
   trigger:
     - platform: state
-      entity_id: sensor.burglar_utility_room
+      entity_id: sensor.utility_room_hallway_burglar
       from: "8"
       to: "0"
   action:
     - service: light.turn_off
-      entity_id: group.utility_room_lights
+      entity_id: light.downstairs_hallway_lights_level
+
+- alias: 'Utility Room - Turn off lights when no motion'
+  trigger:
+    - platform: state
+      entity_id: sensor.utilityroom_burglar
+      from: "8"
+      to: "0"
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.utility_room_ceiling_light
+        - light.hue_lightstrip_plus_1
