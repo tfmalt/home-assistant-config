@@ -1,16 +1,22 @@
+# Configuration file for Home Assistant.
+# It is provided in case snippets and bits can be useful for others getting
+# started, the same way other peoples repositories were useful to me.
+#
+# Copyright Thomas Malt 2016-2018
+# License: Creative Commons BY-SA
+
 homeassistant:
   name: SD60
-  latitude: 59.911525
-  longitude: 10.831530
+  latitude: !secret latitude
+  longitude: !secret longitude
   elevation: 120
   unit_system: metric
   time_zone: Europe/Oslo
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
+
 frontend:
-
 config:
-
 http:
   api_password: !secret http_password
   base_url: https://hass.malt.no
@@ -23,11 +29,11 @@ http:
 panel_iframe:
   router:
     title: 'micronuke'
-    url: 'http://192.168.71.1/'
+    url:  !secret router_url
     icon: 'mdi:router-wireless'
   grafana:
     title: 'grafana'
-    url: 'https://hass.malt.no/grafana/'
+    url: !secret grafana_url
     icon: 'mdi:television-guide'
 
 hassio:
@@ -35,13 +41,9 @@ hassio:
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
   include_used_components: true
 
 discovery:
-  # ignore:
-  #   - songpal
-
 ios:
 
 homekit:
@@ -51,25 +53,10 @@ homekit:
       - binary_sensor
     exclude_entities:
       - light.hue_camera
-  entity_config:
-    lock.front_door_lock_locked:
-      code: 1910
 
 conversation:
-
 map:
-
 sun:
-
-# recorder:
-#  purge_keep_days: 10
-
-        # history:
-        # exclude:
-        # domains:
-        # - automation
-        # - weblink
-        # - updater
 
 # Weather prediction
 sensor:
@@ -97,8 +84,8 @@ sensor:
       - type: load_5m
       - type: processor_use
       - type: memory_use_percent
-#  - platform: ruter
-#    stop_id: 3011510
+  - platform: ruter
+    stop_id: 3011510
 
 # Text to speech
 tts:
@@ -109,58 +96,28 @@ cloud:
 
 hue:
   bridges:
-    - host: 192.168.71.22
+    - host: !secret hue_bridge
 
 media_player:
   - platform: braviatv
-    host: 192.168.71.134
+    host: !secret tv_ip
 
-# Example configuration.yaml entry
-netatmo:
-  api_key: !secret netatmo_apikey
-  secret_key: !secret netatmo_secret_key
-  username: thomas@malt.no
-  password: !secret netatmo_password
-
+netatmo: !secret netatmo_config
 verisure: !secret verisure_config
+mqtt: !secret mqtt_config
 
 zwave:
   usb_path: /dev/ttyACM0
-  network_key: "0x1A, 0x08, 0x47, 0x04, 0x07, 0x0A, 0x0B, 0x0C, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"
-
-mqtt: !secret mqtt_config
+  network_key: !secret zwave_network_key
 
 mqtt_eventstream:
   publish_topic: '/homeassistant/eventstream'
 
 mqtt_statestream:
   base_topic: '/homeassistant/statestream'
-  publish_attributes: false
+  publish_attributes: true
 
-light:
-  - platform: mqtt_json
-    name: "ESP32 Development"
-    state_topic: "/ledshelf/light/state"
-    command_topic: "/ledshelf/light/set"
-    availability_topic: "/ledshelf/status"
-    effect: true
-    effect_list:
-      - none
-      - BPM
-      - Confetti
-      - Glitter Rainbow
-      - Juggle
-      - Rainbow
-      - Sinelon
-    retain: false
-    payload_available: Online
-    payload_not_available: Disconnected
-    rgb: true
-    hs: true
-    white_value: false
-    color_temp: true
-    brightness: true
-    qos: 0
+light: !include lights.yaml
 
 switch:
   - platform: mqtt
