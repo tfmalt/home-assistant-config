@@ -1,0 +1,96 @@
+
+- platform: mqtt_json
+  name: "Marthas Bookshelf All"
+  state_topic: "/ledshelf/light/state"
+  command_topic: "/ledshelf/light/set"
+  availability_topic: "/ledshelf/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt_json
+  name: "Marthas Bookshelf Top Left"
+  state_topic: "/ledshelf/topleft/state"
+  command_topic: "/ledshelf/topleft/set"
+  availability_topic: "/ledshelf/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt_json
+  name: "Marthas Bookshelf Top Center"
+  state_topic: "/ledshelf/topcenter/state"
+  command_topic: "/ledshelf/topcenter/set"
+  availability_topic: "/ledshelf/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt_json
+  name: "Marthas Bookshelf Top Right"
+  state_topic: "/ledshelf/topright/state"
+  command_topic: "/ledshelf/topright/set"
+  availability_topic: "/ledshelf/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
