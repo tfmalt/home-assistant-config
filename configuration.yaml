@@ -3,7 +3,7 @@
 # started, the same way other peoples repositories were useful to me.
 #
 # Copyright Thomas Malt 2016-2018
-# License: Creative Commons BY-SA
+# License: MIT
 
 homeassistant:
   name: SD60
