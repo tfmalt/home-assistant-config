@@ -25,6 +25,7 @@ marthas_bookshelf:
     - light.marthas_bookshelf_top_left
     - light.marthas_bookshelf_top_center
     - light.marthas_bookshelf_top_right
+    - light.development_test
 
 marthas_bedroom:
   name: Marthas Bedroom
