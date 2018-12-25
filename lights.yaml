@@ -12,6 +12,7 @@
     - Glitter Rainbow
     - Juggle
     - Rainbow
+    - RainbowByShelf
     - Sinelon
   retain: false
   payload_available: Online
@@ -90,6 +91,31 @@
   payload_not_available: Disconnected
   rgb: true
   hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt_json
+  name: "Development Test"
+  state_topic: "/leddev/light/state"
+  command_topic: "/leddev/light/set"
+  availability_topic: "/leddev/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - RainbowByShelf
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: false
   white_value: false
   color_temp: true
   brightness: true
