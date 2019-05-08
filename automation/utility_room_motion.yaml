@@ -16,10 +16,10 @@
         brightness: 255
         kelvin: 2700
         transition: 2
-    - service: notify.ios_tmobil_x
-      data:
-        title: "Utility Room Motion"
-        message: "Motion was detected in utility room. Turning on lights"
+        #    - service: notify.ios_tmobil_x
+        #data:
+        #title: "Utility Room Motion"
+        #message: "Motion was detected in utility room. Turning on lights"
 
 - alias: 'Utility Room Hallway - Turn off lights when no motion'
   trigger:
