@@ -25,7 +25,7 @@
   action:
     - service: light.turn_off
       entity_id: light.downstairs_bathroom_lights_level
-    - service: notify.ios_tmobil_x
-      data:
-        title: Downstairs Bathroom
-        message: No Motion, turning lights off
+      # - service: notify.ios_tmobil_x
+      # data:
+      #  title: Downstairs Bathroom
+      #  message: No Motion, turning lights off
