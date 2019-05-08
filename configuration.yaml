@@ -15,8 +15,12 @@ homeassistant:
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
+system_health:
+
 frontend:
+
 config:
+
 http:
   api_password: !secret http_password
   base_url: https://hass.malt.no
@@ -89,7 +93,8 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 ## Cloud
 cloud:
@@ -101,6 +106,11 @@ hue:
 media_player:
   - platform: braviatv
     host: !secret tv_ip
+
+tahoma:
+  username: !thomas@malt.no
+  password
+
 
 netatmo: !secret netatmo_config
 verisure: !secret verisure_config
