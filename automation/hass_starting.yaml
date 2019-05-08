@@ -4,9 +4,8 @@
     # Event can also be 'shutdown'
     event: start
   action:
-    - service: notify.ios_tmobil_X
+    - service: notify.ios_tmobil_x
       data:
         title: 'Home Assistant is starting'
         message: >
           Got homeassistant start event. Booting up.
-          
