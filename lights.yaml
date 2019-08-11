@@ -1,3 +1,14 @@
+# -----------------------------------------------------------------------
+# Entrance Area all Lights
+# -----------------------------------------------------------------------
+- platform: group
+  name: Entrance Area Lights
+  entities: 
+    - light.entrance
+    - light.picture_wall
+    - light.stairs
+
+
 - platform: group
   name: Downstairs All Lights
   entities:
