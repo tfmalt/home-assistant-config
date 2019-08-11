@@ -1,71 +1,42 @@
-# Configuration file for Home Assistant.
-# It is provided in case snippets and bits can be useful for others getting
-# started, the same way other peoples repositories were useful to me.
-#
-# Copyright Thomas Malt 2016-2018
-# License: MIT
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
 
 homeassistant:
-  name: SD60
-  latitude: !secret latitude
-  longitude: !secret longitude
-  elevation: 120
-  unit_system: metric
-  time_zone: Europe/Oslo
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
-system_health:
-
-frontend:
-
-config:
-
-http:
-  api_password: !secret http_password
-  base_url: https://hass.malt.no
-  cors_allowed_origins:
-    - https://sunscreen.malt.no
-    - https://hass.malt.no
-    - https://www.malt.no
-    - http://localhost:3000
-
-panel_iframe:
-  router:
-    title: 'micronuke'
-    url:  !secret router_url
-    icon: 'mdi:router-wireless'
-  grafana:
-    title: 'grafana'
-    url: !secret grafana_url
-    icon: 'mdi:television-guide'
-
-hassio:
-
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  include_used_components: true
+# lovelace:
+# mode: yaml        
 
 discovery:
-ios:
 
-homekit:
-  auto_start: false
-  filter:
-    exclude_domains:
-      - binary_sensor
-    exclude_entities:
-      - light.hue_camera
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  base_url: https://hass.malt.no
 
-conversation:
-map:
-sun:
+hacs:
+  token: 74df8289984328a4ed7f965a525e211bb0f4ed69
 
-# Weather prediction
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+  device_config_glob:
+    "sensor.*_exporting*":
+      ignored: true
+    "sensor.*_sourcenodeid*":
+      ignored: true
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+recorder:
+  db_url: !secret recorder_db_url
+
 sensor:
   - platform: yr
-    name: Yr.no
+    name: Yr
     monitored_conditions:
       - temperature
       - symbol
@@ -80,95 +51,41 @@ sensor:
       - mediumClouds
       - highClouds
       - dewpointTemperature
-  - platform: systemmonitor
+  - platform: nut
+    name: ups
+    host: 192.168.71.3
     resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_free
-      - type: load_5m
-      - type: processor_use
-      - type: memory_use_percent
-  - platform: ruter
-    stop_id: 3011510
+      - ups.load
+      - ups.status
+      - battery.charge
+      - battery.runtime
+      - input.voltage
+      - output.voltage
+  - platform: plex
 
-# Text to speech
-tts:
-  - platform: google_translate
-    service_name: google_say
-
-## Cloud
-cloud:
-
-hue:
-  bridges:
-    - host: !secret hue_bridge
+ios:
 
 media_player:
+  - platform: spotify
+    client_id: c57f686ac1e74b2d92e728c03fd20c14
+    client_secret: c1bf839379f844d0891d8601c4431d1c
   - platform: braviatv
-    host: !secret tv_ip
+    host: 192.168.71.134
 
-tahoma:
-  username: !thomas@malt.no
-  password
+tahoma: !secret tahoma_config
 
+verisure: !secret verisure_config
 
 netatmo: !secret netatmo_config
-verisure: !secret verisure_config
-mqtt: !secret mqtt_config
 
-zwave:
-  usb_path: /dev/ttyACM0
-  network_key: !secret zwave_network_key
+mqtt: !secret mqtt_config
 
 mqtt_eventstream:
   publish_topic: '/homeassistant/eventstream'
 
-mqtt_statestream:
-  base_topic: '/homeassistant/statestream'
-  publish_attributes: true
-
 light: !include lights.yaml
-
-switch:
-  - platform: mqtt
-    name: "Martha Heater Switch"
-    state_topic: /zipato/attributes/d956bf74-dc47-4d3c-8d4f-37cccb0bf3b3/value
-    command_topic: /zipato/request/attributes/d956bf74-dc47-4d3c-8d4f-37cccb0bf3b3/textValue
-    value_template: '{{value_json.value}}'
-    payload_on: true
-    payload_off: false
-    optimistic: false
-    qos: 2
-    retain: true
-  - platform: mqtt
-    name: "TV Heater Switch"
-    state_topic: /zipato/attributes/490dca82-8b56-4e20-834a-ec0e54975711/value
-    command_topic: /zipato/request/attributes/490dca82-8b56-4e20-834a-ec0e54975711/textValue
-    value_template: '{{value_json.value}}'
-    payload_on: true
-    payload_off: false
-    optimistic: false
-    qos: 2
-    retain: true
-
-input_select:
-  sd60_mode:
-    name: "SD60 Modes"
-    options:
-      - Morning
-      - Day
-      - Evening
-      - Night
-      - Party
-    initial: Day
-  home_away:
-    name: "Home or Away"
-    options:
-      - Home
-      - Away
-      - Vacation
-    initial: Home
-
+input_select: !include input_select.yaml
 group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automation/
 script: !include_dir_named scripts/
+
