@@ -1,3 +1,70 @@
+- platform: group
+  name: Downstairs All Lights
+  entities:
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+    - light.downstairs_couch_stairs
+    - light.downstairs_couch_window
+    - light.dining_room_couch_dimmer
+    - light.dining_room_carpet_dimmer_level
+    - light.dining_room_chandelier_level
+    - light.kitchen_counter
+    - light.kitchen_serving_area_dimmer
+
+- platform: group
+  name: Downstairs All White Lights
+  entities:
+    - light.dining_room_couch_dimmer_level
+    - light.dining_room_carpet_dimmer_level
+    - light.dining_room_chandelier_level
+    - light.kitchen_serving_area_dimmer
+
+- platform: group
+  name: Downstairs All RGB Lights
+  entities:
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+    - light.downstairs_couch_stairs
+    - light.downstairs_couch_window
+    - light.kitchen_counter
+
+- platform: group
+  name: Bedroom All Lights
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+
+- platform: group      
+  name: Bedroom Reading Lights
+  entities:
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+
+- platform: group
+  name: Bedroom Spots
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+
+- platform: group
+  name: Paper
+  entities:
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+
+- platform: group
+  name: Utility Room Lights
+  entities:
+    - light.utility_room_hallway_dimmer
+    - light.utility_room_ceiling_light
+    - light.utility_room_counter
 
 - platform: mqtt
   schema: json
@@ -125,3 +192,4 @@
   color_temp: true
   brightness: true
   qos: 0
+

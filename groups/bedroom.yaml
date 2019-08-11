@@ -11,10 +11,8 @@ bedroom_spotlights:
     - light.bedroom_spot_2
     - light.bedroom_spot_3
 
-# 
-# Bedroom
 bedroom_lights:
-  name: Bedroom Lights
+  name: Bedroom All Lights
   entities:
     - light.kirstis_reading_light
     - light.thomas_reading_light
@@ -41,3 +39,4 @@ bedroom:
     - group.bedroom_reading_lights
     - group.bedroom_spotlights
     - media_player.soverom
+

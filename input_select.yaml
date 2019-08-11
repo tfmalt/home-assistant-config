@@ -1,0 +1,18 @@
+sd60_mode:
+  name: "SD60 Modes"
+  options:
+    - Morning
+    - Day
+    - Evening
+    - Night
+    - Party
+  initial: Day
+
+home_away:
+  name: "Home or Away"
+  options:
+    - Home
+    - Away
+    - Vacation
+  initial: Home
+
