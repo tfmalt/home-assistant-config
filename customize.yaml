@@ -1,147 +1,16 @@
-sensor.upstairs_bathroom_heating_temperature:
+climate.thermofloor_as_heatit_thermostat_tf_021_cooling:
   hidden: true
-light.bedroom:
-  hidden: true
-light.entrance:
-  hidden: true
-light.dining_room:
-  hidden: true
-light.downstairs_bathroom:
-  hidden: true
-light.entertainment_area_1:
-  hidden: true
-light.group_for_wakeup:
-  hidden: true
-light.hue_camera:
-  hidden: true
-light.kids_bedroom:
-  hidden: true
-light.picture_wall:
-  hidden: true
-light.soverom:
-  hidden: true
-light.TV:
-  hidden: true
-light.utility_room:
-  hidden: true
-light.upstairs_bathroom_hallway:
-  hidden: true
-light.downstairs_bathroom_lights_level:
-  homebridge_visible: true
-light.upstairs_bathroom_light_level:
-  homebridge_visible: true
-light.stairs_light_level:
-  homebridge_visible: true
-light.tv_spotlights_level:
-  homebridge_visible: true
-
-###
-# Groups
-group.upstairs_light:
-  homebridge_visible: true
-group.tv_couch_lights:
-  homebridge_visible: true
-group.utility_room_lights:
-  homebridge_visible: true
-group.upstairs:
-  order: 1
-group.downstairs:
-  order: 2
-group.utility_room:
-  order: 3
-group.bedroom:
-  order: 4
-group.marthas_bedroom:
-  order: 5
-group.kids_bedroom:
-  order: 6
-group.outside:
-  order: 7
-group.misc:
-  order: 8
-
-script.downstairs_bright:
-  homebridge_visible: true
-script.downstairs_dimmed:
-  homebridge_visible: true
-script.downstairs_off:
-  homebridge_visible: true
-script.downstairs_red:
-  homebridge_visible: true
-script.tv_bright:
-  homebridge_visible: true
-script.tv_dimmed:
-  homebridge_visible: true
-switch.entrance_switch_switch_2:
-  friendly_name: Entrance Switch Hue
-switch.entrance_switch_switch:
-  friendly_name: Entrance Switch Outside
-sensor.utility_room_heater_previous_reading_2:
-  hidden: true
-sensor.downstairs_bathroom_heating_power:
-  hidden: true
-sensor.aeotec_zw100_multisensor_6_burglar:
-  icon: mdi:run-fast
-  new_entity_id: sensor.downstairs_sensor_burglar
-light.stairs_light_level_2:
+light.aeon_labs_zw099_smart_dimmer_6_level:
   hidden: true
 light.fibaro_system_fgd212_dimmer_2_level:
   hidden: true
-light.downstairs_bathroom_lights_level_2:
-  hidden: true
-light.tv_spotlights_level_2:
-  hidden: true
-switch.computers_switch_switch:
-  hidden: true
-switch.dining_room_carpet_spotlights_switch:
-  hidden: true
-switch.dining_room_couch_spotlights_switch:
-  hidden: true
 light.fibaro_system_fgd212_dimmer_2_level_2:
   hidden: true
-light.downstairs_hallway_lights_level_2:
+sensor.bedroom_sensor_burglar:
+  icon: mdi:motion-sensor
+sensor.bedroom_sensor_relative_humidity:
+  icon: mdi:water-percent
+light.fibaro_system_fgd212_dimmer_2_level_3:
   hidden: true
-sensor.upstairs_bathroom_sensor_burglar:
-  icon: mdi:run
-sensor.upstairs_bathroom_sensor_luminance:
-  icon: mdi:brightness-5
-sensor.upstairs_bathroom_sensor_relative_humidity:
-  icon: mdi:water
-sensor.alarm_level_4:
-  hidden: true
-sensor.alarm_type_4:
-  hidden: true
-sensor.alarm_level_3:
-  hidden: true
-sensor.alarm_type_3:
-  hidden: true
-sensor.utility_room_sensor_burglar:
-  icon: mdi:run
-sensor.entrance_sensor_burglar:
-  icon: mdi:run
-zone.home: {}
-switch.kitchen_ceiling_lights_switch:
-  hidden: true
-switch.kitchen_counter_lights_switch:
-  hidden: true
-switch.kitchen_serving_area_lights_switch:
-  hidden: true
-switch.upstairs_bathroom_light_switch:
-  hidden: true
-switch.downstairs_sunscreen_switch:
-  hidden: true
-device_tracker.tmobil_x: {}
-switch.bedroom_shutter_second_switch:
-  hidden: true
-switch.tv_shutter_second_switch:
-  hidden: true
-sensor.heat_marthas_bedroom_dimmer:
-  hidden: true
-sensor.upstairs_bathroom_dimmer_heat_2:
-  hidden: true
-light.upstairs_bathroom_dimmer_disable:
-  hidden: true
-sensor.upstairs_bathroom_dimmer_system_2:
-  hidden: true
-sensor.system_marthas_bedroom_dimmer:
+light.fibaro_system_fgd212_dimmer_2_level_4:
   hidden: true
