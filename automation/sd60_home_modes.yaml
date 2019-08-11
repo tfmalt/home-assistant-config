@@ -1,0 +1,63 @@
+#
+# Setting the default home modes at the defined events
+#
+
+- alias: 'SD60 - Mode Morning'
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    condition: sun
+    before: sunrise
+  action: 
+    - service: input_select.select_option
+      entity_id: input_select.sd60_mode 
+      data:
+        option: "Morning"
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Mode Morning Set"
+        message: "It's morning."
+
+- alias: 'SD60 - Mode Day'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.sd60_mode
+      data:
+        option: "Day"
+    - service: notify.ios_tmobil_x
+      data:
+        title: Mode Day Set
+        message: "It's day!"
+
+- alias: 'SD60 - Mode Evening'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "00:30:00"
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.sd60_mode
+      data:
+        option: "Evening"
+    - service: notify.ios_tmobil_x
+      data:
+        title: Mode Evening Set
+        message: "It's evening."
+
+- alias: 'SD60 - Mode Night'
+  trigger:
+    platform: time
+    at: "01:00:00"
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.sd60_mode
+      data:
+        option: "Night"
+    - service: notify.ios_tmobil_x
+      data:
+        title: Mode Night Set
+        message: "It's night."
