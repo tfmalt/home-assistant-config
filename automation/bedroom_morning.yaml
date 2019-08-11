@@ -19,7 +19,8 @@
         before: sunrise
   action:
     - service: script.bedroom_morning_bright_on
-    - service: notify.ios_tmobil_x
-      data:
-        title: "Morning Bedroom Lights"
-        message: "Turning bedroom lights on"
+
+      # - service: notify.ios_tmobil_x
+      # data:
+      #   title: "Morning Bedroom Lights"
+      #   message: "Turning bedroom lights on"
