@@ -1,2 +1,4 @@
 sensor.*_burglar:
   icon: mdi:motion-sensor
+light.*_remove:
+  hidden: true
