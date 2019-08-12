@@ -25,7 +25,7 @@
     - platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: zwave.marthas_room
+        entity_id: zwave.martha_dimmer
         scene_id: 26
   action:
     - service: light.toggle
