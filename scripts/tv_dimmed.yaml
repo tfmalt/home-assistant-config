@@ -1,35 +1,17 @@
 alias: TV Dimmed
 sequence:
+  - service: input_select.select_option
+    entity_id: input_select.tv_lights
+    data:
+      option: "Dimmed"
   - service: light.turn_on
-    entity_id: group.tv_couch_lights
+    entity_id: light.tv
     data:
       brightness: 104
       transition: 2
       kelvin: 2000
   - service: light.turn_on
-    entity_id: light.stairs_light_level
-    data:
-      brightness: 8
-      transition: 2
-  - service: light.turn_on
-    entity_id: light.upstairs_bathroom_light_level
-    data:
-      brightness: 3
-      transition: 2
-  - service: light.turn_on
-    entity_id: group.tv_hue_lights
-    data:
-      brightness: 104
-      transition: 2
-      kelvin: 2000
-  - service: light.turn_on
-    entity_id: group.entrance_lights
-    data:
-      brightness: 80
-      kelvin: 2000
-      transition: 2
-  - service: light.turn_on
-    entity_id: group.picture_wall_lights
+    entity_id: light.entrance_area_lights
     data:
       brightness: 80
       kelvin: 2000
