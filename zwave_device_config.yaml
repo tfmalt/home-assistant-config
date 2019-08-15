@@ -1,6 +1,0 @@
-sensor.fibaro_system_fgd212_dimmer_2_power:
-  ignored: true
-  polling_intensity: 0
-light.fibaro_system_fgd212_dimmer_2_level_2:
-  ignored: true
-  polling_intensity: 0
