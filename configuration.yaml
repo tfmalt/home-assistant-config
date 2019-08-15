@@ -16,16 +16,13 @@ http:
   base_url: https://hass.malt.no
 
 hacs:
-  token: 74df8289984328a4ed7f965a525e211bb0f4ed69
+  token: !secret hacs_token 
 
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
-  device_config_glob:
-    "sensor.*_exporting*":
-      ignored: true
-    "sensor.*_sourcenodeid*":
-      ignored: true
+  device_config_glob: !include zwave_device_config_glob.yaml
+  device_config: !include zwave_device_config.yaml
 
 # Text to speech
 tts:
@@ -52,8 +49,10 @@ sensor:
       - highClouds
       - dewpointTemperature
   - platform: nut
-    name: ups
+    name: UPS
     host: 192.168.71.3
+    username: !secret nut_username
+    password: !secret nut_password
     resources:
       - ups.load
       - ups.status
@@ -67,8 +66,8 @@ ios:
 
 media_player:
   - platform: spotify
-    client_id: c57f686ac1e74b2d92e728c03fd20c14
-    client_secret: c1bf839379f844d0891d8601c4431d1c
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
   - platform: braviatv
     host: 192.168.71.134
 
