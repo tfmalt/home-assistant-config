@@ -16,3 +16,12 @@ home_away:
     - Vacation
   initial: Home
 
+tv_lights:
+  name: "TV Lights Mode"
+  options:
+    - Bright
+    - Medium
+    - Dimmed
+    - "Off"
+  initial: "Off"
+
