@@ -1,9 +1,0 @@
-- alias: 'TV Room Cover - Up at sunset'
-  trigger:
-    - platform: sun
-      event: sunset
-  action:
-    - service: cover.close_cover
-      entity_id: 
-        - cover.tv_shutter_switch
-        - cover.bedroom_shutter_switch

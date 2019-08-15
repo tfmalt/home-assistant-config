@@ -17,30 +17,21 @@
         entity_id: input_select.home_away
         state: Home
       - condition: numeric_state
-        entity_id: sensor.entrance_sensor_luminance
+        entity_id: sensor.entrance_luminance
         below: 120
   action:
     - service: light.turn_on
       entity_id:
-        - group.upstairs_light
-        - group.dining_lights
-        - group.kitchen_lights
+        - light.tv_area
+        - light.downstairs_all_lights
       data:
         transition: 600
         brightness: 250
         kelvin: 2700
-    - service: mqtt.publish
-      data:
-        topic: 'nexa/dowstairs/dining_room_left/state'
-        payload: 'on'
-    - service: mqtt.publish
-      data:
-        topic: 'nexa/dowstairs/dining_room_right/state'
-        payload: 'on'
     - service: notify.ios_tmobil_x
       data:
         title: 'Turning on lights'
         message: >
           It's morning. The Luminance is
-          {{ states.sensor.entrance_sensor_luminance.state_with_unit }}
+          {{ states.sensor.entrance_luminance.state_with_unit }}
           

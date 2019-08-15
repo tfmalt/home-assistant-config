@@ -26,4 +26,8 @@
   action:
     - service: light.toggle
       entity_id: light.downstairs_all_lights
+      data: 
+        brightness: 255
+        transition: 2
+        kelvin: 2700
 
