@@ -1,38 +1,29 @@
-- alias: "Entrance Door right on"
+#   "data": {
+#        "entity_id": "zwave.entrance_wall_controller",
+#        "node_id": 29,
+#        "scene_id": 3,
+#        "scene_data": 
+- alias: 'Entrance - Top Left Button - TV Lights next mode'
   trigger:
-    platform: mqtt
-    topic: /nexa/entrance/right/state
-    payload: 'on'
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data: 
+        entity_id: zwave.entrance_wall_controller
+        scene_id: 1
   action:
-    - service: light.turn_on
-      entity_id: group.entrance_lights
+    - service: input_select.select_next
+      entity_id: input_select.tv_lights
+
+- alias: 'Entrance - Bottom Left Button - TV Lights Off'
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data: 
+        entity_id: zwave.entrance_wall_controller
+        scene_id: 3
+  action:
+    - service: input_select.select_option
       data:
-        transition: 2
-        brightness: 255
-        kelvin: 2700
+        entity_id: input_select.tv_lights
+        option: "Off"
 
-- alias: "Entrance Door right off"
-  trigger:
-    platform: mqtt
-    topic: /nexa/entrance/right/state
-    payload: 'off'
-  action:
-    - service: light.turn_off
-      entity_id: group.entrance_lights
-
-- alias: "Entrance Door Left on"
-  trigger:
-    platform: mqtt
-    topic: /nexa/entrance/left/state
-    payload: 'on'
-  action:
-    - service: script.tv_bright
-
-- alias: "Entrance Door Left off"
-  trigger:
-    platform: mqtt
-    topic: /nexa/entrance/left/state
-    payload: 'off'
-  action:
-    - service: light.turn_off
-      entity_id: group.all_lights

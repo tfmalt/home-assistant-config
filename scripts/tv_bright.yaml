@@ -5,19 +5,15 @@
 
 alias: TV Bright
 sequence:
-  - service: input_select.select_option
-    entity_id: input_select.tv_lights
-    data:
-      option: "Bright"
   - service: light.turn_on
     entity_id: light.tv_area
     data:
       brightness: 255
-      transition: 2
+      transition: 1
       kelvin: 2700
   - service: light.turn_on
     entity_id: light.upstairs_bathroom_hallway_light
     data:
       brightness: 255
       kelvin: 2700
-      transition: 2
+      transition: 1
