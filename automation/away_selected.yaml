@@ -12,6 +12,13 @@
       entity_id: group.all_lights
       data:
         transition: 2
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.sony_bravia_tv
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Off"
 
 - alias: 'Mode Vacation'
   trigger:

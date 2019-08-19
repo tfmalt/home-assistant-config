@@ -2,36 +2,14 @@
 alias: Downstairs Bright
 sequence:
   - service: light.turn_on
-    entity_id: light.dining_room_chandelier_level
+    entity_id: light.downstairs_all_white_lights
     data:
       brightness: 250
       transition: 2
   - service: light.turn_on
-    entity_id: light.dimmer_dining_room_couch
-    data:
-      brightness: 250
-      transition: 2
-  - service: light.turn_on
-    entity_id: light.dining_room_carpet_spotlights_level
-    data:
-      brightness: 220
-      transition: 2
-  - service: light.turn_on
-    entity_id: group.dining_room_hue
+    entity_id: light.downstairs_all_rgb_lights
     data:
       brightness: 255
       transition: 2
       kelvin: 2700
-  - service: light.turn_on
-    entity_id: 
-      - light.kitchen_counter_lights_level
-      - light.kitchen_counter
-    data:
-      brightness: 255
-      transition: 2
-      kelvin: 2700
-  - service: light.turn_on
-    entity_id: light.kitchen_serving_area_lights_level
-    data:
-      brightness: 240
-      transition: 2
+

@@ -5,25 +5,38 @@
 #        "scene_data": 
 - alias: 'Entrance - Top Left Button - TV Lights next mode'
   trigger:
-    - platform: event
-      event_type: zwave.scene_activated
-      event_data: 
-        entity_id: zwave.entrance_wall_controller
-        scene_id: 1
+    platform: event
+    event_type: zwave.scene_activated
+    event_data: 
+      entity_id: zwave.entrance_wall_controller
+      scene_id: 1
   action:
     - service: input_select.select_next
       entity_id: input_select.tv_lights
 
 - alias: 'Entrance - Bottom Left Button - TV Lights Off'
   trigger:
-    - platform: event
-      event_type: zwave.scene_activated
-      event_data: 
-        entity_id: zwave.entrance_wall_controller
-        scene_id: 3
+    platform: event
+    event_type: zwave.scene_activated
+    event_data: 
+      entity_id: zwave.entrance_wall_controller
+      scene_id: 3
   action:
     - service: input_select.select_option
       data:
         entity_id: input_select.tv_lights
         option: "Off"
+
+- alias: "Entrance - Bottom Right Button - Mode Away"
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.entrance_wall_controller
+      scene_id: 4
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.home_away
+        option: "Away"
 

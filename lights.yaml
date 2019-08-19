@@ -26,9 +26,9 @@
 - platform: group
   name: Downstairs All White Lights
   entities:
-    - light.dining_room_couch_dimmer_level
-    - light.dining_room_carpet_dimmer_level
-    - light.dining_room_chandelier_level
+    - light.dining_room_couch_dimmer
+    - light.dining_room_carpet_dimmer
+    - light.dining_room_chandelier_dimmer
     - light.kitchen_serving_area_dimmer
 
 - platform: group

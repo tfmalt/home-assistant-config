@@ -2,48 +2,40 @@
 alias: Downstairs Dimmed 
 sequence:
   - service: light.turn_on
-    entity_id: light.dining_room_chandelier_level
+    entity_id: 
+      - light.dining_room_chandelier_dimmer
+      - light.kitchen_serving_area_dimmer
     data:
       brightness: 50
       transition: 2
   - service: light.turn_on
-    entity_id: light.dimmer_dining_room_couch
+    entity_id: light.dining_room_couch_dimmer
     data:
-      brightness: 50
+      brightness: 60
       transition: 2
   - service: light.turn_on
-    entity_id: light.dining_room_carpet_spotlights_level
+    entity_id: light.dining_room_carpet_dimmer
     data:
-      brightness: 40
+      brightness: 20
       transition: 2
+      #  - service: light.turn_on
+      # entity_id: light.globe
+      # data:
+      # brightness: 168
+      # transition: 2
+      # kelvin: 2300
   - service: light.turn_on
-    entity_id: light.globe
+    entity_id:
+      - light.paper
+      - light.downstairs_couch_window
+      - light.downstairs_couch_stairs
     data:
-      brightness: 168
-      transition: 2
-      kelvin: 2300
-  - service: light.turn_on
-    entity_id: group.dining_room_paper
-    data:
-      brightness: 168
-      transition: 2
-      kelvin: 2300
-  - service: light.turn_on
-    entity_id: group.downstairs_couch_lights
-    data:
-      brightness: 168
+      brightness: 128
       transition: 2
       kelvin: 2300
-  - service: light.turn_on
-    entity_id: light.kitchen_counter_lights_level
   - service: light.turn_on
     entity_id: light.kitchen_counter
     data:
-      brightness: 220
+      brightness: 255
       transition: 2
-      kelvin: 2300
-  - service: light.turn_on
-    entity_id: light.kitchen_serving_area_lights_level
-    data:
-      brightness: 200
-      transition: 2
+      kelvin: 2700
