@@ -1,69 +1,48 @@
-- alias: "TV door left on"
+- alias: "TV Door - Left Top - Cycle light modes"
   trigger:
-    platform: mqtt
-    topic: /nexa/tv/tv_door_left/state
-    payload: 'on'
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_left
+      state: "on"
   action:
-    - service: light.turn_on
-      entity_id: light.upstairs_bathroom_hallway
-      data:
-        flash: "short"
-    - service: script.tv_bright 
-    - service: notify.ios_tmobil_x
-      data:
-        title: "TV Door Switch "
-        message: "Door Left ON"
+    - service: input_select.select_next
+      entity_id: input_select.tv_lights
 
-- alias: "TV door left off"
-  trigger:
-    platform: mqtt
-    topic: /nexa/tv/tv_door_left/state
-    payload: 'off'
+- alias: "TV Door - Left Bottom - TV Light Off"
+  trigger: 
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_left
+      state: "off"
   action:
-    - service: light.turn_on
-      entity_id: light.upstairs_bathroom_hallway
+    - service: input_select.select_option
       data:
-        flash: "short"
+        entity_id: input_select.tv_lights
+        option: "Off"
+
+- alias: "TV Door - Right Bottom - Everything off"
+  trigger:
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_right
+      state: "off"
+  action:
     - service: light.turn_off
-      entity_id: group.tv_lights
+      entity_id: group.all_lights
       data:
         transition: 2
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.sony_bravia_tv
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Off"
     - service: notify.ios_tmobil_x
       data:
-        title: "TV Door Switch Left"
-        message: "Turning off TV lights"
+        title: "All lights turned off"
+        message: "TV Door Switch was pressed to turn all lights off"
 
-- alias: "TV door right on"
-  trigger:
-    platform: mqtt
-    topic: /nexa/tv/tv_door_right/state
-    payload: 'on'
-  action:
-    - service: light.turn_on
-      entity_id: light.upstairs_bathroom_hallway
-      data:
-        flash: "short"
-    - service: script.tv_bright
-    - service: notify.ios_tmobil_x
-      data:
-        title: "TV Door Switch Right"
-        message: "Turning on TV Bright Script"
-
-- alias: "TV door right off"
-  trigger:
-    platform: mqtt
-    topic: /nexa/tv/tv_door_right/state
-    payload: 'off'
-  action:
-    - service: light.turn_on
-      entity_id: light.upstairs_bathroom_hallway
-      data:
-        flash: "short"
-    - service: light.turn_off
-      entity_id: group.upstairs_light
-      data:
-        transition: 2
-    - service: notify.ios_tmobil_x
-      data:
-        title: "TV Door Switch Right"
-        message: "Turning off all light upstairs"
