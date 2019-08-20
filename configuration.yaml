@@ -18,11 +18,21 @@ http:
 hacs:
   token: !secret hacs_token 
 
+# -----------------------------------------------------------------------
+# Z-Wave
+# -----------------------------------------------------------------------
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
   device_config_glob: !include zwave_device_config_glob.yaml
   device_config: !include zwave_device_config.yaml
+  debug: false
+
+# -----------------------------------------------------------------------
+# 433Mhz
+# -----------------------------------------------------------------------
+rfxtrx:
+  device: /dev/ttyUSB0
 
 # Text to speech
 tts:
@@ -31,6 +41,9 @@ tts:
 recorder:
   db_url: !secret recorder_db_url
 
+# -----------------------------------------------------------------------
+# Sensors
+# -----------------------------------------------------------------------
 sensor:
   - platform: yr
     name: Yr
@@ -60,7 +73,56 @@ sensor:
       - battery.runtime
       - input.voltage
       - output.voltage
-  - platform: plex
+  # - platform: plex
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+  - platform: template
+    sensors:
+      home_state:
+        friendly_name: "Current Home State"
+        value_template: '{{ states("input_select.sd60_mode") }}'
+  - platform: template
+    sensors:
+      coffee_maker_state:
+        friendly_name: "Coffee Maker State"
+        value_template: '{{ states("input_select.coffee_maker_state") }}'
+
+timer:
+  coffee:
+    duration: '00:30:00'
+
+switch:
+  - platform: rfxtrx
+    automatic_add: true
+    # signal_repetitions: 2
+    devices:
+      # Testbryter ikke montert
+      0b1100000009a48202010f50:
+        name: "Test NEXA WTE-2 Left"
+        fire_event: true
+      0b1100010009a48201010f50:
+        name: "Test NEXA WTE-2 Right"
+        fire_event: true
+      # Bryter TV Stue ved dør
+      0b11002d0009965e02010f50:
+        name: "TV Door Left"
+        fire_event: true
+      0b11000b0009965e01010f50:
+        name: "TV Door Right"
+        fire_event: true
+      0b110004015fa5da0c010f50:
+        name: "TV Desk Left"
+        fire_event: true
+      0b110006015fa5da0b000050:
+        name: "TV Desk Right"
+        fire_event: true
 
 ios:
 
@@ -70,6 +132,12 @@ media_player:
     client_secret: !secret spotify_client_secret
   - platform: braviatv
     host: 192.168.71.134
+
+panel_custom:
+  - name: zwavegraph2
+    sidebar_title: Z-Wave Graph
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
 
 tahoma: !secret tahoma_config
 

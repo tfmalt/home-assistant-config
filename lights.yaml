@@ -204,3 +204,9 @@
   brightness: true
   qos: 0
 
+- platform: rfxtrx
+  devices:
+    # Test Wall plug
+    0b1100000035747a02010f50:
+      name: "Test NEXA Wall Plug"
+

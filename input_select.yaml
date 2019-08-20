@@ -6,7 +6,6 @@ sd60_mode:
     - Evening
     - Night
     - Party
-  initial: Day
 
 home_away:
   name: "Home or Away"
@@ -23,5 +22,12 @@ tv_lights:
     - Medium
     - Dimmed
     - "Off"
-  initial: "Off"
+
+coffee_maker_state:
+  name: "Coffee Maker State"
+  options:
+    - "Off"
+    - "Brewing"
+    - "Heating"
+
 
