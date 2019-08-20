@@ -14,3 +14,7 @@ light.fibaro_system_fgd212_dimmer_2_level_3:
   hidden: true
 light.fibaro_system_fgd212_dimmer_2_level_4:
   hidden: true
+switch.test_nexa_wte_2_left:
+  assumed_state: false
+switch.entrance_light_outside:
+  assumed_state: false
