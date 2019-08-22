@@ -23,11 +23,16 @@ tv_lights:
     - Dimmed
     - "Off"
 
+dining_room_lights:
+  name: "Dining Room Light Mode"
+  options:
+    - "Bright"
+    - "Dimmed"
+    - "Off"
+
 coffee_maker_state:
   name: "Coffee Maker State"
   options:
     - "Off"
     - "Brewing"
     - "Heating"
-
-
