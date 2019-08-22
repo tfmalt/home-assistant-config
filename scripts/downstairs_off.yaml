@@ -2,8 +2,10 @@
 alias: Downstairs Off
 sequence:
   - service: light.turn_off
-    entity_id:
-      - light.downstairs_all_white_lights
+    entity_id: light.downstairs_all_white_lights
+    data:
+      transition: 4
   - service: light.turn_off
-    entity_id:
-      - light.downstairs_all_rgb_lights
+    entity_id: light.downstairs_all_rgb_lights
+    data:
+      transition: 4
