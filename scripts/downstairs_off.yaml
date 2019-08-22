@@ -4,4 +4,6 @@ sequence:
   - service: light.turn_off
     entity_id:
       - light.downstairs_all_white_lights
+  - service: light.turn_off
+    entity_id:
       - light.downstairs_all_rgb_lights
