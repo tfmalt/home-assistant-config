@@ -123,6 +123,12 @@ switch:
       0b110006015fa5da0b000050:
         name: "TV Desk Right"
         fire_event: true
+      0b1100000009884a02010f50:
+        name: "Garden Door Left"
+        fire_event: true
+      0b1100010009884a01010f50:  
+        name: "Garden Door Right"
+        fire_event: true
 
 ios:
 

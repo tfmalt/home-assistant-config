@@ -1,0 +1,37 @@
+
+- alias: 'Outside - Garden - Sunset'
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: light.turn_on
+      entity_id: light.ute_nede
+      data:
+        transition: 2
+        brightness: 255
+        kelvin: 2700
+
+- alias: 'Outside - Garden - Sunrise'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: light.turn_off
+      entity_id: light.ute_nede
+
+- alias: 'Outside - Front door - Sunset'
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: switch.turn_on
+      entity_id: switch.entrance_light_outside
+
+- alias: 'Outside - Front door - Sunrise'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: switch.turn_off
+      entity_id: switch.entrance_light_outside
+
