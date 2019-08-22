@@ -130,6 +130,16 @@ switch:
         name: "Garden Door Right"
         fire_event: true
 
+input_boolean:
+  radio_p1_playing:
+    name: "NRK P1 is playing"
+  radio_p2_playing:
+    name: "NRK P2 is playing"
+  radio_p3_playing:
+    name: "NRK P3 is playing"
+  radio_an_playing:
+    name: "NRK Alltid Nyheter is playing"
+
 ios:
 
 media_player:
