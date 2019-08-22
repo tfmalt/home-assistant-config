@@ -1,0 +1,13 @@
+- alias: "Dining Room Lights Mode Change"
+  trigger:
+    platform: state
+    entity_id: input_select.dining_room_lights
+  action:
+    - service_template: >
+        {% if is_state("input_select.dining_room_lights", "Bright") -%}
+          script.downstairs_bright
+        {%- elif is_state("input_select.dining_room_lights", "Dimmed") -%}
+          script.downstairs_dimmed
+        {%- elif is_state("input_select.dining_room_lights", "Off") -%}
+          script.downstairs_off
+        {%- endif %}
