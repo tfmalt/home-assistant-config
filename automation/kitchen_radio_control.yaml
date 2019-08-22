@@ -46,19 +46,6 @@
         - input_boolean.radio_p3_playing
         - input_boolean.radio_an_playing
 
-- alias: "Radio P1 Pressed - stopping"
-  trigger:
-    platform: state
-    entity_id: input_boolean.radio_p1_playing
-    from: "off"
-    to: "on"
-  action:
-    - service: input_boolean.turn_off
-      entity_id:
-        - input_boolean.radio_p2_playing
-        - input_boolean.radio_p3_playing
-        - input_boolean.radio_an_playing
-
 # --------------------------------------------------------------------------
 # Radio P2
 # --------------------------------------------------------------------------
@@ -75,15 +62,18 @@
         - input_boolean.radio_p3_playing
         - input_boolean.radio_an_playing
 
-- alias: "Radio P2 Pressed - stopping"
+# --------------------------------------------------------------------------
+# Radio P3
+# --------------------------------------------------------------------------
+- alias: "Radio P3 Pressed - playing"
   trigger:
     platform: state
-    entity_id: input_boolean.radio_p2_playing
-    from: "off"
-    to: "on"
+    entity_id: input_boolean.radio_p3_playing
+    from: "on"
+    to: "off"
   action:
-    - service: input_boolean.turn_off
+    - service: input_boolean.turn_on
       entity_id:
         - input_boolean.radio_p1_playing
-        - input_boolean.radio_p3_playing
+        - input_boolean.radio_p2_playing
         - input_boolean.radio_an_playing
