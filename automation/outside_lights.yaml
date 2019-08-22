@@ -1,5 +1,7 @@
-
-- alias: 'Outside - Garden - Sunset'
+--- # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Turn on lights on pation at sunset
+- alias: "Outside - Garden - Sunset"
   trigger:
     platform: sun
     event: sunset
@@ -11,7 +13,10 @@
         brightness: 255
         kelvin: 2700
 
-- alias: 'Outside - Garden - Sunrise'
+# ---------------------------------------------------------------------------
+# Turn off lights in garden at sunrise
+# ---------------------------------------------------------------------------
+- alias: "Outside - Garden - Sunrise"
   trigger:
     platform: sun
     event: sunrise
@@ -19,7 +24,10 @@
     - service: light.turn_off
       entity_id: light.ute_nede
 
-- alias: 'Outside - Front door - Sunset'
+# ---------------------------------------------------------------------------
+# Turn on lights outside entrance at sunset
+# ---------------------------------------------------------------------------
+- alias: "Outside - Front door - Sunset"
   trigger:
     platform: sun
     event: sunset
@@ -27,11 +35,13 @@
     - service: switch.turn_on
       entity_id: switch.entrance_light_outside
 
-- alias: 'Outside - Front door - Sunrise'
+# ---------------------------------------------------------------------------
+# Turn off lights outside entrance at sunset
+# ---------------------------------------------------------------------------
+- alias: "Outside - Front door - Sunrise"
   trigger:
     platform: sun
     event: sunrise
   action:
     - service: switch.turn_off
       entity_id: switch.entrance_light_outside
-
