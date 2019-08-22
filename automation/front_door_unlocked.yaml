@@ -1,0 +1,16 @@
+- alias: Front Door Unlocked
+  trigger:
+    - platform: state
+      entity_id: lock.ytterdor
+      to: "unlocked"
+  action:
+    - service: light.turn_on
+      entity_id: light.entrance_door
+      data:
+        brightness: 255
+        rgb_color: [255, 0, 128]
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Front Door Unlocked"
+        message: Front door was unlocked by
+          {{ states.lock.ytterdor.attributes.changed_by }}
