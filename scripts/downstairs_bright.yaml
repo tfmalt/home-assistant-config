@@ -5,11 +5,10 @@ sequence:
     entity_id: light.downstairs_all_white_lights
     data:
       brightness: 250
-      transition: 2
+      transition: 4
   - service: light.turn_on
     entity_id: light.downstairs_all_rgb_lights
     data:
       brightness: 255
-      transition: 2
+      transition: 4
       kelvin: 2700
-
