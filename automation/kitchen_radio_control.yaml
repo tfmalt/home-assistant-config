@@ -31,87 +31,26 @@
         media_content_id: http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
         media_content_type: "audio/aac"
 
-# --------------------------------------------------------------------------
-# Radio P1
-# --------------------------------------------------------------------------
-- alias: "Radio P1 Pressed - playing"
+- alias: "Nede turned off"
   trigger:
     platform: state
-    entity_id: input_boolean.nede_radio_p1_playing
-    from: "on"
+    entity_id: media_player.nede
     to: "off"
   action:
-    - service: input_boolean.turn_on
-      entity_id:
-        - input_boolean.nede_radio_p2_playing
-        - input_boolean.nede_radio_p3_playing
-        - input_boolean.nede_radio_an_playing
-        - input_boolean.nede_radio_jazz_playing
+    service: input_select.select_option
+    data:
+      entity_id: input_select.nede_radio_channels_state
+      option: "Off"
 
-# --------------------------------------------------------------------------
-# Radio P2
-# --------------------------------------------------------------------------
-- alias: "Radio P2 Pressed - playing"
+- alias: "Nede changed to another app"
   trigger:
-    platform: state
-    entity_id: input_boolean.nede_radio_p2_playing
-    from: "on"
-    to: "off"
+    platform: template
+    value_template: >
+      {% if not is_state_attr('media_player.nede', 'app_name', 'Default Media Receiver') -%}
+        true
+      {%- endif %}
   action:
-    - service: input_boolean.turn_on
-      entity_id:
-        - input_boolean.nede_radio_p1_playing
-        - input_boolean.nede_radio_p3_playing
-        - input_boolean.nede_radio_an_playing
-        - input_boolean.nede_radio_jazz_playing
-
-# --------------------------------------------------------------------------
-# Radio P3
-# --------------------------------------------------------------------------
-- alias: "Radio P3 Pressed - playing"
-  trigger:
-    platform: state
-    entity_id: input_boolean.nede_radio_p3_playing
-    from: "on"
-    to: "off"
-  action:
-    - service: input_boolean.turn_on
-      entity_id:
-        - input_boolean.nede_radio_p1_playing
-        - input_boolean.nede_radio_p2_playing
-        - input_boolean.nede_radio_an_playing
-        - input_boolean.nede_radio_jazz_playing
-
-# --------------------------------------------------------------------------
-# Radio Alltid Nyheter
-# --------------------------------------------------------------------------
-- alias: "Radio Alltid Nyheter Pressed - playing"
-  trigger:
-    platform: state
-    entity_id: input_boolean.nede_radio_an_playing
-    from: "on"
-    to: "off"
-  action:
-    - service: input_boolean.turn_on
-      entity_id:
-        - input_boolean.nede_radio_p1_playing
-        - input_boolean.nede_radio_p2_playing
-        - input_boolean.nede_radio_p3_playing
-        - input_boolean.nede_radio_jazz_playing
-
-# --------------------------------------------------------------------------
-# Radio Jazz
-# --------------------------------------------------------------------------
-- alias: "Radio Jazz Pressed - playing"
-  trigger:
-    platform: state
-    entity_id: input_boolean.nede_radio_jazz_playing
-    from: "on"
-    to: "off"
-  action:
-    - service: input_boolean.turn_on
-      entity_id:
-        - input_boolean.nede_radio_p1_playing
-        - input_boolean.nede_radio_p2_playing
-        - input_boolean.nede_radio_p3_playing
-        - input_boolean.nede_radio_an_playing
+    service: input_select.select_option
+    data:
+      entity_id: input_select.nede_radio_channels_state
+      option: "Off"

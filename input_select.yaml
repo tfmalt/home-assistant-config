@@ -40,9 +40,19 @@ coffee_maker_state:
 nede_radio_channels_state:
   name: "Nede Radio Channels"
   options:
-    - "Off"
     - "NRK P1"
     - "NRK P2"
     - "NRK P3"
     - "NRK Alltid Nyheter"
     - "NRK Jazz"
+    - "Off"
+
+soverom_radio_channels:
+  name: "Soverom Radio Channels"
+  options:
+    - "NRK P1"
+    - "NRK P2"
+    - "NRK P3"
+    - "NRK Alltid Nyheter"
+    - "NRK Jazz"
+    - "Off"

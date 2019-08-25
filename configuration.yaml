@@ -130,18 +130,6 @@ switch:
         name: "Garden Door Right"
         fire_event: true
 
-input_boolean:
-  nede_radio_p1_playing:
-    name: "NRK P1 is playing"
-  nede_radio_p2_playing:
-    name: "NRK P2 is playing"
-  nede_radio_p3_playing:
-    name: "NRK P3 is playing"
-  nede_radio_an_playing:
-    name: "NRK Alltid Nyheter is playing"
-  nede_radio_jazz_playing:
-    name: "NRK Alltid Jazz is playing"
-
 ios:
 
 media_player:
