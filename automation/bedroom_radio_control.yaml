@@ -12,6 +12,10 @@
             http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p1_ostlandssendingen_aac_h
           {%- elif is_state('input_select.soverom_radio_channels', 'NRK P2') -%}
             http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
-          {%- else -%}
+          {%- elif is_state('input_select.soverom_radio_channels', 'NRK P3') -%}
+            http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p3_aac_h
+          {%- elif is_state('input_select.soverom_radio_channels', 'NRK Alltid Nyheter') -%}
+            http://nrk-mms-live.telenorcdn.net:80/nrk_radio_alltid_nyheter_aac_h
+          {%- elif is_state('input_select.soverom_radio_channels', 'NRK Jazz') -%}
             http://nrk-mms-live.telenorcdn.net:80/nrk_radio_jazz_aac_h
           {%- endif %}
