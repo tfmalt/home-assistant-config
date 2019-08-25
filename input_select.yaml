@@ -36,3 +36,13 @@ coffee_maker_state:
     - "Off"
     - "Brewing"
     - "Heating"
+
+nede_radio_channels_state:
+  name: "Nede Radio Channels"
+  options:
+    - "Off"
+    - "NRK P1"
+    - "NRK P2"
+    - "NRK P3"
+    - "NRK Alltid Nyheter"
+    - "NRK Jazz"

@@ -24,7 +24,8 @@
       data:
         entity_id: media_player.nede
         volume_level: 0.3
-    - service: media_player.play_media
+    - service: input_boolean.turn_off
+      entity_id:
       data:
         entity_id: media_player.nede
         media_content_id: http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
@@ -45,6 +46,7 @@
         - input_boolean.nede_radio_p2_playing
         - input_boolean.nede_radio_p3_playing
         - input_boolean.nede_radio_an_playing
+        - input_boolean.nede_radio_jazz_playing
 
 # --------------------------------------------------------------------------
 # Radio P2
@@ -61,6 +63,7 @@
         - input_boolean.nede_radio_p1_playing
         - input_boolean.nede_radio_p3_playing
         - input_boolean.nede_radio_an_playing
+        - input_boolean.nede_radio_jazz_playing
 
 # --------------------------------------------------------------------------
 # Radio P3
@@ -77,6 +80,7 @@
         - input_boolean.nede_radio_p1_playing
         - input_boolean.nede_radio_p2_playing
         - input_boolean.nede_radio_an_playing
+        - input_boolean.nede_radio_jazz_playing
 
 # --------------------------------------------------------------------------
 # Radio Alltid Nyheter
@@ -93,3 +97,21 @@
         - input_boolean.nede_radio_p1_playing
         - input_boolean.nede_radio_p2_playing
         - input_boolean.nede_radio_p3_playing
+        - input_boolean.nede_radio_jazz_playing
+
+# --------------------------------------------------------------------------
+# Radio Jazz
+# --------------------------------------------------------------------------
+- alias: "Radio Jazz Pressed - playing"
+  trigger:
+    platform: state
+    entity_id: input_boolean.nede_radio_jazz_playing
+    from: "on"
+    to: "off"
+  action:
+    - service: input_boolean.turn_on
+      entity_id:
+        - input_boolean.nede_radio_p1_playing
+        - input_boolean.nede_radio_p2_playing
+        - input_boolean.nede_radio_p3_playing
+        - input_boolean.nede_radio_an_playing
