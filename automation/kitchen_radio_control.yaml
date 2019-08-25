@@ -31,6 +31,9 @@
         media_content_id: http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
         media_content_type: "audio/aac"
 
+# --------------------------------------------------------------------------
+# Nede turned off
+# --------------------------------------------------------------------------
 - alias: "Nede turned off"
   trigger:
     platform: state
@@ -42,6 +45,9 @@
       entity_id: input_select.nede_radio_channels_state
       option: "Off"
 
+# --------------------------------------------------------------------------
+# Nede changed to other app
+# --------------------------------------------------------------------------
 - alias: "Nede changed to another app"
   trigger:
     platform: template
