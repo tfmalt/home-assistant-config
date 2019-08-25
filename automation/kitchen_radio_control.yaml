@@ -25,7 +25,7 @@
         entity_id: media_player.nede
         volume_level: 0.3
     - service: input_boolean.turn_off
-      entity_id:
+      entity_id: media_player.play_media
       data:
         entity_id: media_player.nede
         media_content_id: http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
