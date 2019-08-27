@@ -2,20 +2,14 @@
   trigger:
     platform: state
     entity_id: input_select.soverom_radio_channels
+  condition:
+    - condition: template
+      value_template: >
+        {{ if not is_state('input_select.soverom_radio_channels', 'Off') }}
   action:
-    - service: media_player.play_media
-      entity_id: media_player.soverom
+    - service: media_player.select_source
       data_template:
-        media_content_type: "audio/aac"
-        media_content_id: >
-          {% if is_state('input_select.soverom_radio_channels', 'NRK P1') -%}
-            http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p1_ostlandssendingen_aac_h
-          {%- elif is_state('input_select.soverom_radio_channels', 'NRK P2') -%}
-            http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
-          {%- elif is_state('input_select.soverom_radio_channels', 'NRK P3') -%}
-            http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p3_aac_h
-          {%- elif is_state('input_select.soverom_radio_channels', 'NRK Alltid Nyheter') -%}
-            http://nrk-mms-live.telenorcdn.net:80/nrk_radio_alltid_nyheter_aac_h
-          {%- elif is_state('input_select.soverom_radio_channels', 'NRK Jazz') -%}
-            http://nrk-mms-live.telenorcdn.net:80/nrk_radio_jazz_aac_h
-          {%- endif %}
+        entity_id: media_player.bedroom
+        source: "{{ states('input_select.soverom_radio_channels') }}"
+    #  - service: media_player.play_media
+    #    entity_id: media_player.soverom
