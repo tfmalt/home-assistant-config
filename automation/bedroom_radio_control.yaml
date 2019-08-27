@@ -5,7 +5,7 @@
   condition:
     - condition: template
       value_template: >
-        {% if not is_state('input_select.soverom_radio_channels', 'Off') %}
+        {{ not is_state('input_select.soverom_radio_channels', 'Off') }}
   action:
     - service: media_player.select_source
       data_template:
