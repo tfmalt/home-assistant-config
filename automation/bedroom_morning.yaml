@@ -1,7 +1,7 @@
 - alias: "Morning - turn on bedroom lights"
   trigger:
     platform: time
-    at: '7:00:00'
+    at: "7:15:00"
   condition:
     condition: and
     conditions:
@@ -15,11 +15,8 @@
       - condition: state
         entity_id: input_select.home_away
         state: "Home"
-      - condition: sun
-        before: sunrise
   action:
     - service: script.bedroom_morning_bright_on
-
       # - service: notify.ios_tmobil_x
       # data:
       #   title: "Morning Bedroom Lights"
