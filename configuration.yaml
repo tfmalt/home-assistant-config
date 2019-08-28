@@ -96,6 +96,7 @@ sensor:
       ups_output_power:
         friendly_name: "UPS Output Power"
         value_template: "{{ states('sensor.ups_load') | float / 100 * 500 }}"
+        unit_of_measurement: "W"
 
 timer:
   coffee:
