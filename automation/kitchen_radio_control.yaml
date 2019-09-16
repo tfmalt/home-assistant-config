@@ -2,7 +2,7 @@
 # --------------------------------------------------------------------------
 # Morning Radio
 # --------------------------------------------------------------------------
-- alias: "Morning Radio - Start"
+- alias: "Kitchen Radio - Morning start"
   trigger:
     platform: time
     at: "07:15:00"
@@ -37,7 +37,7 @@
 # --------------------------------------------------------------------------
 # Nede turned off
 # --------------------------------------------------------------------------
-- alias: "Nede turned off"
+- alias: "Kitchen Radio - turned off"
   trigger:
     platform: state
     entity_id: media_player.nede
@@ -48,10 +48,19 @@
       entity_id: input_select.nede_radio_channels_state
       option: "Off"
 
+- alias: "Kitchen Radio - Off selected"
+  trigger:
+    platform: state
+    entity_id: input_select.nede_radio_channels_state
+    to: "Off"
+  action:
+    service: media_player.turn_off
+    entity_id: media_player.nede
+
 # --------------------------------------------------------------------------
 # Nede changed to other app
 # --------------------------------------------------------------------------
-- alias: "Nede changed to another app"
+- alias: "Kitchen Radio - changed to another app"
   trigger:
     platform: template
     value_template: >

@@ -1,11 +1,10 @@
-# This script turns all lights downstairs dimmed and cozy!
-alias: Downstairs Off
+alias: Downstairs - All lights off
 sequence:
   - service: light.turn_off
-    entity_id: light.downstairs_all_white_lights
+    entity_id: light.downstairs_all_lights
     data:
-      transition: 4
-  - service: light.turn_off
-    entity_id: light.downstairs_all_rgb_lights
+      transition: 2
+  - service: input_select.select_option
+    entity_id: input_select.dining_room_lights
     data:
-      transition: 4
+      option: "Off"

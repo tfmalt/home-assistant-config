@@ -1,7 +1,6 @@
-# -----------
+# --------------------------------------------------------------------------
 # Motion detection in Entrance
-# ------------
-- alias: 'Entrance - Set mode to Home'
+- alias: "Entrance - Set mode to Home"
   trigger:
     platform: state
     entity_id: sensor.entrance_burglar
@@ -13,7 +12,7 @@
       entity_id: input_select.home_away
       option: "Home"
 
-- alias: 'Entrance - Turn lights on when motion detected'
+- alias: "Entrance - Turn lights on when motion detected"
   trigger:
     - platform: state
       entity_id: sensor.entrance_burglar
@@ -28,7 +27,7 @@
         {% if is_state("input_select.tv_lights", "Off") -%}
            input_select.select_option 
         {%- endif %}
-      data_template: 
+      data_template:
         entity_id: input_select.tv_lights
         option: >
           {% if is_state("input_select.sd60_mode", "Day") -%}
@@ -45,7 +44,7 @@
           Turning on light {{ states.sensor.entrance_luminance.state_with_unit }}.
           Mode is {{ states.input_select.sd60_mode }} 
 
-- alias: 'Entrance - Turn off lights at night when no motion'
+- alias: "Entrance - Turn off lights at night when no motion"
   trigger:
     - platform: state
       entity_id: sensor.entrance_burglar
@@ -65,6 +64,6 @@
         - group.picture_wall_lights
     - service: notify.ios_tmobil_x
       data:
-        title: 'Entrance No Motion'
+        title: "Entrance No Motion"
         message: >
           It is night. Turning off lights in entrance.
