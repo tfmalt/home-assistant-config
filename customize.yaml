@@ -18,3 +18,7 @@ switch.test_nexa_wte_2_left:
   assumed_state: false
 switch.entrance_light_outside:
   assumed_state: false
+
+person.thomas_malt:
+  entity_picture: "https://s.gravatar.com/avatar/3aba0c13fde0cc945c2137cd2873a598?s=320"
+
