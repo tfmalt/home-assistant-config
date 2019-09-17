@@ -45,3 +45,14 @@
   action:
     - service: switch.turn_off
       entity_id: switch.entrance_light_outside
+
+- alias: "Outside - Motion"
+  trigger:
+    platform: state
+    entity_id: sensor.outside_burglar
+    to: "8"
+  action:
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Entrance door motion"
+        message: "There was motion outside the entrance door"
