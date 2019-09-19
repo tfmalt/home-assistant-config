@@ -25,3 +25,7 @@ person.kirsti_anstad:
   entity_picture: "/local/assets/kirsti.jpg"
 person.edith_anstad_malt:
   entity_picture: "/local/assets/edith.jpg"
+person.anne_anstad_malt:
+  entity_picture: "/local/assets/anne.jpg"
+person.martha_anstad_malt:
+  entity_picture: "/local/assets/martha.jpg"
