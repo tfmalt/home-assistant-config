@@ -22,3 +22,5 @@ switch.entrance_light_outside:
 person.thomas_malt:
   entity_picture: "https://s.gravatar.com/avatar/3aba0c13fde0cc945c2137cd2873a598?s=320"
 
+person.kirsti_anstad:
+  entity_picture: "/local/assets/kirsti.jpg"
