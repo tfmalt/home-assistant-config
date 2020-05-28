@@ -1,8 +1,0 @@
-alias: Bedroom Bright
-sequence:
-  - service: light.turn_on
-    entity_id: group.bedroom
-    data:
-      brightness: 255
-      transition: 2
-      kelvin: 2700

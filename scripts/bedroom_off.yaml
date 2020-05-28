@@ -1,6 +1,0 @@
-alias: Bedroom Off
-sequence:
-  - service: light.turn_off
-    entity_id: group.bedroom_spotlights
-  - service: light.turn_off
-    entity_id: group.bedroom_reading_lights

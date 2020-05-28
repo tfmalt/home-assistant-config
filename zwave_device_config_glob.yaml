@@ -1,7 +1,0 @@
-"sensor.*remove":
-  ignored: true
-  polling_intensity: 0
-"light.*remove":
-  ignored: true
-  polling_intensity: 0
-
