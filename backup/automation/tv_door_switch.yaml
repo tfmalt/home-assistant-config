@@ -1,0 +1,48 @@
+- alias: "TV Door - Left Top - Cycle light modes"
+  trigger:
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_left
+      state: "on"
+  action:
+    - service: input_select.select_next
+      entity_id: input_select.tv_lights
+
+- alias: "TV Door - Left Bottom - TV Light Off"
+  trigger: 
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_left
+      state: "off"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Off"
+
+- alias: "TV Door - Right Bottom - Everything off"
+  trigger:
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_right
+      state: "off"
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+      data:
+        transition: 2
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.sony_bravia_tv
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Off"
+    - service: notify.ios_tmobil_x
+      data:
+        title: "All lights turned off"
+        message: "TV Door Switch was pressed to turn all lights off"
+

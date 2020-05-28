@@ -1,0 +1,74 @@
+---
+# --------------------------------------------------------------------------
+# Morning Radio
+# --------------------------------------------------------------------------
+- alias: "Kitchen Radio - Morning start"
+  trigger:
+    platform: time
+    at: "07:15:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_select.home_away
+        state: Home
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.nede
+        volume_level: 0.3
+    # - service: media_player.play_media
+    #   data:
+    #     entity_id: media_player.nede
+    #     media_content_id: http://nrk-mms-live.telenorcdn.net:80/nrk_radio_p2_aac_h
+    #     media_content_type: "audio/aac"
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nede_radio_channels_state
+        option: "NRK P2"
+
+# --------------------------------------------------------------------------
+# Nede turned off
+# --------------------------------------------------------------------------
+- alias: "Kitchen Radio - turned off"
+  trigger:
+    platform: state
+    entity_id: media_player.nede
+    to: "off"
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.nede_radio_channels_state
+      option: "Off"
+
+- alias: "Kitchen Radio - Off selected"
+  trigger:
+    platform: state
+    entity_id: input_select.nede_radio_channels_state
+    to: "Off"
+  action:
+    service: media_player.turn_off
+    entity_id: media_player.nede
+
+# --------------------------------------------------------------------------
+# Nede changed to other app
+# --------------------------------------------------------------------------
+- alias: "Kitchen Radio - changed to another app"
+  trigger:
+    platform: template
+    value_template: >
+      {% if not is_state_attr('media_player.nede', 'app_name', 'Default Media Receiver') -%}
+        true
+      {%- endif %}
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.nede_radio_channels_state
+      option: "Off"

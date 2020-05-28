@@ -1,0 +1,212 @@
+# -----------------------------------------------------------------------
+# Entrance Area all Lights
+# -----------------------------------------------------------------------
+- platform: group
+  name: Entrance Area Lights
+  entities: 
+    - light.entrance
+    - light.picture_wall
+    - light.stairs
+
+
+- platform: group
+  name: Downstairs All Lights
+  entities:
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+    - light.downstairs_couch_stairs
+    - light.downstairs_couch_window
+    - light.dining_room_couch_dimmer
+    - light.dining_room_carpet_dimmer
+    - light.dining_room_chandelier_dimmer
+    - light.kitchen_counter
+    - light.kitchen_serving_area_dimmer
+
+- platform: group
+  name: Downstairs All White Lights
+  entities:
+    - light.dining_room_couch_dimmer
+    - light.dining_room_carpet_dimmer
+    - light.dining_room_chandelier_dimmer
+    - light.kitchen_serving_area_dimmer
+
+- platform: group
+  name: Downstairs All RGB Lights
+  entities:
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+    - light.downstairs_couch_stairs
+    - light.downstairs_couch_window
+    - light.kitchen_counter
+
+- platform: group
+  name: Bedroom All Lights
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+
+- platform: group      
+  name: Bedroom Reading Lights
+  entities:
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+
+- platform: group
+  name: Bedroom Spots
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+
+- platform: group
+  name: Paper
+  entities:
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+
+- platform: group
+  name: Utility Room Lights
+  entities:
+    - light.utility_room_hallway_dimmer
+    - light.utility_room_ceiling_light
+    - light.utility_room_counter
+
+- platform: mqtt
+  schema: json
+  name: "Marthas Bookshelf All"
+  state_topic: "/ledshelf/light/state"
+  command_topic: "/ledshelf/light/set"
+  availability_topic: "/ledshelf/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - RainbowByShelf
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt
+  schema: json
+  name: "Marthas Bookshelf Top Left"
+  state_topic: "/leddev/topleft/state"
+  command_topic: "/leddev/topleft/set"
+  availability_topic: "/leddev/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt
+  schema: json
+  name: "Marthas Bookshelf Top Center"
+  state_topic: "/leddev/topcenter/state"
+  command_topic: "/leddev/topcenter/set"
+  availability_topic: "/leddev/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt
+  schema: json
+  name: "Marthas Bookshelf Top Right"
+  state_topic: "/leddev/topright/state"
+  command_topic: "/leddev/topright/set"
+  availability_topic: "/leddev/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: mqtt
+  schema: json
+  name: "Development Test"
+  state_topic: "/leddev/light/state"
+  command_topic: "/leddev/light/set"
+  availability_topic: "/leddev/status"
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - RainbowByShelf
+    - Sinelon
+  retain: false
+  payload_available: Online
+  payload_not_available: Disconnected
+  rgb: true
+  hs: true
+  white_value: false
+  color_temp: true
+  brightness: true
+  qos: 0
+
+- platform: rfxtrx
+  devices:
+    # Test Wall plug
+    0b1100000035747a02010f50:
+      name: "Test NEXA Wall Plug"
+

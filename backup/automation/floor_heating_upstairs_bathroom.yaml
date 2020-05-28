@@ -1,0 +1,101 @@
+# ---------------------------------------------------------------------------
+# Upstairs Bathroom
+# ---------------------------------------------------------------------------
+- alias: 'Upstairs Bathroom Heating Morning On'
+  trigger:
+    - platform: time
+      at: '04:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.home_away
+        state: Home
+      - condition: numeric_state
+        entity_id: sensor.upstairs_bathroom_sensor_temperature
+        below: 22
+  action:
+    - service: climate.set_temperature 
+      entity_id: climate.upstairs_bathroom_heating_heating
+      data:
+        temperature: 30
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Upstairs Bathroom Heating"
+        message: >
+          Upstairs Bathroom Heating ON. Current temperature 
+          {{ sensor.upstairs_bathroom_heating_temperature }}
+          °C, Goal is 30°C
+
+- alias: 'Upstairs Bathroom Heating Morning Off'
+  trigger:
+    - platform: time
+      at: '08:00:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.upstairs_bathroom_heating_heating
+      data: 
+        temperature: 10
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Upstairs Bathroom Heating"
+        message: >
+          Upstairs Bathroom Heating OFF. Temperature -> 20°C
+          Current temperature 
+          {{ sensor.upstairs_bathroom_heating_temperature }}
+          °C
+
+- alias: 'Upstairs Bathroom Heating Evening On'
+  trigger:
+    - platform: time
+      at: '17:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.home_away
+        state: Home
+      - condition: numeric_state
+        entity_id: sensor.upstairs_bathroom_sensor_temperature
+        below: 22
+  action:
+    - service: climate.set_temperature 
+      entity_id: climate.upstairs_bathroom_heating_heating
+      data:
+        temperature: 30
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Upstairs Bathroom Heating"
+        message: >
+          Upstairs Bathroom Heating ON. Current temperature is 
+          {{ sensor.upstairs_bathroom_heating_temperature }}
+          °C, Goal is 30°C
+
+# ---------------------------------------------------------------------------
+# Turing upstairs bathroom heating off at evening
+# ---------------------------------------------------------------------------
+- alias: 'Upstairs Bathroom Heating Evening Off'
+  trigger:
+    - platform: time
+      at: '22:00:00'
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.upstairs_bathroom_heating_heating
+      data: 
+        temperature: 10
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Upstairs Bathroom Heating"
+        message: >
+          Upstairs Bathroom Heating OFF. Temperature is 20°C
+          Current temperature is 
+          {{ sensor.upstairs_bathroom_heating_temperature }}
+          °C

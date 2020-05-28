@@ -1,0 +1,8 @@
+alias: Bedroom Morning Bright
+sequence:
+  - service: light.turn_on
+    entity_id: light.bedroom_all_lights
+    data:
+      brightness: 255
+      transition: 900
+      kelvin: 2700

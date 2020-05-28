@@ -1,0 +1,31 @@
+#
+# Kids Bedroom
+kids_bedroom_lights:
+  name: Kids Bedroom Lights
+  entities:
+    - light.kids_bedroom_spot_1
+    - light.kids_bedroom_spot_2
+    - light.kids_bedroom_spot_3
+    - light.hue_lightstrip_plus_1_2
+
+kids_bedroom_heater:
+  name: Kids Bedroom Heater
+  entities:
+    - switch.tv_heater_switch
+
+kids_bedroom_sensors:
+  name: Kids Bedroom Sensors
+  entities:
+    - sensor.netatmo_hamsterrommet_temperature
+    - sensor.netatmo_hamsterrommet_co2
+    - sensor.netatmo_hamsterrommet_humidity
+    - sensor.bedroom_control
+
+kids_bedroom:
+  name: Kids Bedroom
+  view: yes
+  entities:
+    - group.kids_bedroom_lights
+    - group.kids_bedroom_heater
+    - group.kids_bedroom_sensors
+    - media_player.anne_og_ediths_rom

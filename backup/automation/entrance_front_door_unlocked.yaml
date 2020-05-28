@@ -1,0 +1,11 @@
+- alias: Entrance - Front Door Unlocked
+  trigger:
+    - platform: state
+      entity_id: lock.ytterdor
+      to: "unlocked"
+  action:
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Front Door Unlocked"
+        message: Front door was unlocked by
+          {{ states.lock.ytterdor.attributes.changed_by }}

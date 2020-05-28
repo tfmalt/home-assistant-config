@@ -1,0 +1,69 @@
+# --------------------------------------------------------------------------
+# Motion detection in Entrance
+- alias: "Entrance - Set mode to Home"
+  trigger:
+    platform: state
+    entity_id: sensor.entrance_burglar
+    from: "0"
+    to: "8"
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.home_away
+      option: "Home"
+
+- alias: "Entrance - Turn lights on when motion detected"
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_burglar
+      from: "0"
+      to: "8"
+  condition:
+    condition: numeric_state
+    entity_id: sensor.entrance_luminance
+    below: 40
+  action:
+    - service_template: >
+        {% if is_state("input_select.tv_lights", "Off") -%}
+           input_select.select_option 
+        {%- endif %}
+      data_template:
+        entity_id: input_select.tv_lights
+        option: >
+          {% if is_state("input_select.sd60_mode", "Day") -%}
+            Bright
+          {%- elif is_state("input_select.sd60_mode", "Evening") -%}
+            Medium
+          {%- elif is_state("input_select.sd60_mode", "Night") -%}
+            Dimmed
+          {%- endif %}
+    - service: notify.ios_tmobil_x
+      data:
+        title: Entrance Motion
+        message: >
+          Turning on light {{ states.sensor.entrance_luminance.state_with_unit }}.
+          Mode is {{ states.input_select.sd60_mode }} 
+
+- alias: "Entrance - Turn off lights at night when no motion"
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_burglar
+      from: "8"
+      to: "0"
+      for:
+        minutes: 10
+  condition:
+    condition: state
+    entity_id: input_select.sd60_mode
+    state: Night
+  action:
+    - service: light.turn_off
+      entity_id:
+        - group.entrance_lights
+        - group.stairs_light
+        - group.picture_wall_lights
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Entrance No Motion"
+        message: >
+          It is night. Turning off lights in entrance.

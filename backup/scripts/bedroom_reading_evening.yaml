@@ -1,0 +1,14 @@
+alias: Bedroom Reading Evening
+sequence:
+  - service: light.turn_on
+    entity_id: group.bedroom_spotlights
+    data:
+      brightness: 96
+      transition: 2
+      kelvin: 2300
+  - service: light.turn_on
+    entity_id: group.bedroom_reading_lights
+    data:
+      brightness: 255
+      transition: 2
+      kelvin: 2700

@@ -1,0 +1,11 @@
+- alias: 'Homekit - Start when z-wave is ready'
+  trigger:
+    - platform: event
+      event_type: zwave.network_ready
+  action:
+    - service: homekit.start
+    - service: notify.ios_tmobil_x
+      data:
+        title: 'Z-Wave Ready'
+        message: >
+          Got Z-Wave ready event. Starting Homekit

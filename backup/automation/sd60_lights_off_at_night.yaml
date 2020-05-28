@@ -1,0 +1,25 @@
+#
+# Turn off all lights downstairs at night if no motion is registered
+#
+- alias: "Night All lights Off"
+  trigger:
+    platform: state
+    entity_id: input_select.sd60_mode
+    to: "Night"
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+      data:
+        transition: 2
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Night Turned All Lights Off"
+        message: "Turned all lights off"
+    - service: input_select.select_option
+      entity_id: input_select.dining_room_lights
+      data:
+        option: "Off"
+    - service: input_select.select_option
+      entity_id: input_select.tv_lights
+      data:
+        option: "Off"

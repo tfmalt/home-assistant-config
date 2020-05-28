@@ -1,0 +1,20 @@
+# This script turns all lights downstairs dimmed and cozy!
+alias: Downstairs Red
+sequence:
+  - service: light.turn_off
+    entity_id: 
+      - light.dimmer_dining_room_couch
+      - light.dining_room_carpet_spotlights_level
+      - light.dining_room_chandelier_level
+  - service: light.turn_on
+    entity_id: 
+      - group.dining_room_hue
+      - group.downstairs_couch_lights
+      - light.kitchen_counter
+    data:
+      brightness: 255
+      transition: 1
+      rgb_color: [255, 0, 0]
+  - service: notify.notify
+    data:
+      message: 'Downstairs light set to red red red!'

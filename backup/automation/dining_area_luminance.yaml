@@ -1,0 +1,45 @@
+- alias: 'Dining Area Luminance - Turning off Lights'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dining_area_luminance
+      above: 200
+  condition:
+    - condition: state
+      entity_id: input_select.sd60_mode
+      state: Day
+    - condition: state
+      entity_id: input_select.home_away
+      state: Home
+  action:
+    - service: light.turn_off
+      entity_id:
+        - group.downstairs_dining_area
+      data:
+        transition: 2
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Turning off dining area lights"
+        message: > 
+          Luminance is
+          {{ states.sensor.dining_area_luminance.state_with_unit }}
+
+- alias: 'Dining Area Luminance - Turning on Lights'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dining_area_luminance
+      below: 180
+  condition:
+    - condition: state
+      entity_id: input_select.sd60_mode
+      state: Day
+    - condition: state
+      entity_id: input_select.home_away
+      state: Home
+  action:
+    - service: script.downstairs_dining_area_bright
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Turning on dining area lights"
+        message: > 
+          Luminance is
+          {{ states.sensor.dining_area_luminance.state_with_unit }}

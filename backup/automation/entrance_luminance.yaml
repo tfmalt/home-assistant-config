@@ -1,0 +1,44 @@
+- alias: 'Entrance Luminance - Turning off Lights Upstairs'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.entrance_sensor_luminance
+      above: 200
+  condition:
+    - condition: state
+      entity_id: input_select.sd60_mode
+      state: Day
+    - condition: state
+      entity_id: input_select.home_away
+      state: Home
+  action:
+    - service: light.turn_off
+      entity_id: group.upstairs_light
+      data:
+        transition: 2
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Entrance luminance high"
+        message: > 
+          Turning off lights upstairs. Luminance is
+          {{ states.sensor.entrance_sensor_luminance.state_with_unit }}
+
+- alias: 'Entrance Luminance - Turning on Lights Upstairs'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.entrance_sensor_luminance
+      below: 110
+  condition:
+    - condition: state
+      entity_id: input_select.sd60_mode
+      state: Day
+    - condition: state
+      entity_id: input_select.home_away
+      state: Home
+  action:
+    - service: script.tv_bright_slow
+    - service: notify.ios_tmobil_x
+      data: 
+        title: "Entrance luminance low" 
+        message: > 
+          Turning on lights upstairs. Luminance is
+          {{ states.sensor.entrance_sensor_luminance.state_with_unit }}

@@ -1,0 +1,10 @@
+alias: Downstairs - All lights off
+sequence:
+  - service: light.turn_off
+    entity_id: light.downstairs_all_lights
+    data:
+      transition: 2
+  - service: input_select.select_option
+    entity_id: input_select.dining_room_lights
+    data:
+      option: "Off"

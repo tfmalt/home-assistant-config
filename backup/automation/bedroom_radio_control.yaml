@@ -1,0 +1,15 @@
+- alias: "Bedroom - Change radio channel"
+  trigger:
+    platform: state
+    entity_id: input_select.soverom_radio_channels
+  condition:
+    - condition: template
+      value_template: >
+        {{ not is_state('input_select.soverom_radio_channels', 'Off') }}
+  action:
+    - service: media_player.select_source
+      data_template:
+        entity_id: media_player.bedroom
+        source: "{{ states('input_select.soverom_radio_channels') }}"
+    #  - service: media_player.play_media
+    #    entity_id: media_player.soverom

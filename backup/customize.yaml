@@ -1,0 +1,31 @@
+climate.thermofloor_as_heatit_thermostat_tf_021_cooling:
+  hidden: true
+light.aeon_labs_zw099_smart_dimmer_6_level:
+  hidden: true
+light.fibaro_system_fgd212_dimmer_2_level:
+  hidden: true
+light.fibaro_system_fgd212_dimmer_2_level_2:
+  hidden: true
+sensor.bedroom_sensor_burglar:
+  icon: mdi:motion-sensor
+sensor.bedroom_sensor_relative_humidity:
+  icon: mdi:water-percent
+light.fibaro_system_fgd212_dimmer_2_level_3:
+  hidden: true
+light.fibaro_system_fgd212_dimmer_2_level_4:
+  hidden: true
+switch.test_nexa_wte_2_left:
+  assumed_state: false
+switch.entrance_light_outside:
+  assumed_state: false
+
+person.thomas_malt:
+  entity_picture: "https://s.gravatar.com/avatar/3aba0c13fde0cc945c2137cd2873a598?s=320"
+person.kirsti_anstad:
+  entity_picture: "/local/assets/kirsti.jpg"
+person.edith_anstad_malt:
+  entity_picture: "/local/assets/edith.jpg"
+person.anne_anstad_malt:
+  entity_picture: "/local/assets/anne.jpg"
+person.martha_anstad_malt:
+  entity_picture: "/local/assets/martha.jpg"

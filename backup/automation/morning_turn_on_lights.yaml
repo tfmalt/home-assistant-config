@@ -1,0 +1,28 @@
+- alias: "Morning turn on lights"
+  trigger:
+    platform: time
+    at: "07:20:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_select.home_away
+        state: Home
+      - condition: numeric_state
+        entity_id: sensor.entrance_luminance
+        below: 120
+  action:
+    - service: script.downstairs_bright
+    - service: notify.ios_tmobil_x
+      data:
+        title: "Turning on lights"
+        message: >
+          It's morning. The Luminance is
+          {{ states.sensor.entrance_luminance.state_with_unit }}
