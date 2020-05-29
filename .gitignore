@@ -1,0 +1,8 @@
+config/.HA_VERSION
+config/deps/
+config/tts/
+config/home-assistant.log
+config/home-assistant_v2.db
+config/.cloud/
+config/.storage/
+config/.storage/*
