@@ -5,5 +5,5 @@ config/home-assistant.log
 config/home-assistant_v2.db
 config/.cloud/
 config/.storage/
-config/.storage/*config/secrets.yaml
+config/secrets.yaml
 .vscode
