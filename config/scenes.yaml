@@ -1,0 +1,27 @@
+- id: '1590793512328'
+  name: Bedroom Spotlights Bright
+  entities:
+    light.bedroom_spot_1:
+      brightness: 254
+      color_temp: 384
+      friendly_name: Bedroom Spot 1
+      max_mireds: 454
+      min_mireds: 250
+      state: 'on'
+      supported_features: 35
+    light.bedroom_spot_2:
+      brightness: 254
+      color_temp: 370
+      friendly_name: Bedroom Spot 2
+      max_mireds: 454
+      min_mireds: 250
+      state: 'on'
+      supported_features: 35
+    light.bedroom_spot_3:
+      brightness: 254
+      color_temp: 370
+      friendly_name: Bedroom spot 3
+      max_mireds: 454
+      min_mireds: 250
+      state: 'on'
+      supported_features: 35
