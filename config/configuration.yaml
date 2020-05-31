@@ -9,7 +9,39 @@ recorder:
   purge_keep_days: 7
   db_url: !secret db_url
 
-group: !include groups.yaml
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+# Example configuration.yaml entry with manually specified Sonos IP addresses
+sonos:
+  media_player:
+    hosts:
+      - 10.19.71.6
+
+# somfy:
+#   client_id: !secret somfy_client_id
+#   client_secret: !secret somfy_client_secret
+tahoma: !secret tahoma_config
+
+# -----------------------------------------------------------------------
+# Z-Wave
+# -----------------------------------------------------------------------
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+  device_config_glob: !include zwave_device_config_glob.yaml
+  device_config: !include zwave_device_config.yaml
+  debug: false
+
+# -----------------------------------------------------------------------
+# 433Mhz
+# -----------------------------------------------------------------------
+rfxtrx:
+  device: /dev/ttyUSB0
+
+light: !include_dir_merge_list lights/
+group: !include_dir_merge_named groups/
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
