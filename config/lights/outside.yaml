@@ -1,0 +1,7 @@
+- platform: group
+  name: Garden Lights
+  entities:
+    - light.ute_nede_hoyre_oppe
+    - light.ute_nede_hoyre_nede
+    - light.ute_nede_venstre_oppe
+    - light.ute_nede_venstre_nede
