@@ -1,0 +1,80 @@
+#
+# TV Lights
+tv_hue_lights:
+  name: TV Hue Lights
+  entities:
+    - light.tv_hue_right
+    - light.tv_hue_left
+    - light.tv_bookshelf_middle
+    - light.tv_bookshelf_left
+    - light.tv_bookshelf_right
+
+tv_couch_lights:
+  name: TV Couch Lights
+  entities:
+    - light.tv_couch_desk
+    - light.tv_couch_window
+
+tv_lights:
+  name: TV Lights
+  entities:
+    - group.tv_hue_lights
+    - group.tv_couch_lights
+
+# Hallway / Entrance / Stairs Lights
+entrance_lights:
+  name: Entrance Lights
+  entities:
+    - light.entrance_door
+    - light.entrance_wardrobe
+
+upstairs_switches:
+  name: Entrance Switch
+  entities:
+    - switch.entrance_switch_switch
+    - switch.entrance_switch_switch_2
+
+stairs_light:
+  name: Stairs Light
+  entities:
+    - light.stairs_spot_1
+    - light.stairs_spot_2
+    - light.stairs_spot_3
+
+picture_wall_lights:
+  name: Picture Wall Lights
+  entities:
+    - light.picture_wall_left
+    - light.picture_wall_middle
+    - light.picture_wall_right
+
+hallway:
+  name: Hallway
+  entities:
+    - group.entrance_lights
+    - group.stairs_light
+    - group.picture_wall_lights
+
+tv_scripts:
+  name: TV Scripts
+  entities:
+    - script.tv_bright
+    - script.tv_medium_bright
+    - script.tv_dimmed
+    - script.tv_off
+
+upstairs_light:
+  name: Upstairs Light
+  entities:
+    - group.entrance_lights
+    - group.stairs_light
+    - group.picture_wall_lights
+    - group.tv_hue_lights
+    - group.tv_couch_lights
+    - group.tv_spotlights
+    - group.upstairs_bathroom_hallway
+
+upstairs_bathroom_hallway:
+  name: Upstairs Bathroom Hallway Light
+  entities:
+    - light.upstairs_bathroom_hallway_light
