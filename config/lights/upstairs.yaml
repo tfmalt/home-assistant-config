@@ -1,0 +1,56 @@
+- platform: group
+  name: TV Bookshelf Lights
+  entities:
+    - light.tv_bookshelf_left
+    - light.tv_bookshelf_middle
+    - light.tv_bookshelf_right
+    - light.tv_hue_left
+    - light.tv_hue_right
+
+- platform: group
+  name: TV Couch Lights
+  entities:
+    - light.tv_couch_desk
+    - light.tv_couch_window
+
+- platform: group
+  name: Picture Wall
+  entities:
+    - light.picture_wall_left
+    - light.picture_wall_middle
+    - light.picture_wall_right
+
+- platform: group
+  name: Stairs Lights
+  entities:
+    - light.stairs_spot_1
+    - light.stairs_spot_2
+    - light.stairs_spot_3
+
+- platform: group
+  name: Entrance Lights
+  entities:
+    - light.entrance_door
+    - light.entrance_wardrobe
+
+- platform: group
+  name: Bedroom Lights
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+
+- platform: group
+  name: Bedroom Reading Lights
+  entities:
+    - light.kirstis_reading_light
+    - light.thomas_reading_light
+
+- platform: group
+  name: Bedroom Spots
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
