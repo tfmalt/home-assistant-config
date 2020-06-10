@@ -1,0 +1,20 @@
+alias: TV Medium Bright
+sequence:
+  - service: light.turn_on
+    entity_id:
+      - light.tv_bookshelf_lights
+    data:
+      brightness: 180
+      transition: 1
+      kelvin: 2350
+  - service: light.turn_on
+    entity_id:
+      - light.tv_couch_lights
+      - light.picture_wall
+      - light.entrance_lights
+      - light.stairs_lights
+      - light.upstairs_bathroom_hallway_light
+    data:
+      brightness: 168
+      kelvin: 2350
+      transition: 1
