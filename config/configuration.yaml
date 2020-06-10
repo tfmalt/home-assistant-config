@@ -44,5 +44,5 @@ rfxtrx:
 light: !include_dir_merge_list lights/
 group: !include_dir_merge_named groups/
 automation: !include automations.yaml
-script: !include scripts.yaml
+script: !include_dir_named scripts/
 scene: !include scenes.yaml
