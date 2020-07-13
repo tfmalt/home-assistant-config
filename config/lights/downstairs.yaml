@@ -17,3 +17,21 @@
     - light.downstairs_couch_spots
     - light.downstairs_carpet_spots
     - light.downstairs_kitchen_spots
+
+- platform: group
+  name: Downstairs All White Lights
+  entities:
+    - light.downstairs_couch_spots
+    - light.downstairs_carpet_spots
+    - light.downstairs_kitchen_spots
+    - light.downstairs_chandelier
+
+- platform: group
+  name: Downstairs All RGB Lights
+  entities:
+    - light.downstairs_couch_stairs
+    - light.downstairs_couch_window
+    - light.paper_1
+    - light.paper_2
+    - light.paper_3
+    - light.kitchen_counter
