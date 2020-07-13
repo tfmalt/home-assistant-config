@@ -41,8 +41,20 @@ zwave:
 rfxtrx:
   device: /dev/ttyUSB0
 
+switch:
+  - platform: rfxtrx
+    automatic_add: true
+    devices:
+      0b1100000009965e02010f60:
+        name: "TV Door Left"
+        fire_event: true
+      0b1100020009965e01010f60:
+        name: "TV Door Right"
+        fire_event: true
+
 light: !include_dir_merge_list lights/
 group: !include_dir_merge_named groups/
 automation: !include automations.yaml
 script: !include_dir_named scripts/
 scene: !include scenes.yaml
+input_select: !include input_select.yaml
