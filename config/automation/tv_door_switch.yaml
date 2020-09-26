@@ -1,0 +1,55 @@
+- alias: "TV Door - Left Top - Bright"
+  trigger:
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_left
+      state: "on"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Bright"
+    - service: switch.turn_off
+      entity_id: switch.tv_door_right
+
+- alias: "TV Door - Left Bottom - Dimmed"
+  trigger:
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_left
+      state: "off"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Dimmed"
+
+- alias: "TV Door - Right Top - Medium"
+  trigger:
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_right
+      state: "on"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Medium"
+    - service: switch.turn_off
+      entity_id: switch.tv_door_left
+
+- alias: "TV Door - Right Bottom - Off"
+  trigger:
+    platform: event
+    event_type: "button_pressed"
+    event_data:
+      entity_id: switch.tv_door_right
+      state: "off"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_lights
+        option: "Off"

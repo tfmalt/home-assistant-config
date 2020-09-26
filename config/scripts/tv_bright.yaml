@@ -17,3 +17,7 @@ sequence:
       brightness: 255
       kelvin: 2700
       transition: 1
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.tv_lights
+      option: "Bright"
