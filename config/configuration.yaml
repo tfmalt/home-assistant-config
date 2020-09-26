@@ -20,10 +20,43 @@ sonos:
     hosts:
       - 10.19.71.6
 
+# influxdb
+influxdb:
+  api_version: 2
+  ssl: false
+  host: !secret influxdb_host
+  port: !secret influxdb_port
+  token: !secret influxdb_token
+  organization: !secret influxdb_organization
+  bucket: !secret influxdb_bucket
+  tags:
+    source: hass
+  tags_attributes:
+    - friendly_name
+  default_measurement: units
+  exclude:
+    entities:
+      - zone.home
+    domains:
+      - persistent_notification
+      - person
+  include:
+    domains:
+      - sensor
+      - light
+      - media_player
+      - binary_sensor
+      - sun
+    entities:
+      - weather.home
+
 # somfy:
 #   client_id: !secret somfy_client_id
 #   client_secret: !secret somfy_client_secret
 tahoma: !secret tahoma_config
+
+# netatmo
+netatmo: !secret netatmo_config
 
 # -----------------------------------------------------------------------
 # Z-Wave
@@ -51,10 +84,16 @@ switch:
       0b1100020009965e01010f60:
         name: "TV Door Right"
         fire_event: true
+      0b1100040009884a02010f60:
+        name: "Garden Door Left"
+        fire_event: true
+      0b1100050009884a01010f60:
+        name: "Garden Door Right"
+        fire_event: true
 
 light: !include_dir_merge_list lights/
 group: !include_dir_merge_named groups/
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation/
 script: !include_dir_named scripts/
 scene: !include scenes.yaml
 input_select: !include input_select.yaml
