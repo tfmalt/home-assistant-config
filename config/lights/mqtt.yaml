@@ -1,0 +1,53 @@
+- platform: mqtt
+  schema: json
+  unique_id: leddev
+  name: led_development
+  state_topic: /leddev/light/state
+  command_topic: /leddev/light/set
+  availability_topic: /leddev/status
+  payload_available: Online
+  payload_not_available: Disconnected
+  brightness: true
+  rgb: true
+  hs: true
+  xy: false
+  white_value: false
+  color_temp: true
+  qos: 0
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - RainbowByShelf
+    - Sinelon
+
+- platform: mqtt
+  schema: json
+  unique_id: leddev
+  name: martha_bookshelf
+  state_topic: /ledmartha/light/state
+  command_topic: /ledmartha/light/set
+  availability_topic: /ledmartha/status
+  payload_available: Online
+  payload_not_available: Disconnected
+  brightness: true
+  rgb: true
+  hs: true
+  xy: false
+  white_value: false
+  color_temp: true
+  qos: 0
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - RainbowByShelf
+    - Sinelon
