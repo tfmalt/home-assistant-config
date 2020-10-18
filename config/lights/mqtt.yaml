@@ -18,16 +18,21 @@
   effect_list:
     - none
     - BPM
+    - VUMeter
+    - Music Dancer
     - Confetti
     - Glitter Rainbow
     - Juggle
     - Rainbow
     - RainbowByShelf
     - Sinelon
+    - Pride
+    - Walking Rainbow
+    - Colorloop
 
 - platform: mqtt
   schema: json
-  unique_id: leddev
+  unique_id: ledmartha
   name: martha_bookshelf
   state_topic: /ledmartha/light/state
   command_topic: /ledmartha/light/set
@@ -51,3 +56,35 @@
     - Rainbow
     - RainbowByShelf
     - Sinelon
+
+- platform: mqtt
+  schema: json
+  unique_id: lededith
+  name: edith_bed
+  state_topic: /lededith/light/state
+  command_topic: /lededith/light/set
+  availability_topic: /lededith/status
+  payload_available: Online
+  payload_not_available: Disconnected
+  brightness: true
+  rgb: true
+  hs: true
+  xy: false
+  white_value: false
+  color_temp: true
+  qos: 0
+  effect: true
+  effect_list:
+    - none
+    - BPM
+    - Confetti
+    - Glitter Rainbow
+    - Juggle
+    - Rainbow
+    - RainbowByShelf
+    - Sinelon
+    - Pride
+    - Music Dancer
+    - VUMeter
+    - Walking Rainbow
+    - Colorloop
