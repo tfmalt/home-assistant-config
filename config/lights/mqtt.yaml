@@ -24,7 +24,7 @@
     - Glitter Rainbow
     - Juggle
     - Rainbow
-    - RainbowByShelf
+    - Gradient
     - Sinelon
     - Pride
     - Walking Rainbow
@@ -56,6 +56,11 @@
     - Rainbow
     - RainbowByShelf
     - Sinelon
+    - VUMeter
+    - Music Dancer
+    - Pride
+    - Walking Rainbow
+    - Colorloop
 
 - platform: mqtt
   schema: json
@@ -81,7 +86,7 @@
     - Glitter Rainbow
     - Juggle
     - Rainbow
-    - RainbowByShelf
+    - Gradient
     - Sinelon
     - Pride
     - Music Dancer
