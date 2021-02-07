@@ -13,3 +13,4 @@ config/OZW_Log.txt
 config/pyozw.sqlite
 config/zwcfg_0xee566eec.xml
 config/zwscene.xml
+docker-compose.yaml
