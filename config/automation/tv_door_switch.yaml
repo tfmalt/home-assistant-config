@@ -1,7 +1,7 @@
 - alias: "TV Door - Left Top - Bright"
   trigger:
     platform: event
-    event_type: "button_pressed"
+    event_type: "state_changed"
     event_data:
       entity_id: switch.tv_door_left
       state: "on"
@@ -16,7 +16,7 @@
 - alias: "TV Door - Left Bottom - Dimmed"
   trigger:
     platform: event
-    event_type: "button_pressed"
+    event_type: "state_changed"
     event_data:
       entity_id: switch.tv_door_left
       state: "off"
@@ -29,7 +29,7 @@
 - alias: "TV Door - Right Top - Medium"
   trigger:
     platform: event
-    event_type: "button_pressed"
+    event_type: "state_changed"
     event_data:
       entity_id: switch.tv_door_right
       state: "on"
@@ -44,7 +44,7 @@
 - alias: "TV Door - Right Bottom - Off"
   trigger:
     platform: event
-    event_type: "button_pressed"
+    event_type: "state_changed"
     event_data:
       entity_id: switch.tv_door_right
       state: "off"

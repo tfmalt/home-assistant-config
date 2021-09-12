@@ -10,15 +10,12 @@ recorder:
   purge_keep_days: 7
   db_url: !secret db_url
 
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
+## spotify:
+##   client_id: !secret spotify_client_id
+##   client_secret: !secret spotify_client_secret
 
 # Example configuration.yaml entry with manually specified Sonos IP addresses
-sonos:
-  media_player:
-    hosts:
-      - 10.19.71.6
+# sonos:
 
 # influxdb
 influxdb:
@@ -61,35 +58,35 @@ netatmo: !secret netatmo_config
 # -----------------------------------------------------------------------
 # Z-Wave
 # -----------------------------------------------------------------------
-zwave:
-  usb_path: /dev/ttyACM0
-  network_key: !secret zwave_network_key
-  device_config_glob: !include zwave_device_config_glob.yaml
-  device_config: !include zwave_device_config.yaml
-  debug: false
+# zwave:
+#   usb_path: /dev/ttyACM0
+#   network_key: !secret zwave_network_key
+#   device_config_glob: !include zwave_device_config_glob.yaml
+#   device_config: !include zwave_device_config.yaml
+#   debug: false
 
 # -----------------------------------------------------------------------
 # 433Mhz
 # -----------------------------------------------------------------------
-rfxtrx:
-  device: /dev/ttyUSB0
-
-switch:
-  - platform: rfxtrx
-    automatic_add: true
-    devices:
-      0b1100000009965e02010f60:
-        name: "TV Door Left"
-        fire_event: true
-      0b1100020009965e01010f60:
-        name: "TV Door Right"
-        fire_event: true
-      0b1100040009884a02010f60:
-        name: "Garden Door Left"
-        fire_event: true
-      0b1100050009884a01010f60:
-        name: "Garden Door Right"
-        fire_event: true
+# rfxtrx:
+#   device: /dev/ttyUSB0
+#
+# switch:
+#   - platform: rfxtrx
+#     automatic_add: true
+#     devices:
+#       0b1100000009965e02010f60:
+#         name: "TV Door Left"
+#         fire_event: true
+#       0b1100020009965e01010f60:
+#         name: "TV Door Right"
+#         fire_event: true
+#       0b1100040009884a02010f60:
+#         name: "Garden Door Left"
+#         fire_event: true
+#       0b1100050009884a01010f60:
+#         name: "Garden Door Right"
+#         fire_event: true
 
 light: !include_dir_merge_list lights/
 group: !include_dir_merge_named groups/
