@@ -96,3 +96,4 @@ automation: !include_dir_merge_list automation/
 script: !include_dir_named scripts/
 scene: !include scenes.yaml
 input_select: !include input_select.yaml
+notify: !include notify.yaml

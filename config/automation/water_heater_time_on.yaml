@@ -1,10 +1,59 @@
 - id: "1"
-  alias: Water Heater On
+  alias: "Water Heater On at 13:00"
   description: "Turns water heater on at 13:00"
   trigger:
     - platform: time
       at: "13:00:00"
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.electricity_price
+          attribute: price_level
+          state: "CHEAP"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.water_heater
+  mode: single
+
+- id: "2"
+  alias: "Water Heater Off at 07:00"
+  description: "Turns off the water heater at 07:00"
+  trigger:
+    - platform: time
+      at: 07:00:00
   condition: []
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+  mode: single
+
+- id: "11"
+  alias: "Water Heater Off at 16:00"
+  description: "Turns water heater on at 16:00"
+  trigger:
+    - platform: time
+      at: "16:00:00"
+  condition: []
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+  mode: single
+
+- id: "12"
+  alias: "Water Heater On at 19:00"
+  description: "Turns water heater on at 19:00"
+  trigger:
+    - platform: time
+      at: "19:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      state: "CHEAP"
   action:
     - service: switch.turn_on
       target:

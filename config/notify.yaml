@@ -1,0 +1,6 @@
+- platform: group
+  name: devices_to_notify
+  services:
+    - service: mobile_app_tmobil12
+    - service: mobile_app_proppad_10_5
+    - service: mobile_app_kirstifonen

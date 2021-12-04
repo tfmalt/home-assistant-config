@@ -1,3 +1,6 @@
+#
+# Turn off heating when expensive
+#
 - id: "1638626031020"
   alias: "Toggle heating when expensive"
   description: "When electricity i snot cheap turn off water heater and heating"
@@ -16,12 +19,19 @@
         entity_id:
           - climate.heating_upstairs_bathroom
           - climate.heating_living_room
-          - climate.heating_upstairs_bathroom
+          - climate.heating_downstairs_bathroom
           - climate.heating_utility_room
       data:
         temperature: 12
+    - service: notify.devices_to_notify
+      data:
+        title: "Dyr strøm"
+        message: "Varme er skrudd av. Stopp ACER!?!"
   mode: single
 
+#
+# Turn on heating when electricity is cheap
+#
 - id: "1638626031021"
   alias: "Toggle heating when cheap"
   description: "When electricity is cheap turn on water heater and heating"
@@ -59,4 +69,9 @@
           - climate.heating_utility_room
       data:
         temperature: 22
+    - service: notify.devices_to_notify
+      data:
+        title: "Billig strøm"
+        message: "Varme er skrudd på. Stopp ACER!?!"
+
   mode: single
