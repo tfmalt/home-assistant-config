@@ -55,6 +55,8 @@ tahoma: !secret tahoma_config
 # netatmo
 netatmo: !secret netatmo_config
 
+home_connect: !secret home_connect_config
+
 # -----------------------------------------------------------------------
 # Z-Wave
 # -----------------------------------------------------------------------

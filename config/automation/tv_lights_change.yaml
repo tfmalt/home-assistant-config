@@ -3,7 +3,7 @@
     platform: state
     entity_id: input_select.tv_lights
   action:
-    - service_template: >
+    - service: >
         {% if is_state("input_select.tv_lights", "Bright") -%}
           script.tv_bright
         {%- elif is_state("input_select.tv_lights", "Medium") -%}
