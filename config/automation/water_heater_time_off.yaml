@@ -1,0 +1,12 @@
+- id: "2"
+  alias: Water Heater off
+  description: "Turns off the water heater at 07:00"
+  trigger:
+    - platform: time
+      at: 07:00:00
+  condition: []
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+  mode: single

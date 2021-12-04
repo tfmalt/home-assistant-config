@@ -1,0 +1,577 @@
+1:
+  - AEON Labs ZW090 Z-Stick Gen5 EU
+    zwave.aeon_labs_zw090_z_stick_gen5_eu
+  
+2:
+  - Living Room
+    climate.heating_living_room
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Energy
+    sensor.thermofloor_as_heatit_thermostat_tf_021_energy
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Exporting
+    sensor.thermofloor_as_heatit_thermostat_tf_021_exporting
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Temperature
+    sensor.thermofloor_as_heatit_thermostat_tf_021_temperature_3
+  
+  - ThermoFloor AS Heatit Thermostat TF 021
+    zwave.thermofloor_as_heatit_thermostat_tf_021
+  
+3:
+  - Downstairs Bathroom
+    climate.heating_dowstairs_bathroom
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Energy
+    sensor.thermofloor_as_heatit_thermostat_tf_021_energy_2
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Exporting
+    sensor.thermofloor_as_heatit_thermostat_tf_021_exporting_2
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Temperature
+    sensor.thermofloor_as_heatit_thermostat_tf_021_temperature_4
+  
+  - ThermoFloor AS Heatit Thermostat TF 021
+    zwave.thermofloor_as_heatit_thermostat_tf_021_2
+  
+4:
+  - Utility Room
+    climate.heating_utility_room
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Energy
+    sensor.thermofloor_as_heatit_thermostat_tf_021_energy_3
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Exporting
+    sensor.thermofloor_as_heatit_thermostat_tf_021_exporting_3
+  
+  - ThermoFloor AS Heatit Thermostat TF 021 Temperature
+    sensor.thermofloor_as_heatit_thermostat_tf_021_temperature_2
+  
+  - ThermoFloor AS Heatit Thermostat TF 021
+    zwave.thermofloor_as_heatit_thermostat_tf_021_3
+  
+5:
+  - Upstairs Bathroom
+    climate.heating_upstairs_bathroom_mode_4
+  
+  - Heating Upstairs Bathroom Energy
+    sensor.heating_upstairs_bathroom_energy_4
+  
+  - Heating Upstairs Bathroom Exporting
+    sensor.heating_upstairs_bathroom_exporting_4
+  
+  - Heating Upstairs Bathroom Temperature
+    sensor.heating_upstairs_bathroom_temperature
+  
+  - Heating Upstairs Bathroom
+    zwave.heating_upstairs_bathroom_4
+  
+7:
+  - Current
+    sensor.current_water_heater
+  
+  - Water Heater Power
+    sensor.power_water_heater
+  
+  - Total Energy
+    sensor.switch_water_heater_energy
+  
+  - Water Heater Voltage
+    sensor.voltage_water_heater
+  
+  - Switch Water Heater
+    switch.water_heater
+  
+  - Switch Water Heater
+    zwave.switch_water_heater
+  
+8:
+  - Multisensor Sensor
+    binary_sensor.multisensor_sensor_5
+  
+  - AEON Labs ZW100 MultiSensor 6 Luminance
+    sensor.aeon_labs_zw100_multisensor_6_luminance_5
+  
+  - AEON Labs ZW100 MultiSensor 6 Relative Humidity
+    sensor.aeon_labs_zw100_multisensor_6_relative_humidity_5
+  
+  - AEON Labs ZW100 MultiSensor 6 Temperature
+    sensor.aeon_labs_zw100_multisensor_6_temperature_4
+  
+  - AEON Labs ZW100 MultiSensor 6 Ultraviolet
+    sensor.aeon_labs_zw100_multisensor_6_ultraviolet_5
+  
+  - Multisensor Alarm Level
+    sensor.multisensor_alarm_level_5
+  
+  - Multisensor Alarm Type
+    sensor.multisensor_alarm_type_5
+  
+  - Multisensor Battery Level
+    sensor.multisensor_battery_level_5
+  
+  - Multisensor Burglar
+    sensor.multisensor_burglar
+  
+  - Multisensor SourceNodeId
+    sensor.multisensor_sourcenodeid_5
+  
+  - Multisensor
+    zwave.multisensor_5
+  
+9:
+  - Downstairs Chandelier
+    light.downstairs_chandelier
+  
+  - FIBARO System FGD212 Dimmer 2 Level
+    light.fibaro_system_fgd212_dimmer_2_level
+  
+  - Downstairs Chandelier Alarm Level
+    sensor.downstairs_chandelier_alarm_level
+  
+  - Downstairs Chandelier Alarm Type
+    sensor.downstairs_chandelier_alarm_type
+  
+  - Downstairs Chandelier Energy
+    sensor.downstairs_chandelier_energy
+  
+  - Downstairs Chandelier Exporting
+    sensor.downstairs_chandelier_exporting_2
+  
+  - Downstairs Chandelier Heat
+    sensor.downstairs_chandelier_heat_2
+  
+  - Downstairs Chandelier Power
+    sensor.downstairs_chandelier_power_2
+  
+  - Downstairs Chandelier Power
+    sensor.downstairs_chandelier_power_8
+  
+  - Downstairs Chandelier Power Management
+    sensor.downstairs_chandelier_power_management_2
+  
+  - Downstairs Chandelier SourceNodeId
+    sensor.downstairs_chandelier_sourcenodeid_2
+  
+  - Downstairs Chandelier System
+    sensor.downstairs_chandelier_system_2
+  
+  - Downstairs Chandelier
+    zwave.downstairs_chandelier
+  
+10:
+  - Unknown Node 10
+    zwave.unknown_node_10
+  
+11:
+  - FIBARO System FGD212 Dimmer 2 Level
+    light.fibaro_system_fgd212_dimmer_2_level_2
+  
+  - Utility Room Hallway Spots
+    light.utility_room_hallway_spots
+  
+  - Utility Room Hallway Spots Alarm Level
+    sensor.utility_room_hallway_spots_alarm_level_2
+  
+  - Utility Room Hallway Spots Alarm Type
+    sensor.utility_room_hallway_spots_alarm_type_2
+  
+  - Utility Room Hallway Spots Energy
+    sensor.utility_room_hallway_spots_energy_2
+  
+  - Utility Room Hallway Spots Exporting
+    sensor.utility_room_hallway_spots_exporting_3
+  
+  - Utility Room Hallway Spots Heat
+    sensor.utility_room_hallway_spots_heat_3
+  
+  - Utility Room Hallway Spots Power
+    sensor.utility_room_hallway_spots_power_3
+  
+  - Utility Room Hallway Spots Power
+    sensor.utility_room_hallway_spots_power_9
+  
+  - Utility Room Hallway Spots Power Management
+    sensor.utility_room_hallway_spots_power_management_3
+  
+  - Utility Room Hallway Spots SourceNodeId
+    sensor.utility_room_hallway_spots_sourcenodeid_3
+  
+  - Utility Room Hallway Spots System
+    sensor.utility_room_hallway_spots_system_3
+  
+  - Utility Room Hallway Spots
+    zwave.utility_room_hallway_spots_2
+  
+12:
+  - Downstairs Bathroom Spots Level
+    light.downstairs_bathroom_dimmer
+  
+  - FIBARO System FGD212 Dimmer 2 Level
+    light.fibaro_system_fgd212_dimmer_2_level_3
+  
+  - Downstairs Bathroom Spots Power
+    sensor.downstairs_bathroom_power
+  
+  - Downstairs Bathroom Spots Alarm Level
+    sensor.fibaro_system_fgd212_dimmer_2_alarm_level_3
+  
+  - Downstairs Bathroom Spots Alarm Type
+    sensor.fibaro_system_fgd212_dimmer_2_alarm_type_3
+  
+  - Downstairs Bathroom Spots Energy
+    sensor.fibaro_system_fgd212_dimmer_2_energy_3
+  
+  - Downstairs Bathroom Spots Exporting
+    sensor.fibaro_system_fgd212_dimmer_2_exporting_4
+  
+  - Downstairs Bathroom Spots Heat
+    sensor.fibaro_system_fgd212_dimmer_2_heat_4
+  
+  - Downstairs Bathroom Spots Power
+    sensor.fibaro_system_fgd212_dimmer_2_power_10
+  
+  - Downstairs Bathroom Spots Power Management
+    sensor.fibaro_system_fgd212_dimmer_2_power_management_4
+  
+  - Downstairs Bathroom Spots SourceNodeId
+    sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid_4
+  
+  - Downstairs Bathroom Spots System
+    sensor.fibaro_system_fgd212_dimmer_2_system_4
+  
+  - Downstairs Bathroom Spots
+    zwave.downstairs_bathroom
+  
+14:
+  - FIBARO System FGS223 Double Relay Alarm Level
+    sensor.fibaro_system_fgs223_double_relay_alarm_level
+  
+  - FIBARO System FGS223 Double Relay Alarm Type
+    sensor.fibaro_system_fgs223_double_relay_alarm_type
+  
+  - FIBARO System FGS223 Double Relay Energy
+    sensor.fibaro_system_fgs223_double_relay_energy
+  
+  - FIBARO System FGS223 Double Relay Energy
+    sensor.fibaro_system_fgs223_double_relay_energy_2
+  
+  - FIBARO System FGS223 Double Relay Exporting
+    sensor.fibaro_system_fgs223_double_relay_exporting
+  
+  - FIBARO System FGS223 Double Relay Exporting
+    sensor.fibaro_system_fgs223_double_relay_exporting_2
+  
+  - FIBARO System FGS223 Double Relay Heat
+    sensor.fibaro_system_fgs223_double_relay_heat
+  
+  - FIBARO System FGS223 Double Relay Power
+    sensor.fibaro_system_fgs223_double_relay_power
+  
+  - FIBARO System FGS223 Double Relay Power
+    sensor.fibaro_system_fgs223_double_relay_power_2
+  
+  - FIBARO System FGS223 Double Relay Power Management
+    sensor.fibaro_system_fgs223_double_relay_power_management
+  
+  - FIBARO System FGS223 Double Relay SourceNodeId
+    sensor.fibaro_system_fgs223_double_relay_sourcenodeid
+  
+  - Entrance Outside Light
+    switch.entrance_outside_switch
+  
+  - FIBARO System FGS223 Double Relay Switch
+    switch.fibaro_system_fgs223_double_relay_switch
+  
+  - FIBARO System FGS223 Double Relay
+    zwave.fibaro_system_fgs223_double_relay
+  
+16:
+  - Downstairs Carpet Spots Sensor
+    binary_sensor.downstairs_carpet_spots_sensor_3
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Sensor
+    binary_sensor.qubino_goap_zmnhdd1_flush_dimmer_sensor
+  
+  - Downstairs Carpet Spots
+    light.downstairs_carpet_spots
+  
+  - Downstairs Carpet Spots Alarm Level
+    sensor.downstairs_carpet_spots_alarm_level_3
+  
+  - Downstairs Carpet Spots Alarm Type
+    sensor.downstairs_carpet_spots_alarm_type_3
+  
+  - Downstairs Carpet Spots Energy
+    sensor.downstairs_carpet_spots_energy
+  
+  - Downstairs Carpet Spots Exporting
+    sensor.downstairs_carpet_spots_exporting
+  
+  - Downstairs Carpet Spots Power
+    sensor.downstairs_carpet_spots_power
+  
+  - Downstairs Carpet Spots Power Management
+    sensor.downstairs_carpet_spots_power_management
+  
+  - Downstairs Carpet Spots SourceNodeId
+    sensor.downstairs_carpet_spots_sourcenodeid
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Alarm Level
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_alarm_level
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Alarm Type
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_alarm_type
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Power Management
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_power_management_2
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer SourceNodeId
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_sourcenodeid_2
+  
+  - Downstairs Carpet Spots Switch
+    switch.downstairs_carpet_spots_switch
+  
+  - Downstairs Carpet Spots
+    zwave.downstairs_carpet_spots
+  
+18:
+  - Kitchen Counter Spots Sensor
+    binary_sensor.kitchen_counter_spots_sensor_4
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Sensor
+    binary_sensor.qubino_goap_zmnhdd1_flush_dimmer_sensor_2
+  
+  - Kitchen Counter Spots
+    light.downstairs_kitchen_spots
+  
+  - Kitchen Counter Spots Alarm Level
+    sensor.kitchen_counter_spots_alarm_level_4
+  
+  - Kitchen Counter Spots Alarm Type
+    sensor.kitchen_counter_spots_alarm_type_4
+  
+  - Kitchen Counter Spots Energy
+    sensor.kitchen_counter_spots_energy_2
+  
+  - Kitchen Counter Spots Exporting
+    sensor.kitchen_counter_spots_exporting_2
+  
+  - Kitchen Counter Spots Power
+    sensor.kitchen_counter_spots_power_2
+  
+  - Kitchen Counter Spots Power Management
+    sensor.kitchen_counter_spots_power_management_3
+  
+  - Kitchen Counter Spots SourceNodeId
+    sensor.kitchen_counter_spots_sourcenodeid_3
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Alarm Level
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_alarm_level_2
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Alarm Type
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_alarm_type_2
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer Power Management
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_power_management_4
+  
+  - Qubino (Goap) ZMNHDD1 Flush Dimmer SourceNodeId
+    sensor.qubino_goap_zmnhdd1_flush_dimmer_sourcenodeid_4
+  
+  - Kitchen Counter Spots Switch
+    switch.kitchen_counter_spots_switch_2
+  
+  - Kitchen Counter Spots
+    zwave.kitchen_counter_spots_2
+  
+20:
+  - Main Switch Utility Closet Alarm Level
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_alarm_level
+  
+  - Main Switch Utility Closet Alarm Type
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_alarm_type
+  
+  - Main Switch Utility Closet Energy
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_energy
+  
+  - Main Switch Utility Closet Exporting
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_exporting
+  
+  - Main Switch Utility Closet Power
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_power
+  
+  - Main Switch Utility Closet Power
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_power_2
+  
+  - Main Switch Utility Closet Power Management
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_power_management
+  
+  - Main Switch Utility Closet SourceNodeId
+    sensor.fibaro_system_fgwpe_f_wall_plug_gen5_sourcenodeid
+  
+  - Main Switch Utility Closet Switch
+    switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch
+  
+  - Main Switch Utility Closet
+    zwave.fibaro_system_fgwpe_f_wall_plug_gen5
+  
+21:
+  - AEON Labs ZW100 MultiSensor 6 Sensor
+    binary_sensor.aeon_labs_zw100_multisensor_6_sensor_3
+  
+  - AEON Labs ZW100 MultiSensor 6 Alarm Level
+    sensor.aeon_labs_zw100_multisensor_6_alarm_level_3
+  
+  - AEON Labs ZW100 MultiSensor 6 Alarm Type
+    sensor.aeon_labs_zw100_multisensor_6_alarm_type_3
+  
+  - AEON Labs ZW100 MultiSensor 6 Battery Level
+    sensor.aeon_labs_zw100_multisensor_6_battery_level_3
+  
+  - AEON Labs ZW100 MultiSensor 6 Burglar
+    sensor.aeon_labs_zw100_multisensor_6_burglar_4
+  
+  - AEON Labs ZW100 MultiSensor 6 Luminance
+    sensor.aeon_labs_zw100_multisensor_6_luminance_3
+  
+  - AEON Labs ZW100 MultiSensor 6 Relative Humidity
+    sensor.aeon_labs_zw100_multisensor_6_relative_humidity_3
+  
+  - AEON Labs ZW100 MultiSensor 6 SourceNodeId
+    sensor.aeon_labs_zw100_multisensor_6_sourcenodeid_4
+  
+  - AEON Labs ZW100 MultiSensor 6 Temperature
+    sensor.aeon_labs_zw100_multisensor_6_temperature_3
+  
+  - AEON Labs ZW100 MultiSensor 6 Ultraviolet
+    sensor.aeon_labs_zw100_multisensor_6_ultraviolet_3
+  
+  - AEON Labs ZW100 MultiSensor 6
+    zwave.aeon_labs_zw100_multisensor_6_3
+  
+22:
+  - FIBARO System FGD212 Dimmer 2 Level
+    light.fibaro_system_fgd212_dimmer_2_level_4
+  
+  - FIBARO System FGD212 Dimmer 2 Level
+    light.fibaro_system_fgd212_dimmer_2_level_9
+  
+  - FIBARO System FGD212 Dimmer 2 Alarm Level
+    sensor.fibaro_system_fgd212_dimmer_2_alarm_level_4
+  
+  - FIBARO System FGD212 Dimmer 2 Alarm Type
+    sensor.fibaro_system_fgd212_dimmer_2_alarm_type_4
+  
+  - FIBARO System FGD212 Dimmer 2 Energy
+    sensor.fibaro_system_fgd212_dimmer_2_energy_4
+  
+  - FIBARO System FGD212 Dimmer 2 Exporting
+    sensor.fibaro_system_fgd212_dimmer_2_exporting_5
+  
+  - FIBARO System FGD212 Dimmer 2 Heat
+    sensor.fibaro_system_fgd212_dimmer_2_heat_5
+  
+  - FIBARO System FGD212 Dimmer 2 Power
+    sensor.fibaro_system_fgd212_dimmer_2_power_11
+  
+  - FIBARO System FGD212 Dimmer 2 Power
+    sensor.fibaro_system_fgd212_dimmer_2_power_5
+  
+  - FIBARO System FGD212 Dimmer 2 Power Management
+    sensor.fibaro_system_fgd212_dimmer_2_power_management_5
+  
+  - FIBARO System FGD212 Dimmer 2 SourceNodeId
+    sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid_5
+  
+  - FIBARO System FGD212 Dimmer 2 System
+    sensor.fibaro_system_fgd212_dimmer_2_system_5
+  
+  - FIBARO System FGD212 Dimmer 2
+    zwave.fibaro_system_fgd212_dimmer_2_4
+  
+23:
+  - Downstairs Couch Spots
+    light.downstairs_couch_spots
+  
+  - FIBARO System FGD212 Dimmer 2 Level
+    light.fibaro_system_fgd212_dimmer_2_level_5
+  
+  - Downstairs Couch Spots Alarm Level
+    sensor.downstairs_couch_spots_alarm_level_5
+  
+  - Downstairs Couch Spots Alarm Type
+    sensor.downstairs_couch_spots_alarm_type_5
+  
+  - Downstairs Couch Spots Energy
+    sensor.downstairs_couch_spots_energy_5
+  
+  - Downstairs Couch Spots Exporting
+    sensor.downstairs_couch_spots_exporting_6
+  
+  - Downstairs Couch Spots Heat
+    sensor.downstairs_couch_spots_heat_6
+  
+  - Downstairs Couch Spots Power
+    sensor.downstairs_couch_spots_power
+  
+  - Downstairs Couch Spots Power
+    sensor.downstairs_couch_spots_power_12
+  
+  - Downstairs Couch Spots Power Management
+    sensor.downstairs_couch_spots_power_management_6
+  
+  - Downstairs Couch Spots SourceNodeId
+    sensor.downstairs_couch_spots_sourcenodeid_6
+  
+  - Downstairs Couch Spots System
+    sensor.downstairs_couch_spots_system_6
+  
+  - Downstairs Couch Spots
+    zwave.downstairs_couch_spots_5
+  
+32:
+  - FIBARO System FGD212 Dimmer 2 Level
+    light.fibaro_system_fgd212_dimmer_2_level_11
+  
+  - FIBARO System FGD212 Dimmer 2 Alarm Level
+    sensor.fibaro_system_fgd212_dimmer_2_alarm_level_6
+  
+  - FIBARO System FGD212 Dimmer 2 Alarm Type
+    sensor.fibaro_system_fgd212_dimmer_2_alarm_type_6
+  
+  - FIBARO System FGD212 Dimmer 2 Energy
+    sensor.fibaro_system_fgd212_dimmer_2_energy_6
+  
+  - FIBARO System FGD212 Dimmer 2 Exporting
+    sensor.fibaro_system_fgd212_dimmer_2_exporting
+  
+  - FIBARO System FGD212 Dimmer 2 Heat
+    sensor.fibaro_system_fgd212_dimmer_2_heat
+  
+  - FIBARO System FGD212 Dimmer 2 Power
+    sensor.fibaro_system_fgd212_dimmer_2_power
+  
+  - FIBARO System FGD212 Dimmer 2 Power
+    sensor.fibaro_system_fgd212_dimmer_2_power_7
+  
+  - FIBARO System FGD212 Dimmer 2 Power Management
+    sensor.fibaro_system_fgd212_dimmer_2_power_management
+  
+  - FIBARO System FGD212 Dimmer 2 SourceNodeId
+    sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid
+  
+  - FIBARO System FGD212 Dimmer 2 System
+    sensor.fibaro_system_fgd212_dimmer_2_system
+  
+  - FIBARO System FGD212 Dimmer 2
+    zwave.fibaro_system_fgd212_dimmer_2_6
+  
+35:
+  - Z-Wave (Sigma Designs) Unknown: type=0003, id=a305 Battery Level
+    sensor.z_wave_sigma_designs_unknown_type_0003_id_a305_battery_level
+  
+  - Z-Wave (Sigma Designs) Unknown: type=0003, id=a305 Switch
+    switch.z_wave_sigma_designs_unknown_type_0003_id_a305_switch
+  
+  - Z-Wave (Sigma Designs) Unknown: type=0003, id=a305
+    zwave.z_wave_sigma_designs_unknown_type_0003_id_a305
