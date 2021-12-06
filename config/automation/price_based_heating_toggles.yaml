@@ -1,0 +1,105 @@
+#
+# Turn off heating when expensive
+#
+- id: "1638626031020"
+  alias: "Toggle heating when expensive"
+  description: "When electricity i snot cheap turn off water heater and heating"
+  trigger:
+    - platform: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      from: CHEAP
+  condition: []
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_upstairs_bathroom
+          - climate.heating_downstairs_bathroom
+          - climate.heating_living_room
+          - climate.heating_utility_room
+      data:
+        temperature: 12
+    - service: notify.devices_to_notify
+      data:
+        title: "Dyr strøm"
+        message: "Varme er skrudd av. Stopp ACER!?!"
+  mode: single
+
+#
+# Turn on heating when electricity is cheap
+#
+- id: "1638626031021"
+  alias: "Toggle heating when cheap"
+  description: "When electricity is cheap turn on water heater and heating"
+  trigger:
+    - platform: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      to: CHEAP
+  condition: []
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.water_heater
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_upstairs_bathroom
+      data:
+        temperature: 28
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_living_room
+      data:
+        temperature: 20
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_downstairs_bathroom
+      data:
+        temperature: 26
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_utility_room
+      data:
+        temperature: 22
+    - service: notify.devices_to_notify
+      data:
+        title: "Billig strøm"
+        message: "Varme er skrudd på. Stopp ACER!?!"
+
+  mode: single
+
+#
+# Send notifications when price changes
+#
+- id: "1638626031022"
+  alias: "Send notification when price changes"
+  description: "When electricity price is updated send a notification"
+  trigger:
+    - platform: state
+      entity_id: sensor.electricity_price
+  action:
+    - service: notify.devices_to_notify
+      data:
+        title: "Ny strømpris!"
+        message: >
+          {{ states.sensor.electricity_price.state }} 
+          {{ states.sensor.electricity_price.attributes.unit_of_measurement }}.
+          {% if states.sensor.electricity_price.attributes.price_level == "CHEAP" %}
+          Dette er BILLIG.
+          {% elif states.sensor.electricity_price.attributes.price_level == "NORMAL" %}
+          Dette er NORMAL pris.
+          {% elif states.sensor.electricity_price.attributes.price_level == "EXPENSIVE" %}
+          Dette er DYRT.
+          {% elif states.sensor.electricity_price.attributes.price_level == "VERY_EXPENSIVE" %}
+          Dette er DRITDYRT.
+          {% else %}
+          {{ states.sensor.electricity_price.attributes.price_level }}
+          {% endif %}

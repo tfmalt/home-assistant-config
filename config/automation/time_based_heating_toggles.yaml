@@ -1,0 +1,165 @@
+# Time based toggles for heating
+#
+
+# At 04:00 floor heating is turned on if price is still cheap
+- id: "0400"
+  alias: "Heating on at 04:00"
+  description: "Turns on floor heating at 04:00 if the price is still cheap"
+  trigger:
+    - platform: time
+      at: "04:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      state: "CHEAP"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.water_heater
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_upstairs_bathroom
+      data:
+        temperature: 30
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_living_room
+      data:
+        temperature: 20
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_downstairs_bathroom
+      data:
+        temperature: 28
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_utility_room
+      data:
+        temperature: 22
+    - service: notify.devices_to_notify
+      data:
+        title: "Varme på!"
+        message: "Klokka er 04:00. Strøm er billig. Stopp ACER!?!"
+
+# At 07:00 the water heater and floor heating is always switched off
+- id: "0700"
+  alias: "Heating off at 07:00"
+  description: "Turns off heating at 07:00"
+  trigger:
+    - platform: time
+      at: 07:00:00
+  condition: []
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_upstairs_bathroom
+          - climate.heating_downstairs_bathroom
+          - climate.heating_living_room
+          - climate.heating_utility_room
+      data:
+        temperature: 12
+    - service: notify.devices_to_notify
+      data:
+        title: "Varme av!"
+        message: "Klokka er 07:00. Stopp ACER!?!"
+  mode: single
+
+# At 13:00 the water heater is switched on if price is still cheap
+- id: "1300"
+  alias: "Water Heater on at 13:00"
+  description: "Turns water heater on at 13:00"
+  trigger:
+    - platform: time
+      at: "13:00:00"
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.electricity_price
+          attribute: price_level
+          state: "CHEAP"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.water_heater
+    - service: notify.devices_to_notify
+      data:
+        title: "Varmtvann på!"
+        message: "Klokka er 13:00 og strøm er billig!"
+  mode: single
+
+# At 16:00 Turn water heater off
+- id: "1600"
+  alias: "Water Heater off at 16:00"
+  description: "Turns water heater off at 16:00"
+  trigger:
+    - platform: time
+      at: "16:00:00"
+  condition: []
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+    - service: notify.devices_to_notify
+      data:
+        title: "Varmtvann av!"
+        message: "Klokka er 16:00. Stopp ACER!?!"
+  mode: single
+
+# At 19:00 the water heater is switched on if price is still cheap
+- id: "1900"
+  alias: "Water Heater on at 19:00"
+  description: "Turns water heater on at 19:00"
+  trigger:
+    - platform: time
+      at: "19:00:00"
+  condition:
+    - condition: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      state: "CHEAP"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.water_heater
+    - service: notify.devices_to_notify
+      data:
+        title: "Varmtvann på!"
+        message: "Klokka er 19:00 og strøm er billig!"
+  mode: single
+
+# At 22:00 heating is turned off
+- id: "22"
+  alias: "Heating off at 22:00"
+  description: "Turns off heating at 22:00"
+  trigger:
+    - platform: time
+      at: "22:00:00"
+  condition: []
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_upstairs_bathroom
+          - climate.heating_downstairs_bathroom
+          - climate.heating_living_room
+          - climate.heating_utility_room
+      data:
+        temperature: 12
+    - service: notify.devices_to_notify
+      data:
+        title: "Varme av!"
+        message: "Klokka er 22:00. Stopp ACER!?!"
+  mode: single

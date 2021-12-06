@@ -1,0 +1,31 @@
+# Turn on lights at 07:30
+- id: "1638711450890"
+  alias: Turn on lights at 07:30
+  description: Upstairs and Downstairs lights are turned on at 07:30
+  trigger:
+    - platform: time
+      at: 07:30:00
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: script.tv_bright
+    - service: script.downstairs_bright
+  mode: single
+
+# Turn off lights at 01:00
+- id: "1638711450891"
+  alias: Turn off lights at 01:00
+  description: Upstairs and Downstairs lights are turned off at 01:00
+  trigger:
+    - platform: time
+      at: 01:00:00
+  action:
+    - service: script.tv_off
+    - service: script.downstairs_off
+  mode: single
