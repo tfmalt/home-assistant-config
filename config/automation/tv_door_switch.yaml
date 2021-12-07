@@ -1,55 +1,69 @@
-- alias: "TV Door - Left Top - Bright"
+- id: "1638892111585"
+  alias: TV Door - Left Top
+  description: When Top Left is pressed cycle bright - medium - dim - off
   trigger:
-    platform: event
-    event_type: "state_changed"
-    event_data:
+    - platform: state
+      entity_id: switch.tv_door_left
+  condition:
+    - alias: "make sure the switch is on"
+      condition: state
       entity_id: switch.tv_door_left
       state: "on"
   action:
-    - service: input_select.select_option
-      data:
+    - service: input_select.select_next
+      target:
         entity_id: input_select.tv_lights
-        option: "Bright"
-    - service: switch.turn_off
-      entity_id: switch.tv_door_right
+  mode: single
 
-- alias: "TV Door - Left Bottom - Dimmed"
+- id: "1638892111586"
+  alias: TV Door - Left Bottom
+  description: When Top Left is pressed turn off
   trigger:
-    platform: event
-    event_type: "state_changed"
-    event_data:
+    - platform: state
+      entity_id: switch.tv_door_left
+  condition:
+    - alias: "make sure the switch is off"
+      condition: state
       entity_id: switch.tv_door_left
       state: "off"
   action:
-    - service: input_select.select_option
-      data:
+    - service: input_select.select_last
+      target:
         entity_id: input_select.tv_lights
-        option: "Dimmed"
+  mode: single
 
-- alias: "TV Door - Right Top - Medium"
+- id: "1638892111587"
+  alias: TV Door - Right Top
+  description: When Top Right is pressed turn on upstairs and downstairs
   trigger:
-    platform: event
-    event_type: "state_changed"
-    event_data:
+    - platform: state
+      entity_id: switch.tv_door_right
+  condition:
+    - alias: "make sure the switch is on"
+      condition: state
       entity_id: switch.tv_door_right
       state: "on"
   action:
-    - service: input_select.select_option
-      data:
+    - service: input_select.select_first
+      target:
         entity_id: input_select.tv_lights
-        option: "Medium"
-    - service: switch.turn_off
-      entity_id: switch.tv_door_left
+    - service: script.downstairs_all_on_bright
+  mode: single
 
-- alias: "TV Door - Right Bottom - Off"
+- id: "1638892111588"
+  alias: TV Door - Right Bottom
+  description: When Bottom Right is pressed turn off upstairs and downstairs
   trigger:
-    platform: event
-    event_type: "state_changed"
-    event_data:
+    - platform: state
+      entity_id: switch.tv_door_right
+  condition:
+    - alias: "make sure the switch is on"
+      condition: state
       entity_id: switch.tv_door_right
       state: "off"
   action:
-    - service: input_select.select_option
-      data:
+    - service: input_select.select_last
+      target:
         entity_id: input_select.tv_lights
-        option: "Off"
+    - service: script.downstairs_off
+  mode: single

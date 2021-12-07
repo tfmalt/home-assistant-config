@@ -1,0 +1,8 @@
+heating:
+  name: Floor Heating
+  entities:
+    - climate.heating_upstairs_bathroom
+    - climate.heating_downstairs_bathroom
+    - climate.heating_living_room
+    - climate.heating_utility_room
+  icon: mdi:thermometer

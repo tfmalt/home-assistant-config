@@ -2,13 +2,15 @@
 # Turn off heating when expensive
 #
 - id: "1638626031020"
-  alias: "Toggle heating when expensive"
-  description: "When electricity i snot cheap turn off water heater and heating"
+  alias: "Heating Turn off heating when expensive"
+  description: "When electricity expensive I turn off heating"
   trigger:
     - platform: state
       entity_id: sensor.electricity_price
       attribute: price_level
-      from: CHEAP
+      to:
+        - EXPENSIVE
+        - VERY_EXPENSIVE
   condition: []
   action:
     - service: switch.turn_off
@@ -22,7 +24,7 @@
           - climate.heating_living_room
           - climate.heating_utility_room
       data:
-        temperature: 12
+        temperature: 16
     - service: notify.devices_to_notify
       data:
         title: "Dyr strøm"
@@ -33,18 +35,24 @@
 # Turn on heating when electricity is cheap
 #
 - id: "1638626031021"
-  alias: "Toggle heating when cheap"
-  description: "When electricity is cheap turn on water heater and heating"
+  alias: "Heating turn on floor heating when cheap or normal"
+  description: "When electricity is cheap turn heating on when time between 07:00 and 22:00"
   trigger:
     - platform: state
       entity_id: sensor.electricity_price
       attribute: price_level
-      to: CHEAP
-  condition: []
+      from:
+        - EXPENSIVE
+        - VERY_EXPENSIVE
+      to:
+        - CHEAP
+        - NORMAL
+  condition:
+    - alias: "Time between 07:00 and 22:00"
+      condition: time
+      after: "07:00:00"
+      before: "22:00:00"
   action:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.water_heater
     - service: climate.set_temperature
       target:
         entity_id:
@@ -99,7 +107,24 @@
           {% elif states.sensor.electricity_price.attributes.price_level == "EXPENSIVE" %}
           Dette er DYRT.
           {% elif states.sensor.electricity_price.attributes.price_level == "VERY_EXPENSIVE" %}
-          Dette er DRITDYRT.
+          Dette er KJEMPEDYRT.
           {% else %}
           {{ states.sensor.electricity_price.attributes.price_level }}
           {% endif %}
+
+#
+# Turn on water heater when electricity is cheap
+#
+- id: "1638626031023"
+  alias: "Heating Toggle water heater when cheap"
+  description: "When electricity is cheap turn water heater on"
+  trigger:
+    - platform: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      to:
+        - CHEAP
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.water_heater

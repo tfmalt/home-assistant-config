@@ -1,0 +1,54 @@
+- id: "1638908262867"
+  alias: Electricity above 10kW
+  description:
+    When electricity consumption is above 10kW some stuff should be turned
+    off.
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      above: 10000
+  condition:
+    - condition: time
+      before: "04:00:00"
+      after: "07:00:00"
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+  mode: single
+
+- id: "1638908262868"
+  alias: Electricity above 5kW
+  description:
+    When electricity consumption is above 5kW some stuff should be turned
+    off.
+  trigger:
+    - platform: time_pattern
+      minutes: "/2"
+    - platform: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      above: 5000
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      above: 5000
+    - condition: time
+      before: "04:00:00"
+      after: "07:00:00"
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id: >
+          {% set ns = namespace(heater="") %}
+          {% for heater in expand('group.heating') if state_attr(heater.entity_id, 'temperature') > 16 %}
+            {% set ns.heater = heater.entity_id %}
+          {% endfor %}
+          {{ ns.heater }}
+
+      data:
+        temperature: 16
+    - service: notify.devices_to_notify
+      data:
+        title: Electricity usage is high
+        message: Turning off one floor heater
+  mode: single

@@ -16,6 +16,11 @@
   action:
     - service: script.tv_bright
     - service: script.downstairs_bright
+    - service: notify.devices_to_notify
+      data:
+        title: "Lyset er på"
+        message: "Klokka er 07:30. Lyset er skrudd på."
+
   mode: single
 
 # Turn off lights at 01:00
@@ -29,3 +34,45 @@
     - service: script.tv_off
     - service: script.downstairs_off
   mode: single
+
+# Turn on outside lights at sunset
+- id: "1638711450892"
+  alias: Turn on outside lights at sunset
+  description: Outside lights are turned on at sunset
+  trigger:
+    - platform: sun
+      event: sunset
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.garden_lights
+      data:
+        kelvin: 2700
+        brightness: 255
+    - service: switch.turn_on
+      data: {}
+      target:
+        entity_id: switch.entrance_switch_outside
+    - service: notify.devices_to_notify
+      data:
+        title: "Solnedgang!"
+        message: "Utelys er skrudd på."
+
+# Turn off outside lights at sunrise
+- id: "1638711450893"
+  alias: Turn off outside lights at sunrise
+  description: Outside lights are turned off at sunrise
+  trigger:
+    - platform: sun
+      event: sunrise
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.garden_lights
+    - service: switch.turn_off
+      target:
+        entity_id: switch.entrance_switch_outside
+    - service: notify.devices_to_notify
+      data:
+        title: "Soloppgang!"
+        message: "Utelys blir skrudd av."
