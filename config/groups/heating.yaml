@@ -1,8 +1,14 @@
 heating:
   name: Floor Heating
   entities:
-    - climate.heating_upstairs_bathroom
-    - climate.heating_downstairs_bathroom
     - climate.heating_living_room
+    - climate.heating_downstairs_bathroom
+    - climate.heating_upstairs_bathroom
     - climate.heating_utility_room
   icon: mdi:thermometer
+
+low_priority_floor_heating:
+  name: Low Priority Floor Heating
+  entities:
+    - climate.heating_upstairs_bathroom
+    - climate.heating_utility_room

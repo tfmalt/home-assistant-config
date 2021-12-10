@@ -9,12 +9,16 @@
       above: 10000
   condition:
     - condition: time
-      before: "04:00:00"
+      before: "03:00:00"
       after: "07:00:00"
   action:
     - service: switch.turn_off
       target:
         entity_id: switch.water_heater
+    - service: notify.devices_to_notify
+      data:
+        title: Electricity usage is above 10kW
+        message: Turning off water heater
   mode: single
 
 - id: "1638908262868"
@@ -33,7 +37,7 @@
       entity_id: sensor.power_simon_darres_vei_60
       above: 5000
     - condition: time
-      before: "04:00:00"
+      before: "03:00:00"
       after: "07:00:00"
   action:
     - service: climate.set_temperature
@@ -49,6 +53,60 @@
         temperature: 16
     - service: notify.devices_to_notify
       data:
-        title: Electricity usage is high
+        title: Electricity usage is above 5kW
         message: Turning off one floor heater
   mode: single
+
+- id: "1638908262869"
+  alias: Electricity below 2kW
+  description:
+    When electricity consumption is below 2kW some stuff can be turned
+    on.
+  trigger:
+    - platform: time_pattern
+      minutes: "/2"
+    - platform: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      below: 2000
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      below: 2000
+    - condition: time
+      before: "03:00:00"
+      after: "07:00:00"
+    - condition: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      state:
+        - NORMAL
+        - CHEAP
+        - VERY_CHEAP
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_living_room
+      data:
+        temperature: 20
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_downstairs_bathroom
+      data:
+        temperature: 26
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_upstairs_bathroom
+      data:
+        temperature: 28
+    - service: climate.set_temperature
+      target:
+        entity_id:
+          - climate.heating_utility_room
+      data:
+        temperature: 22
+    - service: switch.turn_on
+      target:
+        entity_id: switch.water_heater
