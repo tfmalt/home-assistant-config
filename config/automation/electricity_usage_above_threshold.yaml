@@ -51,10 +51,6 @@
 
       data:
         temperature: 16
-    - service: notify.devices_to_notify
-      data:
-        title: Electricity usage is above 5kW
-        message: Turning off one floor heater
   mode: single
 
 - id: "1638908262869"
