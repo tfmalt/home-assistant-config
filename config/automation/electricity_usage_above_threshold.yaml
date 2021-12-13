@@ -84,19 +84,19 @@
         entity_id:
           - climate.heating_living_room
       data:
-        temperature: 20
+        temperature: 19
     - service: climate.set_temperature
       target:
         entity_id:
           - climate.heating_downstairs_bathroom
       data:
-        temperature: 26
+        temperature: 24
     - service: climate.set_temperature
       target:
         entity_id:
           - climate.heating_upstairs_bathroom
       data:
-        temperature: 28
+        temperature: 26
     - service: climate.set_temperature
       target:
         entity_id:

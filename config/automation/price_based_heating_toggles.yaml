@@ -53,19 +53,19 @@
         entity_id:
           - climate.heating_upstairs_bathroom
       data:
-        temperature: 28
+        temperature: 26
     - service: climate.set_temperature
       target:
         entity_id:
           - climate.heating_living_room
       data:
-        temperature: 20
+        temperature: 19
     - service: climate.set_temperature
       target:
         entity_id:
           - climate.heating_downstairs_bathroom
       data:
-        temperature: 26
+        temperature: 24
     - service: climate.set_temperature
       target:
         entity_id:
@@ -133,13 +133,13 @@
           {{ states.sensor.electricity_price.state }} 
           {{ states.sensor.electricity_price.attributes.unit_of_measurement }}.
           {% if states.sensor.electricity_price.attributes.price_level == "CHEAP" %}
-          Dette er BILLIG.
+          Dette er "bIlLiG"!?
           {% elif states.sensor.electricity_price.attributes.price_level == "NORMAL" %}
-          Dette er NORMAL pris.
+          Dette er "nOrMaL?!" pris.
           {% elif states.sensor.electricity_price.attributes.price_level == "EXPENSIVE" %}
-          Dette er DYRT.
+          Dette er DYRT?
           {% elif states.sensor.electricity_price.attributes.price_level == "VERY_EXPENSIVE" %}
-          Dette er KJEMPEDYRT.
+          Staten og ACER presser oss som en sitron!!?
           {% else %}
           {{ states.sensor.electricity_price.attributes.price_level }}
           {% endif %}

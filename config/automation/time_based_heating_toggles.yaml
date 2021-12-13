@@ -61,8 +61,7 @@
     - service: climate.set_temperature
       target:
         entity_id:
-          - climate.heating_upstairs_bathroom
-          - climate.heating_living_room
+          - group.heating
       data:
         temperature: 16
     - service: notify.devices_to_notify
