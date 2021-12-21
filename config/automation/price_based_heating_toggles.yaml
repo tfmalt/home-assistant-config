@@ -133,13 +133,13 @@
           {{ states.sensor.electricity_price.state }} 
           {{ states.sensor.electricity_price.attributes.unit_of_measurement }}.
           {% if states.sensor.electricity_price.attributes.price_level == "CHEAP" %}
-          Dette er "bIlLiG"!?
+          Dette kaller de "biLLiG"!?
           {% elif states.sensor.electricity_price.attributes.price_level == "NORMAL" %}
-          Dette er "nOrMaL?!" pris.
+          Såkalt "nOrMaLt!?!!".
           {% elif states.sensor.electricity_price.attributes.price_level == "EXPENSIVE" %}
-          Dette er DYRT?
+          Dette er DYRT! Vi blir flådd?!
           {% elif states.sensor.electricity_price.attributes.price_level == "VERY_EXPENSIVE" %}
-          Staten og ACER presser oss som en sitron!!?
+          ACER presser oss for penger som en sitron!!?
           {% else %}
           {{ states.sensor.electricity_price.attributes.price_level }}
           {% endif %}

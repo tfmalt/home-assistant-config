@@ -1,23 +1,19 @@
 - id: "1638908262867"
-  alias: Electricity above 10kW
+  alias: Electricity above 8000 Watts
   description:
-    When electricity consumption is above 10kW some stuff should be turned
+    When electricity consumption is above 8kW water heater should be turned
     off.
   trigger:
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      above: 10000
-  condition:
-    - condition: time
-      before: "03:00:00"
-      after: "07:00:00"
+      above: 8000
   action:
     - service: switch.turn_off
       target:
         entity_id: switch.water_heater
     - service: notify.devices_to_notify
       data:
-        title: Electricity usage is above 10kW
+        title: Electricity usage is above 8000 W
         message: Turning off water heater
   mode: single
 
@@ -36,9 +32,6 @@
     - condition: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
       above: 5000
-    - condition: time
-      before: "03:00:00"
-      after: "07:00:00"
   action:
     - service: climate.set_temperature
       target:
@@ -56,21 +49,18 @@
 - id: "1638908262869"
   alias: Electricity below 2kW
   description:
-    When electricity consumption is below 2kW some stuff can be turned
+    When electricity consumption is below 3kW and price level is normal or cheap heating can be turned
     on.
   trigger:
     - platform: time_pattern
       minutes: "/2"
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      below: 2000
+      below: 3000
   condition:
     - condition: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      below: 2000
-    - condition: time
-      before: "03:00:00"
-      after: "07:00:00"
+      below: 3000
     - condition: state
       entity_id: sensor.electricity_price
       attribute: price_level
