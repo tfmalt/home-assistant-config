@@ -1,24 +1,30 @@
+# ---------------------------------------------------------------------
+# Electricity usage above high threshold
+# ---------------------------------------------------------------------
 - id: "1638908262867"
-  alias: Electricity above 8000 Watts
+  alias: Electricity usage above high threshold
   description:
-    When electricity consumption is above 8kW water heater should be turned
+    When electricity consumption is above {{ states('input_number.water_heater_watt_threshold') }} water heater should be turned
     off.
   trigger:
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      above: 8000
+      above: input_number.water_heater_watt_threshold
   action:
     - service: switch.turn_off
       target:
         entity_id: switch.water_heater
     - service: notify.devices_to_notify
       data:
-        title: Electricity usage is above 8000 W
-        message: Turning off water heater
+        title: Electricity usage is above {{ states('input_number.water_heater_watt_threshold')|int }} W
+        message: Turning off water heater. Electricity usage is above {{ states('input_number.water_heater_watt_threshold') }} W.
   mode: single
 
+# ---------------------------------------------------------------------
+# Electricity usage above medium threshold
+# ---------------------------------------------------------------------
 - id: "1638908262868"
-  alias: Electricity above 5kW
+  alias: Electricity usage above medium threshold
   description:
     When electricity consumption is above 5kW some stuff should be turned
     off.
@@ -27,27 +33,35 @@
       minutes: "/2"
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      above: 5000
+      above: input_number.general_watt_threshold
   condition:
     - condition: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      above: 5000
+      above: input_number.general_watt_threshold
   action:
     - service: climate.set_temperature
       target:
         entity_id: >
           {% set ns = namespace(heater="") %}
-          {% for heater in expand('group.heating') if state_attr(heater.entity_id, 'temperature') > 16 %}
+          {% for heater in expand('group.heating') if state_attr(heater.entity_id, 'temperature') > states('input_number.default_minimum_temperature')|float %}
             {% set ns.heater = heater.entity_id %}
           {% endfor %}
           {{ ns.heater }}
 
       data:
-        temperature: 16
+        temperature: >
+          {{ states('input_number.default_minimum_temperature')|float }}
+    - service: notify.devices_to_notify
+      data:
+        title: Electricity usage is above {{ states('input_number.general_watt_threshold')|int }} W
+        message: Turning off some floor heating. Minimum temperature {{ states('input_number.default_minimum_temperature')}} C.
   mode: single
 
+# ---------------------------------------------------------------------
+# Electricity usage below low threshold
+# ---------------------------------------------------------------------
 - id: "1638908262869"
-  alias: Electricity below 2kW
+  alias: Electricity usage below low threshold
   description:
     When electricity consumption is below 3kW and price level is normal or cheap heating can be turned
     on.
@@ -56,11 +70,11 @@
       minutes: "/2"
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      below: 3000
+      below: input_number.lower_watt_threshold
   condition:
     - condition: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      below: 3000
+      below: input_number.lower_watt_threshold
     - condition: state
       entity_id: sensor.electricity_price
       attribute: price_level
@@ -74,25 +88,29 @@
         entity_id:
           - climate.heating_living_room
       data:
-        temperature: 19
+        temperature: >
+          {{ states('input_number.default_temp_living_room')|float }}
     - service: climate.set_temperature
       target:
         entity_id:
           - climate.heating_downstairs_bathroom
       data:
-        temperature: 24
+        temperature: >
+          {{ states('input_number.default_temp_downstairs_bathroom')|float }}
     - service: climate.set_temperature
       target:
         entity_id:
           - climate.heating_upstairs_bathroom
       data:
-        temperature: 26
+        temperature: >
+          {{ states('input_number.default_temp_upstairs_bathroom')|float }}
     - service: climate.set_temperature
       target:
         entity_id:
           - climate.heating_utility_room
       data:
-        temperature: 22
+        temperature: >
+          {{ states('input_number.default_temp_utility_room')|float }}
     - service: switch.turn_on
       target:
         entity_id: switch.water_heater
