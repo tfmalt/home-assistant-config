@@ -1,4 +1,4 @@
-- id: "1639313561542"
+- id: "1639313561543"
   alias: Downstairs Bathroom Motion
   description: "Turn lights on when motion detected in downstairs bathroom"
   trigger:
@@ -15,7 +15,7 @@
         brightness: 255
   mode: single
 
-- id: "1639313561542"
+- id: "1639313561544"
   alias: Downstairs Bathroom Motion Off
   description: "Turn lights 20 minutes after motion detected in downstairs bathroom"
   trigger:

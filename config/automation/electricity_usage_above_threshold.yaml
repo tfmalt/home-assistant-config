@@ -70,6 +70,55 @@
       minutes: "/2"
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
+      below: input_number.lower_heating_watt_threshold
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      below: input_number.lower_heating_watt_threshold
+    - condition: state
+      entity_id: sensor.electricity_price
+      attribute: price_level
+      state:
+        - NORMAL
+        - CHEAP
+        - VERY_CHEAP
+  action:
+    - service: climate.set_temperature
+      target:
+        entity_id: >
+          {% set ns = namespace(heater="") %}
+          {% for heater in expand('group.heating')|reverse if state_attr(heater.entity_id, 'temperature') <= states('input_number.default_minimum_temperature')|float %}
+            {% set ns.heater = heater.entity_id %}
+          {% endfor %}
+          {{ ns.heater }}
+      data:
+        temperature: >
+          {% set ns = namespace(heater="") %}
+          {% set temps = {
+            'climate.heating_living_room': states('input_number.default_temp_living_room')|float, 
+            'climate.heating_downstairs_bathroom': states('input_number.default_temp_downstairs_bathroom')|float,
+            'climate.heating_upstairs_bathroom': states('input_number.default_temp_upstairs_bathroom')|float,
+            'climate.heating_utility_room': states('input_number.default_temp_utility_room')|float
+          } %}
+          {% for heater in expand('group.heating')|reverse if state_attr(heater.entity_id, 'temperature') <= states('input_number.default_minimum_temperature')|float %}
+            {% set ns.heater = heater.entity_id %}
+            {% set ns.temp = temps[heater.entity_id] %}
+          {% endfor %}
+          {{ ns.temp }}
+
+# ---------------------------------------------------------------------
+# Electricity usage below low threshold - Water heater
+# ---------------------------------------------------------------------
+- id: "1638908262872"
+  alias: Electricity usage below low threshold for water heater
+  description:
+    When electricity consumption is below threshold and price level is normal or cheap heating can be turned
+    on.
+  trigger:
+    - platform: time_pattern
+      minutes: "/2"
+    - platform: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
       below: input_number.lower_watt_threshold
   condition:
     - condition: numeric_state
@@ -82,35 +131,10 @@
         - NORMAL
         - CHEAP
         - VERY_CHEAP
+    - condition: state
+      entity_id: switch.water_heater
+      state: "off"
   action:
-    - service: climate.set_temperature
-      target:
-        entity_id:
-          - climate.heating_living_room
-      data:
-        temperature: >
-          {{ states('input_number.default_temp_living_room')|float }}
-    - service: climate.set_temperature
-      target:
-        entity_id:
-          - climate.heating_downstairs_bathroom
-      data:
-        temperature: >
-          {{ states('input_number.default_temp_downstairs_bathroom')|float }}
-    - service: climate.set_temperature
-      target:
-        entity_id:
-          - climate.heating_upstairs_bathroom
-      data:
-        temperature: >
-          {{ states('input_number.default_temp_upstairs_bathroom')|float }}
-    - service: climate.set_temperature
-      target:
-        entity_id:
-          - climate.heating_utility_room
-      data:
-        temperature: >
-          {{ states('input_number.default_temp_utility_room')|float }}
     - service: switch.turn_on
       target:
         entity_id: switch.water_heater
