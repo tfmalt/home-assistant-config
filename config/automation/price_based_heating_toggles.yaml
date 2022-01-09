@@ -1,5 +1,5 @@
 #
-# Turn off heating when expensive
+# Turn off floor heating when expensive
 #
 - id: "1638626031020"
   alias: "Heating turn off floor heating when expensive"
@@ -28,58 +28,6 @@
         title: "Dyr strøm"
         message: "Varmekabler er skrudd av. Minimum temperatur er {{ states('input_number.default_minimum_temperature')|float }} grader."
   mode: single
-
-#
-# Turn on heating when electricity is cheap
-#
-# - id: "1638626031021"
-#   alias: "Heating turn on floor heating when cheap or normal"
-#   description: "When electricity is cheap or normal turn heating on when time between 07:00 and 22:00"
-#   trigger:
-#     - platform: state
-#       entity_id: sensor.electricity_price
-#       attribute: price_level
-#       to:
-#         - VERY_CHEAP
-#         - CHEAP
-#         - NORMAL
-#   condition:
-#     - alias: "Time between 07:00 and 22:00"
-#       condition: time
-#       after: "07:00:00"
-#       before: "22:00:00"
-#   action:
-#     - service: climate.set_temperature
-#       target:
-#         entity_id:
-#           - climate.heating_upstairs_bathroom
-#       data:
-#         temperature: >
-
-#     - service: climate.set_temperature
-#       target:
-#         entity_id:
-#           - climate.heating_living_room
-#       data:
-#         temperature: 19
-#     - service: climate.set_temperature
-#       target:
-#         entity_id:
-#           - climate.heating_downstairs_bathroom
-#       data:
-#         temperature: 24
-#     - service: climate.set_temperature
-#       target:
-#         entity_id:
-#           - climate.heating_utility_room
-#       data:
-#         temperature: 22
-#     - service: notify.devices_to_notify
-#       data:
-#         title: "Billig strøm"
-#         message: "Varme er skrudd på. Stopp ACER!?!"
-
-#   mode: single
 
 #
 # Turn on water heater when electricity is cheap

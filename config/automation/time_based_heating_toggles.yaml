@@ -25,7 +25,7 @@
         entity_id:
           - climate.heating_upstairs_bathroom
       data:
-        temperature: 34
+        temperature: 30
     - service: climate.set_temperature
       target:
         entity_id:

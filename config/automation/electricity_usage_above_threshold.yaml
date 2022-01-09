@@ -1,43 +1,19 @@
 # ---------------------------------------------------------------------
-# Electricity usage above high threshold
-# ---------------------------------------------------------------------
-- id: "1638908262867"
-  alias: Electricity usage above high threshold
-  description:
-    When electricity consumption is above {{ states('input_number.water_heater_watt_threshold') }} water heater should be turned
-    off.
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
-      above: input_number.water_heater_watt_threshold
-  action:
-    - service: switch.turn_off
-      target:
-        entity_id: switch.water_heater
-    - service: notify.devices_to_notify
-      data:
-        title: Electricity usage is above {{ states('input_number.water_heater_watt_threshold')|int }} W
-        message: Turning off water heater. Electricity usage is above {{ states('input_number.water_heater_watt_threshold') }} W.
-  mode: single
-
-# ---------------------------------------------------------------------
-# Electricity usage above medium threshold
+# Electricity usage for floor heating dynamic threshold
 # ---------------------------------------------------------------------
 - id: "1638908262868"
-  alias: Electricity usage above medium threshold
-  description:
-    When electricity consumption is above 5kW some stuff should be turned
-    off.
+  alias: Electricity usage Floor Heating dynamic threshold
+  description: When electricity consumption is above dynamic threshold floor heating should be turned off in prioritized order.
   trigger:
     - platform: time_pattern
       minutes: "/2"
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      above: input_number.general_watt_threshold
+      above: input_number.power_remaining_hour_budget
   condition:
     - condition: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      above: input_number.general_watt_threshold
+      above: input_number.power_remaining_hour_budget
   action:
     - service: climate.set_temperature
       target:
@@ -53,7 +29,7 @@
           {{ states('input_number.default_minimum_temperature')|float }}
     - service: notify.devices_to_notify
       data:
-        title: Electricity usage is above {{ states('input_number.general_watt_threshold')|int }} W
+        title: Electricity usage is above {{ states('input_number.power_remaining_hour_budget')|int }} W
         message: Turning off some floor heating. Minimum temperature {{ states('input_number.default_minimum_temperature')}} C.
   mode: single
 
@@ -61,7 +37,7 @@
 # Electricity usage below low threshold
 # ---------------------------------------------------------------------
 - id: "1638908262869"
-  alias: Electricity usage below low threshold
+  alias: Electricity usage Floor Heating below low threshold
   description:
     When electricity consumption is below 3kW and price level is normal or cheap heating can be turned
     on.
@@ -70,11 +46,15 @@
       minutes: "/2"
     - platform: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      below: input_number.lower_heating_watt_threshold
+      value_template: >
+        {{ states('sensor.power_simon_darres_vei_60')|int + 2000 }}
+      below: input_number.power_remaining_hour_budget
   condition:
     - condition: numeric_state
       entity_id: sensor.power_simon_darres_vei_60
-      below: input_number.lower_heating_watt_threshold
+      value_template: >
+        {{ states('sensor.power_simon_darres_vei_60')|int + 2000 }}
+      below: input_number.power_remaining_hour_budget
     - condition: state
       entity_id: sensor.electricity_price
       attribute: price_level
@@ -107,10 +87,32 @@
           {{ ns.temp }}
 
 # ---------------------------------------------------------------------
-# Electricity usage below low threshold - Water heater
+# Water Heater - Electricity usage is above threshold
+# ---------------------------------------------------------------------
+- id: "1638908262867"
+  alias: Electricity Water Heater above threshold
+  description:
+    When electricity consumption is above threshold water heater should be turned
+    off.
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      above: input_number.power_remaining_hour_budget
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.water_heater
+    - service: notify.devices_to_notify
+      data:
+        title: Turning off water heater
+        message: Electricity usage is above {{ states('input_number.power_remaining_hour_budget')|int }} W
+  mode: single
+
+# ---------------------------------------------------------------------
+# Water Heater - Electricity usage below low threshold
 # ---------------------------------------------------------------------
 - id: "1638908262872"
-  alias: Electricity usage below low threshold for water heater
+  alias: Electricity Water Heater below threshold
   description:
     When electricity consumption is below threshold and price level is normal or cheap heating can be turned
     on.
@@ -121,9 +123,6 @@
       entity_id: sensor.power_simon_darres_vei_60
       below: input_number.lower_watt_threshold
   condition:
-    - condition: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
-      below: input_number.lower_watt_threshold
     - condition: state
       entity_id: sensor.electricity_price
       attribute: price_level
@@ -134,6 +133,11 @@
     - condition: state
       entity_id: switch.water_heater
       state: "off"
+    - condition: numeric_state
+      entity_id: sensor.power_simon_darres_vei_60
+      value_template: >
+        {{ states('sensor.power_simon_darres_vei_60')|int + 3200 }}
+      below: input_number.power_remaining_hour_budget
   action:
     - service: switch.turn_on
       target:
