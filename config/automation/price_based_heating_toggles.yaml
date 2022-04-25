@@ -2,15 +2,12 @@
 # Turn off floor heating when expensive
 #
 - id: "1638626031020"
-  alias: "Heating turn off floor heating when expensive"
+  alias: "Pricing - Turn off floor heating when expensive"
   description: "When electricity is expensive turn off heating"
   trigger:
-    - platform: state
-      entity_id: sensor.electricity_price
-      attribute: price_level
-      to:
-        - EXPENSIVE
-        - VERY_EXPENSIVE
+    - platform: numeric_state
+      entity_id: sensor.sd60_electricity_price_percentile
+      above: input_number.electricity_price_percentile_limit
   condition: []
   action:
     - service: climate.set_temperature
@@ -30,37 +27,19 @@
   mode: single
 
 #
-# Turn on water heater when electricity is cheap
-#
-- id: "1638626031023"
-  alias: "Heating turn on water heater when cheap"
-  description: "When electricity is cheap turn water heater on"
-  trigger:
-    - platform: state
-      entity_id: sensor.electricity_price
-      attribute: price_level
-      to:
-        - CHEAP
-        - VERY_CHEAP
-        - NORMAL
-  action:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.water_heater
-
-#
-# Turn off water heater when electricity is not cheap
+# Turn off water heater when electricity is expensive
 #
 - id: "1638626031024"
-  alias: "Heating turn off water heater when not cheap"
+  alias: "Pricing - Turn off water heater when expensive"
   description: "When electricity is expensive turn water heater off"
   trigger:
-    - platform: state
-      entity_id: sensor.electricity_price
-      attribute: price_level
-      to:
-        - EXPENSIVE
-        - VERY_EXPENSIVE
+    - platform: numeric_state
+      entity_id: sensor.sd60_electricity_price_percentile
+      above: input_number.electricity_price_percentile_limit
+  condition:
+    - condition: state
+      entity_id: switch.water_heater
+      state: "on"
   action:
     - service: switch.turn_off
       target:
@@ -70,7 +49,7 @@
 # Send notifications when price changes
 #
 - id: "1638626031022"
-  alias: "Send notification when price changes"
+  alias: "Pricing - Send notification when price changes"
   description: "When electricity price is updated send a notification"
   trigger:
     - platform: state
@@ -83,13 +62,13 @@
           {{ states.sensor.electricity_price.state }} 
           {{ states.sensor.electricity_price.attributes.unit_of_measurement }}.
           {% if states.sensor.electricity_price.attributes.price_level == "CHEAP" %}
-          Dette kaller de "biLLiG"!?
+          Dette kaller de BILLIG
           {% elif states.sensor.electricity_price.attributes.price_level == "NORMAL" %}
-          Såkalt "nOrMaLt!?!!".
+          Såkalt NORMALT.
           {% elif states.sensor.electricity_price.attributes.price_level == "EXPENSIVE" %}
-          Dette er DYRT! Vi blir flådd?!
+          Dette er DYRT
           {% elif states.sensor.electricity_price.attributes.price_level == "VERY_EXPENSIVE" %}
-          ACER presser oss for penger som en sitron!!?
+          Dette er VELDIG DYRT
           {% else %}
           {{ states.sensor.electricity_price.attributes.price_level }}
           {% endif %}

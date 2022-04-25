@@ -3,23 +3,25 @@
 # ---------------------------------------------------------------------
 - id: "1638908262868"
   alias: Electricity usage Floor Heating dynamic threshold
-  description: When electricity consumption is above dynamic threshold floor heating should be turned off in prioritized order.
+  description:
+    When electricity consumption is above dynamic threshold floor heating
+    should be turned off in prioritized order.
   trigger:
     - platform: time_pattern
-      minutes: "/2"
+      minutes: "/1"
     - platform: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
-      above: input_number.power_remaining_hour_budget
+      entity_id: sensor.sd60_power
+      above: sensor.sd60_power_budget
   condition:
     - condition: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
-      above: input_number.power_remaining_hour_budget
+      entity_id: sensor.sd60_power
+      above: sensor.sd60_power_budget
   action:
     - service: climate.set_temperature
       target:
         entity_id: >
           {% set ns = namespace(heater="") %}
-          {% for heater in expand('group.heating') if state_attr(heater.entity_id, 'temperature') > states('input_number.default_minimum_temperature')|float %}
+          {% for heater in expand('group.heating') if state_attr(heater.entity_id, 'temperature') >= state_attr(heater.entity_id, 'current_temperature')|float %}
             {% set ns.heater = heater.entity_id %}
           {% endfor %}
           {{ ns.heater }}
@@ -27,10 +29,6 @@
       data:
         temperature: >
           {{ states('input_number.default_minimum_temperature')|float }}
-    - service: notify.devices_to_notify
-      data:
-        title: Electricity usage is above {{ states('input_number.power_remaining_hour_budget')|int }} W
-        message: Turning off some floor heating. Minimum temperature {{ states('input_number.default_minimum_temperature')}} C.
   mode: single
 
 # ---------------------------------------------------------------------
@@ -43,25 +41,21 @@
     on.
   trigger:
     - platform: time_pattern
-      minutes: "/2"
+      minutes: "/1"
     - platform: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
+      entity_id: sensor.sd60_power
       value_template: >
-        {{ states('sensor.power_simon_darres_vei_60')|int + 2000 }}
-      below: input_number.power_remaining_hour_budget
+        {{ states('sensor.sd60_power')|int + 2000 }}
+      below: sensor.sd60_power_budget
   condition:
     - condition: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
+      entity_id: sensor.sd60_power
       value_template: >
-        {{ states('sensor.power_simon_darres_vei_60')|int + 2000 }}
-      below: input_number.power_remaining_hour_budget
-    - condition: state
-      entity_id: sensor.electricity_price
-      attribute: price_level
-      state:
-        - NORMAL
-        - CHEAP
-        - VERY_CHEAP
+        {{ states('sensor.sd60_power')|int + 2000 }}
+      below: sensor.sd60_power_budget
+    - condition: numeric_state
+      entity_id: sensor.sd60_electricity_price_percentile
+      below: input_number.electricity_price_percentile_limit
   action:
     - service: climate.set_temperature
       target:
@@ -95,9 +89,15 @@
     When electricity consumption is above threshold water heater should be turned
     off.
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
-      above: input_number.power_remaining_hour_budget
+    - platform: time_pattern
+      minutes: "/5"
+  condition:
+    - condition: state
+      entity_id: switch.water_heater
+      state: "on"
+    - condition: numeric_state
+      entity_id: sensor.sd60_power
+      above: sensor.sd60_power_budget
   action:
     - service: switch.turn_off
       target:
@@ -105,7 +105,7 @@
     - service: notify.devices_to_notify
       data:
         title: Turning off water heater
-        message: Electricity usage is above {{ states('input_number.power_remaining_hour_budget')|int }} W
+        message: Electricity usage is above {{ states('sensor.sd60_power_budget')|int }} W
   mode: single
 
 # ---------------------------------------------------------------------
@@ -118,26 +118,22 @@
     on.
   trigger:
     - platform: time_pattern
-      minutes: "/2"
+      minutes: "/5"
     - platform: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
+      entity_id: sensor.sd60_power
       below: input_number.lower_watt_threshold
   condition:
-    - condition: state
-      entity_id: sensor.electricity_price
-      attribute: price_level
-      state:
-        - NORMAL
-        - CHEAP
-        - VERY_CHEAP
+    - condition: numeric_state
+      entity_id: sensor.sd60_electricity_price_percentile
+      below: input_number.electricity_price_percentile_limit
     - condition: state
       entity_id: switch.water_heater
       state: "off"
     - condition: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
+      entity_id: sensor.sd60_power
       value_template: >
-        {{ states('sensor.power_simon_darres_vei_60')|int + 3200 }}
-      below: input_number.power_remaining_hour_budget
+        {{ states('sensor.sd60_power')|int + 3200 }}
+      below: sensor.sd60_power_budget
   action:
     - service: switch.turn_on
       target:
