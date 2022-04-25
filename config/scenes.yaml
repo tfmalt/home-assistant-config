@@ -1,27 +1,80 @@
-- id: '1590793512328'
-  name: Bedroom Spotlights Bright
+- id: '1650834902848'
+  name: Soverom kveld
   entities:
-    light.bedroom_spot_1:
-      brightness: 254
-      color_temp: 384
-      friendly_name: Bedroom Spot 1
-      max_mireds: 454
+    light.soverom_alle:
       min_mireds: 250
-      state: 'on'
-      supported_features: 35
-    light.bedroom_spot_2:
-      brightness: 254
-      color_temp: 370
-      friendly_name: Bedroom Spot 2
       max_mireds: 454
-      min_mireds: 250
+      supported_color_modes:
+      - color_temp
+      color_mode: color_temp
+      brightness: 51
+      color_temp: 425
+      hs_color:
+      - 29.294
+      - 78.165
+      rgb_color:
+      - 255
+      - 152
+      - 55
+      xy_color:
+      - 0.564
+      - 0.389
+      entity_id:
+      - light.garderobe_sov
+      - light.bedroom_reading_lights
+      - light.bokhylle_sov
+      - light.skrivebord_2
+      icon: mdi:lightbulb-group
+      friendly_name: Soverom alle
+      supported_features: 32
       state: 'on'
-      supported_features: 35
-    light.bedroom_spot_3:
-      brightness: 254
-      color_temp: 370
-      friendly_name: Bedroom spot 3
+  icon: mdi:desk-lamp
+- id: '1650835170026'
+  name: Soverom dag
+  entities:
+    light.soverom_alle:
+      min_mireds: 250
       max_mireds: 454
-      min_mireds: 250
+      supported_color_modes:
+      - color_temp
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 350
+      hs_color:
+      - 28.077
+      - 60.925
+      rgb_color:
+      - 255
+      - 172
+      - 99
+      xy_color:
+      - 0.51
+      - 0.386
+      entity_id:
+      - light.garderobe_sov
+      - light.bedroom_reading_lights
+      - light.bokhylle_sov
+      - light.skrivebord_2
+      icon: mdi:lightbulb-group
+      friendly_name: Soverom alle
+      supported_features: 32
       state: 'on'
-      supported_features: 35
+  icon: mdi:weather-sunny
+- id: '1650835458215'
+  name: Soverom natt
+  entities:
+    light.soverom_alle:
+      min_mireds: 250
+      max_mireds: 454
+      supported_color_modes:
+      - color_temp
+      entity_id:
+      - light.garderobe_sov
+      - light.bedroom_reading_lights
+      - light.bokhylle_sov
+      - light.skrivebord_2
+      icon: mdi:lightbulb-group
+      friendly_name: Soverom alle
+      supported_features: 32
+      state: 'off'
+  icon: mdi:moon-waning-crescent
