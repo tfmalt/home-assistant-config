@@ -4,6 +4,7 @@ sequence:
     entity_id:
       - light.downstairs_all_white_lights
       - light.downstairs_all_rgb_lights
+      - light.bokhylle_nede
     data:
       transition: 2
   - service: input_select.select_option

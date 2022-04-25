@@ -12,6 +12,13 @@ sequence:
       brightness: 255
       transition: 4
       kelvin: 2700
+  - service: light.turn_on
+    entity_id: light.bokhylle_nede
+    data:
+      transition: 1
+      color_temp: 350
+      brightness: 255
+
   - service: input_select.select_option
     entity_id: input_select.dining_room_lights
     data:

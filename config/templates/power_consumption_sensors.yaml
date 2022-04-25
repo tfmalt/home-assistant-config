@@ -8,7 +8,7 @@
     - name: "power_accumulated_hourly_consumption"
       unit_of_measurement: "kWh"
       state: >
-        {{'%0.2f'|format(states('sensor.accumulated_consumption_current_hour')| float) }}
+        {{'%0.2f'|format(states('sensor.sd60_kwh_current_hour')| float) }}
 
 - sensor:
     - name: "Electricity Price as Number"
