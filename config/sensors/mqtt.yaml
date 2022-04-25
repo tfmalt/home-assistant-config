@@ -1,0 +1,129 @@
+# Example configuration.yaml entry
+- platform: mqtt
+  name: "SD60 Electricity Price"
+  state_topic: "malt/electricity_price"
+  device_class: "monetary"
+  state_class: "measurement"
+  unit_of_measurement: "NOK"
+  value_template: "{{ '%0.2f'|format(value_json.value|float) }}"
+  json_attributes_topic: "malt/electricity_price"
+
+- platform: mqtt
+  name: "SD60 Electricity Price Decile"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.decile }}"
+
+- platform: mqtt
+  name: "SD60 Electricity Price Average"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.average }}"
+
+- platform: mqtt
+  name: "SD60 Electricity Price Median"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.median }}"
+
+- platform: mqtt
+  name: "SD60 Electricity Price Maximum"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.max }}"
+
+- platform: mqtt
+  name: "SD60 Electricity Price Minimum"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.min }}"
+
+- platform: mqtt
+  name: "SD60 Electricity Price Limit Percentile"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.limitPercentile }}"
+
+- platform: mqtt
+  name: "SD60 Electricity Limit Price"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.limitPrice }}"
+
+- platform: mqtt
+  name: "SD60 Electricity Price percentile"
+  state_topic: "malt/electricity_price"
+  state_class: "measurement"
+  value_template: "{{ value_json.percentile }}"
+
+- platform: mqtt
+  name: "SD60 Power"
+  state_topic: "malt/power"
+  unit_of_measurement: "W"
+  device_class: power
+  state_class: measurement
+  value_template: "{{ value_json.power }}"
+
+- platform: mqtt
+  name: "SD60 kWh Current Hour"
+  state_topic: "malt/power"
+  unit_of_measurement: "kWh"
+  device_class: energy
+  state_class: total
+  value_template: "{{ '%0.2f'|format(value_json.accumulatedConsumptionLastHour| float) }}"
+
+- platform: mqtt
+  name: "SD60 kWh Today"
+  state_topic: "malt/power"
+  unit_of_measurement: "kWh"
+  device_class: energy
+  state_class: total
+  value_template: "{{ '%0.2f'|format(value_json.accumulatedConsumption| float) }}"
+
+- platform: mqtt
+  name: "SD60 Power Meter Total"
+  state_topic: "malt/power"
+  unit_of_measurement: "kWh"
+  device_class: energy
+  state_class: total
+  value_template: "{{ '%0.2f'|format(value_json.lastMeterConsumption| float) }}"
+
+- platform: mqtt
+  name: "SD60 Average Power"
+  state_topic: "malt/power"
+  unit_of_measurement: "W"
+  device_class: power
+  state_class: measurement
+  value_template: "{{ '%.0f'|format(value_json.averagePower| float) }}"
+
+- platform: mqtt
+  name: "SD60 Max kWh Per Hour Today"
+  state_topic: "malt/max_kwh/today"
+  unit_of_measurement: "kWh"
+  device_class: energy
+  state_class: measurement
+  value_template: "{{ '%.2f'|format(value_json.value| float) }}"
+
+- platform: mqtt
+  name: "SD60 Max kWh Per Hour This Month"
+  state_topic: "malt/max_kwh/month"
+  unit_of_measurement: "kWh"
+  device_class: energy
+  state_class: measurement
+  value_template: "{{ '%.2f'|format(value_json.value| float) }}"
+
+- platform: mqtt
+  name: "SD60 Power Budget"
+  state_topic: "malt/budget"
+  unit_of_measurement: "W"
+  device_class: power
+  state_class: measurement
+  value_template: "{{ value_json.value }}"
+
+- platform: mqtt
+  name: "SD60 met temperature"
+  state_topic: "malt/weather_sd60"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  state_class: measurement
+  value_template: "{{ value_json.temperature }}"
