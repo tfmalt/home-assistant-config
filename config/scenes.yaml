@@ -6,6 +6,14 @@
       max_mireds: 454
       supported_color_modes:
       - color_temp
+      entity_id:
+      - light.bedroom_wardrobe_spots
+      - light.bedroom_reading_lights
+      - light.bedroom_bokhylle
+      - light.bedroom_skrivebord
+      icon: mdi:lightbulb-group
+      friendly_name: Bedroom all
+      supported_features: 40
       color_mode: color_temp
       brightness: 51
       color_temp: 425
@@ -19,14 +27,31 @@
       xy_color:
       - 0.564
       - 0.389
-      entity_id:
-      - light.garderobe_sov
-      - light.bedroom_reading_lights
-      - light.bokhylle_sov
-      - light.skrivebord_2
-      icon: mdi:lightbulb-group
-      friendly_name: Soverom alle
-      supported_features: 32
+      state: 'on'
+    light.upstairs_bathroom_hallway2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      off_brightness:
+      friendly_name: Upstairs Bathroom Hallway
+      supported_features: 63
+      color_mode: color_temp
+      brightness: 89
+      color_temp: 484
+      hs_color:
+      - 30.315
+      - 91.076
+      rgb_color:
+      - 255
+      - 140
+      - 22
+      xy_color:
+      - 0.592
+      - 0.385
       state: 'on'
   icon: mdi:desk-lamp
 - id: '1650835170026'
@@ -37,6 +62,14 @@
       max_mireds: 454
       supported_color_modes:
       - color_temp
+      entity_id:
+      - light.bedroom_wardrobe_spots
+      - light.bedroom_reading_lights
+      - light.bedroom_bokhylle
+      - light.bedroom_skrivebord
+      icon: mdi:lightbulb-group
+      friendly_name: Bedroom all
+      supported_features: 40
       color_mode: color_temp
       brightness: 254
       color_temp: 350
@@ -50,14 +83,31 @@
       xy_color:
       - 0.51
       - 0.386
-      entity_id:
-      - light.garderobe_sov
-      - light.bedroom_reading_lights
-      - light.bokhylle_sov
-      - light.skrivebord_2
-      icon: mdi:lightbulb-group
-      friendly_name: Soverom alle
-      supported_features: 32
+      state: 'on'
+    light.upstairs_bathroom_hallway2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      off_brightness:
+      friendly_name: Upstairs Bathroom Hallway
+      supported_features: 63
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 339
+      hs_color:
+      - 27.911
+      - 58.298
+      rgb_color:
+      - 255
+      - 175
+      - 106
+      xy_color:
+      - 0.501
+      - 0.384
       state: 'on'
   icon: mdi:weather-sunny
 - id: '1650835458215'
@@ -69,12 +119,24 @@
       supported_color_modes:
       - color_temp
       entity_id:
-      - light.garderobe_sov
+      - light.bedroom_wardrobe_spots
       - light.bedroom_reading_lights
-      - light.bokhylle_sov
-      - light.skrivebord_2
+      - light.bedroom_bokhylle
+      - light.bedroom_skrivebord
       icon: mdi:lightbulb-group
-      friendly_name: Soverom alle
-      supported_features: 32
+      friendly_name: Bedroom all
+      supported_features: 40
+      state: 'off'
+    light.upstairs_bathroom_hallway2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      off_brightness:
+      friendly_name: Upstairs Bathroom Hallway
+      supported_features: 63
       state: 'off'
   icon: mdi:moon-waning-crescent

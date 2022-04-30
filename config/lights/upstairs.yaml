@@ -34,28 +34,6 @@
     - light.entrance_wardrobe
 
 - platform: group
-  name: Bedroom Lights
-  entities:
-    - light.bedroom_spot_1
-    - light.bedroom_spot_2
-    - light.bedroom_spot_3
-    - light.kirstis_reading_light
-    - light.thomas_reading_light
-
-- platform: group
-  name: Bedroom Reading Lights
-  entities:
-    - light.kirstis_reading_light
-    - light.thomas_reading_light
-
-- platform: group
-  name: Bedroom Spots
-  entities:
-    - light.bedroom_spot_1
-    - light.bedroom_spot_2
-    - light.bedroom_spot_3
-
-- platform: group
   name: TV Area
   entities:
     - light.tv_bookshelf_left

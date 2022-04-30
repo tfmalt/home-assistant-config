@@ -1,17 +1,4 @@
 - platform: group
-  name: Downstairs Couch Lights
-  entities:
-    - light.downstairs_couch_stairs
-    - light.downstairs_couch_window
-
-- platform: group
-  name: Paper
-  entities:
-    - light.paper_1
-    - light.paper_2
-    - light.paper_3
-
-- platform: group
   name: Downstairs Spots
   entities:
     - light.downstairs_couch_spots

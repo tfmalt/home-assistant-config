@@ -30,22 +30,12 @@ influxdb:
     source: hass
   tags_attributes:
     - friendly_name
-  default_measurement: units
   exclude:
     entities:
       - zone.home
     domains:
       - persistent_notification
       - person
-  include:
-    domains:
-      - sensor
-      - light
-      - media_player
-      - binary_sensor
-      - sun
-    entities:
-      - weather.home
 
 # somfy:
 #   client_id: !secret somfy_client_id
@@ -93,7 +83,8 @@ home_connect: !secret home_connect_config
 light: !include_dir_merge_list lights/
 sensor: !include_dir_merge_list sensors/
 group: !include_dir_merge_named groups/
-automation: !include_dir_merge_list automation/
+automation manual: !include_dir_merge_list automation/
+automation ui: !include automations.yaml
 template: !include_dir_merge_list templates/
 script: !include_dir_named scripts/
 scene: !include scenes.yaml

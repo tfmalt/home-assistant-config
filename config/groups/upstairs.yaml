@@ -72,9 +72,3 @@ upstairs_light:
     - group.tv_hue_lights
     - group.tv_couch_lights
     - group.tv_spotlights
-    - group.upstairs_bathroom_hallway
-
-upstairs_bathroom_hallway:
-  name: Upstairs Bathroom Hallway Light
-  entities:
-    - light.upstairs_bathroom_hallway_light
