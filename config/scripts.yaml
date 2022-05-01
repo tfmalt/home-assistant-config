@@ -1,0 +1,89 @@
+bedroom_bright:
+  alias: Bedroom Bright
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: bright
+    target:
+      entity_id: input_select.bedroom_scenes
+  - service: light.turn_on
+    data:
+      transition: 1
+      color_temp: 360
+    target:
+      entity_id: light.bedroom_all_zha_group_0x0004
+  - service: light.turn_on
+    data:
+      transition: 1
+      color_temp: 360
+      brightness: 255
+    target:
+      entity_id: light.upstairs_bathroom_hallway2
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+  - service: light.turn_on
+    data:
+      transition: 1
+      brightness: 255
+    target:
+      entity_id: light.bedroom_all_zha_group_0x0004
+  mode: single
+  icon: mdi:weather-sunny
+bedroom_dimmed:
+  alias: Bedroom Dimmed
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: dimmed
+    target:
+      entity_id: input_select.bedroom_scenes
+  - service: light.turn_on
+    data:
+      transition: 1
+      color_temp: 425
+    target:
+      entity_id: light.bedroom_all_zha_group_0x0004
+  - service: light.turn_on
+    data:
+      transition: 1
+      color_temp: 450
+      brightness: 35
+    target:
+      entity_id: light.upstairs_bathroom_hallway2
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 100
+  - service: light.turn_on
+    data:
+      transition: 1
+      brightness: 20
+    target:
+      entity_id: light.bedroom_all_zha_group_0x0004
+  mode: single
+  icon: mdi:moon-waning-crescent
+bedroom_off:
+  alias: Bedroom Off
+  sequence:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.bedroom_all_zha_group_0x0004
+  - service: light.turn_on
+    data:
+      transition: 1
+      color_temp: 450
+      brightness: 20
+    target:
+      entity_id: light.upstairs_bathroom_hallway2
+  - service: input_select.select_option
+    data:
+      option: 'off'
+    target:
+      entity_id: input_select.bedroom_scenes
+  mode: single
+  icon: mdi:sleep
