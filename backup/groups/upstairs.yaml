@@ -3,8 +3,8 @@
 tv_hue_lights:
   name: TV Hue Lights
   entities:
-    - light.tv_hue_right
-    - light.tv_hue_left
+    - light.tv_light_right
+    - light.tv_light_left
     - light.hue_tv_bookshelf_middle
     - light.hue_tv_bookshelf_left
     - light.hue_tv_bookshelf_right

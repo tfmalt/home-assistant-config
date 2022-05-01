@@ -6,17 +6,13 @@
 alias: TV Bright
 sequence:
   - service: light.turn_on
-    entity_id: light.tv_area
+    entity_id:
+      - light.tv_area_zha_group_0x000b
+      - light.upstairs_bathroom_hallway2
     data:
       brightness: 255
       transition: 1
       kelvin: 2700
-  - service: light.turn_on
-    entity_id: light.upstairs_bathroom_hallway_light
-    data:
-      brightness: 255
-      kelvin: 2700
-      transition: 1
   - service: input_select.select_option
     data:
       entity_id: input_select.tv_lights

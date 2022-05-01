@@ -86,7 +86,8 @@ group: !include_dir_merge_named groups/
 automation manual: !include_dir_merge_list automation/
 automation ui: !include automations.yaml
 template: !include_dir_merge_list templates/
-script: !include_dir_named scripts/
+script manual: !include_dir_named scripts/
+script ui: !include scripts.yaml
 scene: !include scenes.yaml
 input_select: !include input_select.yaml
 notify: !include notify.yaml

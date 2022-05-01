@@ -1,7 +1,7 @@
 alias: TV Dimmed
 sequence:
   - service: light.turn_on
-    entity_id: light.tv
+    entity_id: light.tv_area
     data:
       brightness: 104
       transition: 1
