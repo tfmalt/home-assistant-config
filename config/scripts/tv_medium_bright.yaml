@@ -1,26 +1,26 @@
 alias: TV Medium Bright
 sequence:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.tv_lights
+      option: "Medium"
   - service: light.turn_on
     entity_id:
       - light.tv_bookshelf_zha_group_0x0007
       - light.tv_lights_zha_group_0x0008
     data:
       brightness: 180
-      transition: 1
-      kelvin: 2350
   - service: light.turn_on
     entity_id:
       - light.tv_couch_zha_group_0x0009
       - light.picture_wall_zha_group_0x000a
       - light.entrance_zha_group_0x0005
       - light.stairs_zha_group_0x0006
-      - light.upstairs_bathroom_hallway2
     data:
       brightness: 168
-      kelvin: 2350
-      transition: 1
-
-  - service: input_select.select_option
+  - delay: 1
+  - service: light.turn_on
+    entity_id:
+      - light.tv_area_zha_group_0x000b
     data:
-      entity_id: input_select.tv_lights
-      option: "Medium"
+      color_temp: 400
