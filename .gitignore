@@ -19,3 +19,4 @@ config/zwscene.xml
 docker-compose.yaml
 backup/secrets.yaml
 config/zigbee.db
+config/backups/92935cbd.tar

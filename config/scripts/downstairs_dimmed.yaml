@@ -1,50 +1,55 @@
 # This script turns all lights downstairs dimmed and cozy!
 alias: Downstairs Dimmed
 sequence:
-  - service: light.turn_on
-    entity_id:
-      - light.downstairs_chandelier
-      - light.downstairs_kitchen_spots
-    data:
-      brightness: 50
-      transition: 4
-  - service: light.turn_on
-    entity_id: light.downstairs_couch_spots
-    data:
-      brightness: 60
-      transition: 4
-  - service: light.turn_on
-    entity_id: light.downstairs_carpet_spots
-    data:
-      brightness: 20
-      transition: 4
-      #  - service: light.turn_on
-      # entity_id: light.globe
-      # data:
-      # brightness: 168
-      # transition: 2
-      # kelvin: 2300
-  - service: light.turn_on
-    entity_id:
-      - light.paper
-      - light.downstairs_couch_lights
-    data:
-      brightness: 128
-      transition: 4
-      kelvin: 2300
-  - service: light.turn_on
-    entity_id: light.kitchen_counter
-    data:
-      brightness: 255
-      transition: 4
-      kelvin: 2700
-  - service: light.turn_on
-    entity_id: light.bokhylle_nede
-    data:
-      transition: 2
-      color_temp: 450
-      brightness: 128
   - service: input_select.select_option
     entity_id: input_select.dining_room_lights
     data:
       option: "Dimmed"
+  - service: light.turn_on
+    entity_id:
+      - light.downstairs_kitchen_spots
+    data:
+      brightness: 30
+  - service: light.turn_on
+    entity_id:
+      - light.downstairs_chandelier
+    data:
+      brightness: 40
+  - service: light.turn_on
+    entity_id: light.downstairs_couch_spots
+    data:
+      brightness: 20
+  - service: light.turn_on
+    entity_id: light.downstairs_carpet_spots
+    data:
+      brightness: 20
+  - service: light.turn_on
+    entity_id:
+      - light.paper_zha_group_0x000f
+      - light.downstairs_couch_zha_group_0x000e
+    data:
+      brightness: 96
+  - service: light.turn_on
+    entity_id: light.kitchen_counter
+    data:
+      brightness: 255
+  - service: light.turn_on
+    entity_id:
+      - light.downstairs_bookshelf_zha_group_0x000d
+      - light.philip_morris
+    data:
+      brightness: 128
+  - delay: 1
+  - service: light.turn_on
+    entity_id:
+      - light.downstairs_couch_zha_group_0x000e
+      - light.paper_zha_group_0x000f
+      - light.philip_morris
+      - light.downstairs_bookshelf_zha_group_0x000d
+    data:
+      color_temp: 420
+  - service: light.turn_on
+    entity_id:
+      - light.kitchen_counter
+    data:
+      color_temp: 360

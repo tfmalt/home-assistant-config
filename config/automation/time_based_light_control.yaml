@@ -1,10 +1,10 @@
 # Turn on lights at 07:30
 - id: "1638711450890"
-  alias: Turn on lights at 07:30
-  description: Upstairs and Downstairs lights are turned on at 07:30
+  alias: Lights - Turn on lights at 07:00
+  description: Upstairs and Downstairs lights are turned on at 07:00
   trigger:
     - platform: time
-      at: 07:30:00
+      at: 07:00:00
   condition:
     - condition: time
       weekday:
@@ -16,28 +16,30 @@
   action:
     - service: script.tv_bright
     - service: script.downstairs_bright
+    - service: script.bedroom_bright
     - service: notify.devices_to_notify
       data:
         title: "Lyset er på"
-        message: "Klokka er 07:30. Lyset er skrudd på."
+        message: "Klokka er 07:00. Lyset er skrudd på."
 
   mode: single
 
 # Turn off lights at 01:00
 - id: "1638711450891"
-  alias: Turn off lights at 01:00
+  alias: Lights - Turn off lights at 01:00
   description: Upstairs and Downstairs lights are turned off at 01:00
   trigger:
     - platform: time
       at: 01:00:00
   action:
     - service: script.tv_off
+    - service: script.utility_room_off
     - service: script.downstairs_off
   mode: single
 
 # Turn on outside lights at sunset
 - id: "1638711450892"
-  alias: Turn on outside lights at sunset
+  alias: Lights - Turn on outside lights at sunset
   description: Outside lights are turned on at sunset
   trigger:
     - platform: sun
@@ -45,9 +47,9 @@
   action:
     - service: light.turn_on
       target:
-        entity_id: light.garden_lights
+        entity_id: light.garden_lights_zha_group_0x0012
       data:
-        kelvin: 2700
+        color_temp: 360
         brightness: 255
     - service: switch.turn_on
       data: {}
@@ -60,7 +62,7 @@
 
 # Turn off outside lights at sunrise
 - id: "1638711450893"
-  alias: Turn off outside lights at sunrise
+  alias: Lights - Turn off outside lights at sunrise
   description: Outside lights are turned off at sunrise
   trigger:
     - platform: sun
@@ -68,7 +70,7 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.garden_lights
+        entity_id: light.garden_lights_zha_group_0x0012
     - service: switch.turn_off
       target:
         entity_id: switch.entrance_switch_outside

@@ -27,6 +27,7 @@ dining_room_lights:
   name: "Dining Room Light Mode"
   options:
     - "Bright"
+    - "Medium"
     - "Dimmed"
     - "Off"
 
