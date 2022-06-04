@@ -1,0 +1,6 @@
+- sensor:
+    - name: "Sun Elevation"
+      unit_of_measurement: "°"
+      icon: "mdi:weather-sunset-up"
+      state_class: measurement
+      state: "{{ '%+.2f'|format(state_attr('sun.sun', 'elevation')) }}"

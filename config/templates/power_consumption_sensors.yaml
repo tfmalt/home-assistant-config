@@ -21,3 +21,9 @@
           {{ state_attr('sensor.electricity_price', 'price_level') }}
         state_class: measurement
         device_class: energy
+
+- sensor:
+    - name: "Coffeemaker state"
+      icon: "mdi:coffee-maker"
+      state: >
+        {{ states('input_select.coffee_maker_state') }}

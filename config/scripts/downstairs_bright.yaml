@@ -2,21 +2,18 @@
 alias: Downstairs Bright
 sequence:
   - service: light.turn_on
-    entity_id: light.downstairs_all_white_lights
+    entity_id: light.downstairs_all_white_light
     data:
       brightness: 250
-      transition: 4
   - service: light.turn_on
-    entity_id: light.downstairs_all_rgb_lights
+    entity_id: light.downstairs_all_zha_group_0x0010
     data:
       brightness: 255
-      transition: 4
-      kelvin: 2700
+      color_temp: 360
   - service: light.turn_on
-    entity_id: light.bokhylle_nede
+    entity_id: light.downstairs_bookshelf_zha_group_0x000d
     data:
-      transition: 1
-      color_temp: 350
+      color_temp: 360
       brightness: 255
 
   - service: input_select.select_option

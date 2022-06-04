@@ -3,8 +3,7 @@
   description: "Turn lights on when motion detected in downstairs bathroom"
   trigger:
     - platform: state
-      entity_id: binary_sensor.multisensor_e_home_security_motion_detection
-      from: "off"
+      entity_id: binary_sensor.multisensor_e_downstairs_bathroom_home_security_motion_detection
       to: "on"
   condition: []
   action:
@@ -12,23 +11,5 @@
       target:
         entity_id: light.downstairs_bathroom_dimmer
       data:
-        brightness: 255
-  mode: single
-
-- id: "1639313561544"
-  alias: Downstairs Bathroom Motion Off
-  description: "Turn lights 20 minutes after motion detected in downstairs bathroom"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.multisensor_e_home_security_motion_detection
-      from: "on"
-      to: "off"
-      for: "00:20:00"
-  condition: []
-  action:
-    - service: light.turn_off
-      target:
-        entity_id: light.downstairs_bathroom_dimmer
-      data:
-        brightness: 0
+        brightness: 200
   mode: single

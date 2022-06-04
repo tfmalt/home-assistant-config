@@ -124,8 +124,8 @@
       below: input_number.lower_watt_threshold
   condition:
     - condition: numeric_state
-      entity_id: sensor.sd60_electricity_price_percentile
-      below: input_number.electricity_price_percentile_limit
+      entity_id: sensor.sd60_electricity_price
+      below: sensor.sd60_waterheater_limit_price
     - condition: state
       entity_id: switch.water_heater
       state: "off"

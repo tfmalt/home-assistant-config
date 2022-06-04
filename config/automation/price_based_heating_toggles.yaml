@@ -34,8 +34,8 @@
   description: "When electricity is expensive turn water heater off"
   trigger:
     - platform: numeric_state
-      entity_id: sensor.sd60_electricity_price_percentile
-      above: input_number.electricity_price_percentile_limit
+      entity_id: sensor.sd60_electricity_price
+      above: sensor.sd60_waterheater_limit_price
   condition:
     - condition: state
       entity_id: switch.water_heater

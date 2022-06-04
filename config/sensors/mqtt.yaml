@@ -51,6 +51,12 @@
   value_template: "{{ value_json.limitPrice }}"
 
 - platform: mqtt
+  name: "SD60 waterheater limit price"
+  state_topic: "malt/waterheater_limit_price"
+  state_class: measurement
+  value_template: "{{ value_json.value }}"
+
+- platform: mqtt
   name: "SD60 Electricity Price percentile"
   state_topic: "malt/electricity_price"
   state_class: "measurement"
