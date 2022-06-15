@@ -80,7 +80,6 @@ home_connect: !secret home_connect_config
 #         name: "Garden Door Right"
 #         fire_event: true
 
-light: !include_dir_merge_list lights/
 mqtt: !include_dir_merge_list mqtt/
 group: !include_dir_merge_named groups/
 automation manual: !include_dir_merge_list automation/
