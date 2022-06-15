@@ -1,12 +1,12 @@
 # Example configuration.yaml entry
-- platform: mqtt
-  name: "SD60 Electricity Price"
-  state_topic: "malt/electricity_price"
-  device_class: "monetary"
-  state_class: "measurement"
-  unit_of_measurement: "NOK"
-  value_template: "{{ '%0.2f'|format(value_json.value|float) }}"
-  json_attributes_topic: "malt/electricity_price"
+- sensor:
+    - name: "SD60 Electricity Price"
+      state_topic: "malt/electricity_price"
+      device_class: "monetary"
+      state_class: "measurement"
+      unit_of_measurement: "NOK"
+      value_template: "{{ '%0.2f'|format(value_json.value|float) }}"
+      json_attributes_topic: "malt/electricity_price"
 
 - platform: mqtt
   name: "SD60 Electricity Price Decile"
