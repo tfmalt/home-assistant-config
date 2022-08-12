@@ -102,6 +102,14 @@
   state_class: measurement
   value_template: "{{ '%.2f'|format(value_json.value| float) }}"
 
+- name: "SD60 Elvia Nettleie"
+  state_topic: "malt/elvia_nettleie"
+  state_class: measurement
+  unit_of_measurement: "kWh"
+  device_class: energy
+  value_template: "{{ '%.2f'|format(value_json.value| float) }}"
+  json_attributes_topic: "malt/elvia_nettleie"
+
 - name: "SD60 Power Budget"
   state_topic: "malt/budget"
   unit_of_measurement: "W"

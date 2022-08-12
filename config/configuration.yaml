@@ -80,6 +80,11 @@ home_connect: !secret home_connect_config
 #         name: "Garden Door Right"
 #         fire_event: true
 
+sensor:
+  - platform: openhardwaremonitor
+    host: 192.168.71.13
+    port: 8085
+
 mqtt:
   sensor: !include mqtt/sensors.yaml
   light: !include mqtt/lights.yaml

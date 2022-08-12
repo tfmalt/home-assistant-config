@@ -27,3 +27,11 @@
       icon: "mdi:coffee-maker"
       state: >
         {{ states('input_select.coffee_maker_state') }}
+- sensor:
+    - name: "Cyberups Power"
+      icon: "mdi:lightning-bolt"
+      unit_of_measurement: "W"
+      state_class: measurement
+      device_class: energy
+      state: >
+        {{ 750 * (states('sensor.cyberups_load')|float/100) }}
