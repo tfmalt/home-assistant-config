@@ -82,6 +82,9 @@ home_connect: !secret home_connect_config
 
 sensor:
   - platform: openhardwaremonitor
+    host: 192.168.71.152
+    port: 8085
+  - platform: openhardwaremonitor
     host: 192.168.71.13
     port: 8085
 
