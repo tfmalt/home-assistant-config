@@ -82,11 +82,11 @@ home_connect: !secret home_connect_config
 
 sensor:
   - platform: openhardwaremonitor
-    host: 192.168.71.152
-    port: 8085
+    host: !secret svivel
+    port: !secret ohm_port
   - platform: openhardwaremonitor
-    host: 192.168.71.13
-    port: 8085
+    host: !secret fraktal
+    port: !secret ohm_port
 
 mqtt:
   sensor: !include mqtt/sensors.yaml
