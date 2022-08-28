@@ -9,13 +9,10 @@
   trigger:
     - platform: time_pattern
       minutes: "/1"
-    - platform: numeric_state
-      entity_id: sensor.sd60_power
-      above: sensor.sd60_power_budget
   condition:
     - condition: numeric_state
-      entity_id: sensor.sd60_power
-      above: sensor.sd60_power_budget
+      entity_id: sensor.sd60_power_budget
+      below: 2000
   action:
     - service: climate.set_temperature
       target:
@@ -36,26 +33,17 @@
 # ---------------------------------------------------------------------
 - id: "1638908262869"
   alias: Electricity usage Floor Heating below low threshold
-  description:
-    When electricity consumption is below 3kW and price level is normal or cheap heating can be turned
-    on.
+  description: When floor heating can be turned on.
   trigger:
     - platform: time_pattern
       minutes: "/1"
-    - platform: numeric_state
-      entity_id: sensor.sd60_power
-      value_template: >
-        {{ states('sensor.sd60_power')|int + 2000 }}
-      below: sensor.sd60_power_budget
   condition:
-    - condition: numeric_state
-      entity_id: sensor.sd60_power
-      value_template: >
-        {{ states('sensor.sd60_power')|int + 2000 }}
-      below: sensor.sd60_power_budget
     - condition: numeric_state
       entity_id: sensor.sd60_electricity_price_percentile
       below: input_number.electricity_price_percentile_limit
+    - condition: numeric_state
+      entity_id: sensor.sd60_power_budget
+      above: 2200
   action:
     - service: climate.set_temperature
       target:
@@ -90,14 +78,14 @@
     off.
   trigger:
     - platform: time_pattern
-      minutes: "/5"
+      minutes: "/1"
   condition:
     - condition: state
       entity_id: switch.water_heater
       state: "on"
     - condition: numeric_state
-      entity_id: sensor.sd60_power
-      above: sensor.sd60_power_budget
+      entity_id: sensor.sd60_power_budget
+      below: 1500
   action:
     - service: switch.turn_off
       target:
@@ -113,15 +101,13 @@
 # ---------------------------------------------------------------------
 - id: "1638908262872"
   alias: Electricity Water Heater below threshold
-  description:
-    When electricity consumption is below threshold and price level is normal or cheap heating can be turned
-    on.
+  description: When Water heater can be turned on
   trigger:
     - platform: time_pattern
-      minutes: "/5"
+      minutes: "/1"
     - platform: numeric_state
-      entity_id: sensor.sd60_power
-      below: input_number.lower_watt_threshold
+      entity_id: sensor.sd60_power_budget
+      above: 2000
   condition:
     - condition: numeric_state
       entity_id: sensor.sd60_electricity_price
@@ -130,10 +116,8 @@
       entity_id: switch.water_heater
       state: "off"
     - condition: numeric_state
-      entity_id: sensor.sd60_power
-      value_template: >
-        {{ states('sensor.sd60_power')|int + 3200 }}
-      below: sensor.sd60_power_budget
+      entity_id: sensor.sd60_power_budget
+      above: 2000
   action:
     - service: switch.turn_on
       target:
