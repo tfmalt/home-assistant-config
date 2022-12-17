@@ -2,17 +2,21 @@
 # Electricity usage for floor heating dynamic threshold
 # ---------------------------------------------------------------------
 - id: "1638908262868"
-  alias: Electricity usage Floor Heating dynamic threshold
-  description:
-    When electricity consumption is above dynamic threshold floor heating
+  alias: Electricity - Floor Heating Exceeding Power Budget
+  description: When electricity consumption exceeds power budget floor heating
     should be turned off in prioritized order.
   trigger:
     - platform: time_pattern
       minutes: "/1"
   condition:
-    - condition: numeric_state
-      entity_id: sensor.sd60_power_budget
-      below: 2000
+    or:
+      - condition: numeric_state
+        entity_id: sensor.sd60_power
+        value_template: "{{states('sensor.sd60_power_budget')|float - float(state.state)}}"
+        below: 1200
+      - condition: numeric_state
+        entity_id: sensor.sd60_power_budget
+        below: 2000
   action:
     - service: climate.set_temperature
       target:
@@ -32,7 +36,7 @@
 # Electricity usage below low threshold
 # ---------------------------------------------------------------------
 - id: "1638908262869"
-  alias: Electricity usage Floor Heating below low threshold
+  alias: Electricity - Floor Heating Within Power Budget
   description: When floor heating can be turned on.
   trigger:
     - platform: time_pattern
@@ -44,6 +48,10 @@
     - condition: numeric_state
       entity_id: sensor.sd60_power_budget
       above: 2200
+    - condition: numeric_state
+      entity_id: sensor.sd60_power
+      value_template: "{{states('sensor.sd60_power_budget')|float - float(state.state)}}"
+      above: 2000
   action:
     - service: climate.set_temperature
       target:
@@ -72,20 +80,23 @@
 # Water Heater - Electricity usage is above threshold
 # ---------------------------------------------------------------------
 - id: "1638908262867"
-  alias: Electricity Water Heater above threshold
+  alias: Electricity - Water Heater exceeding power budget
   description:
     When electricity consumption is above threshold water heater should be turned
     off.
   trigger:
     - platform: time_pattern
       minutes: "/1"
+    - platform: numeric_state
+      entity_id: sensor.sd60_power_budget
+      below: 1000
   condition:
     - condition: state
       entity_id: switch.water_heater
       state: "on"
     - condition: numeric_state
       entity_id: sensor.sd60_power_budget
-      below: 1500
+      below: 1000
   action:
     - service: switch.turn_off
       target:
@@ -93,21 +104,21 @@
     - service: notify.devices_to_notify
       data:
         title: Turning off water heater
-        message: Electricity usage is above {{ states('sensor.sd60_power_budget')|int }} W
+        message: Electricity usage is above power budget {{ states('sensor.sd60_power_budget')|int }} W
   mode: single
 
 # ---------------------------------------------------------------------
 # Water Heater - Electricity usage below low threshold
 # ---------------------------------------------------------------------
 - id: "1638908262872"
-  alias: Electricity Water Heater below threshold
+  alias: Electricity - Water Heater within power budget
   description: When Water heater can be turned on
   trigger:
     - platform: time_pattern
       minutes: "/1"
     - platform: numeric_state
       entity_id: sensor.sd60_power_budget
-      above: 2000
+      above: 3100
   condition:
     - condition: numeric_state
       entity_id: sensor.sd60_electricity_price
@@ -117,7 +128,7 @@
       state: "off"
     - condition: numeric_state
       entity_id: sensor.sd60_power_budget
-      above: 2000
+      above: 3100
   action:
     - service: switch.turn_on
       target:

@@ -3,7 +3,7 @@
   state_topic: "malt/electricity_price"
   device_class: "monetary"
   state_class: "measurement"
-  unit_of_measurement: "NOK"
+  unit_of_measurement: "NOK/kWh"
   value_template: "{{ '%0.2f'|format(value_json.value|float) }}"
   json_attributes_topic: "malt/electricity_price"
 
