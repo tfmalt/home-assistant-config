@@ -35,3 +35,30 @@
       device_class: energy
       state: >
         {{ 750 * (states('sensor.cyberups_load')|float/100) }}
+
+- sensor:
+  - name: "Average Power Int"
+    icon: "mdi:home-lightning-bolt"
+    unit_of_measurement: "W"
+    state_class: measurement
+    device_class: energy
+    state: >
+      {{ states('sensor.average_power_simon_darres_vei_60') | int }}
+
+- sensor:
+  - name: "Accumulated Consumption Round"
+    icon: "mdi:lightning-bolt"
+    unit_of_measurement: "kWh"
+    state_class: measurement
+    device_class: energy
+    state: >
+      {{ '%0.2f'| format(states('sensor.accumulated_consumption') | float) }}
+
+- sensor:
+  - name: "Accumulated Consumption Current Hour Round"
+    icon: "mdi:lightning-bolt"
+    unit_of_measurement: "kWh"
+    state_class: measurement
+    device_class: energy
+    state: >
+      {{ '%0.2f'| format(states('sensor.accumulated_consumption_current_hour') | float) }}

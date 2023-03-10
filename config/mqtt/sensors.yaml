@@ -7,29 +7,32 @@
   value_template: "{{ '%0.2f'|format(value_json.value|float) }}"
   json_attributes_topic: "malt/electricity_price"
 
-- name: "SD60 Electricity Price Decile"
-  state_topic: "malt/electricity_price"
-  state_class: "measurement"
-  value_template: "{{ value_json.decile }}"
-
 - name: "SD60 Electricity Price Average"
   state_topic: "malt/electricity_price"
   state_class: "measurement"
+  device_class: "monetary"
+  unit_of_measurement: "NOK/kWh"
   value_template: "{{ value_json.average }}"
 
 - name: "SD60 Electricity Price Median"
   state_topic: "malt/electricity_price"
   state_class: "measurement"
+  device_class: "monetary"
+  unit_of_measurement: "NOK/kWh"
   value_template: "{{ value_json.median }}"
 
 - name: "SD60 Electricity Price Maximum"
   state_topic: "malt/electricity_price"
   state_class: "measurement"
+  device_class: "monetary"
+  unit_of_measurement: "NOK/kWh"
   value_template: "{{ value_json.max }}"
 
 - name: "SD60 Electricity Price Minimum"
   state_topic: "malt/electricity_price"
   state_class: "measurement"
+  device_class: "monetary"
+  unit_of_measurement: "NOK/kWh"
   value_template: "{{ value_json.min }}"
 
 - name: "SD60 Electricity Price Limit Percentile"
@@ -40,12 +43,16 @@
 - name: "SD60 Electricity Limit Price"
   state_topic: "malt/electricity_price"
   state_class: "measurement"
-  value_template: "{{ value_json.limitPrice }}"
+  device_class: "monetary"
+  unit_of_measurement: "NOK/kWh"
+  value_template: "{{ '%0.2f' | format(value_json.limitPrice|float) }}"
 
 - name: "SD60 waterheater limit price"
   state_topic: "malt/waterheater_limit_price"
   state_class: measurement
-  value_template: "{{ value_json.value }}"
+  device_class: "monetary"
+  unit_of_measurement: "NOK/kWh"
+  value_template: "{{ '%0.2f' | format(value_json.value|float) }}"
   json_attributes_topic: "malt/waterheater_limit_price"
 
 - name: "SD60 Electricity Price percentile"
@@ -53,19 +60,12 @@
   state_class: "measurement"
   value_template: "{{ value_json.percentile }}"
 
-- name: "SD60 Power"
-  state_topic: "malt/power"
-  unit_of_measurement: "W"
-  device_class: power
-  state_class: measurement
-  value_template: "{{ value_json.power }}"
-
-- name: "SD60 kWh Current Hour"
-  state_topic: "malt/power"
-  unit_of_measurement: "kWh"
-  device_class: energy
-  state_class: total
-  value_template: "{{ '%0.2f'|format(value_json.accumulatedConsumptionLastHour| float) }}"
+# - name: "SD60 kWh Current Hour"
+#   state_topic: "malt/power"
+#   unit_of_measurement: "kWh"
+#   device_class: energy
+#   state_class: total
+#   value_template: "{{ '%0.2f'|format(value_json.accumulatedConsumptionLastHour| float) }}"
 
 - name: "SD60 kWh Today"
   state_topic: "malt/power"
@@ -81,12 +81,6 @@
   state_class: total
   value_template: "{{ '%0.2f'|format(value_json.lastMeterConsumption| float) }}"
 
-- name: "SD60 Average Power"
-  state_topic: "malt/power"
-  unit_of_measurement: "W"
-  device_class: power
-  state_class: measurement
-  value_template: "{{ '%.0f'|format(value_json.averagePower| float) }}"
 
 - name: "SD60 Max kWh Per Hour Today"
   state_topic: "malt/max_kwh/today"
@@ -123,3 +117,68 @@
   device_class: temperature
   state_class: measurement
   value_template: "{{ value_json.temperature }}"
+
+- name: "banking felles brukskonto"
+  state_topic: "banking/balance"
+  unit_of_measurement: "NOK"
+  state_class: "measurement"
+  device_class: "monetary"
+  value_template: "{{ value_json['97134486531'].balance | round(2) }}"
+  json_attributes_topic: "banking/balance"
+  json_attributes_template: "{{ value_json['97134486531'] | tojson }}"
+
+- name: "banking per dag"
+  state_topic: "banking/balance"
+  unit_of_measurement: "NOK"
+  state_class: "measurement"
+  device_class: "monetary"
+  value_template: "{{ value_json['97134486531'].perDay | round(2) }}"
+  json_attributes_topic: "banking/balance"
+  json_attributes_template: "{{ value_json['97134486531'] | tojson }}"
+
+- name: "banking thomas lønnskonto"
+  state_topic: "banking/balance"
+  unit_of_measurement: "NOK"
+  state_class: "measurement"
+  device_class: "monetary"
+  value_template: "{{ value_json['97102926068'].balance | round(2) }}"
+  json_attributes_topic: "banking/balance"
+  json_attributes_template: "{{ value_json['97102926068'] | tojson }}"
+
+- name: "banking felles bufferkonto"
+  state_topic: "banking/balance"
+  unit_of_measurement: "NOK"
+  state_class: "measurement"
+  device_class: "monetary"
+  value_template: "{{ value_json['97222358349'].balance | round(2) }}"
+  json_attributes_topic: "banking/balance"
+  json_attributes_template: "{{ value_json['97222358349'] | tojson }}"
+
+- name: "banking felles regningskonto"
+  state_topic: "banking/balance"
+  unit_of_measurement: "NOK"
+  state_class: "measurement"
+  device_class: "monetary"
+  value_template: "{{ value_json['98011624723'].balance | round(2) }}"
+  json_attributes_topic: "banking/balance"
+  json_attributes_template: "{{ value_json['98011624723'] | tojson }}"
+
+- name: "banking rammelån"
+  state_topic: "banking/balance"
+  unit_of_measurement: "NOK"
+  state_class: "measurement"
+  device_class: "monetary"
+  value_template: "{{ value_json['98031001277'].balance | round(2) }}"
+  json_attributes_topic: "banking/balance"
+  json_attributes_template: "{{ value_json['98031001277'] | tojson }}"
+
+
+- name: "banking felles visa"
+  state_topic: "banking/balance"
+  unit_of_measurement: "NOK"
+  state_class: "measurement"
+  device_class: "monetary"
+  value_template: "{{ value_json['97291466315'].balance | round(2) }}"
+  json_attributes_topic: "banking/balance"
+  json_attributes_template: "{{ value_json['97291466315'] | tojson }}"
+

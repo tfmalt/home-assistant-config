@@ -17,7 +17,8 @@ bedroom_bright:
       color_temp: 360
       brightness: 255
     target:
-      entity_id: light.upstairs_bathroom_hallway2
+      entity_id:
+      - light.upstairs_bathroom_hallway_light
   - delay:
       hours: 0
       minutes: 0
@@ -46,9 +47,10 @@ bedroom_dimmed:
   - service: light.turn_on
     data:
       color_temp: 450
-      brightness: 35
+      brightness: 30
     target:
-      entity_id: light.upstairs_bathroom_hallway2
+      entity_id:
+      - light.upstairs_bathroom_hallway_light
   - delay:
       hours: 0
       minutes: 0
@@ -72,9 +74,10 @@ bedroom_off:
     data:
       transition: 1
       color_temp: 450
-      brightness: 20
+      brightness: 30
     target:
-      entity_id: light.upstairs_bathroom_hallway2
+      entity_id:
+      - light.upstairs_bathroom_hallway_light
   - service: input_select.select_option
     data:
       option: 'off'

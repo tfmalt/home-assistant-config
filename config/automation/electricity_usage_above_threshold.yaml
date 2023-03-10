@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------
-# Electricity usage for floor heating dynamic threshold
+# Electricity - Floor Heating Exceeding Power Budget
 # ---------------------------------------------------------------------
 - id: "1638908262868"
   alias: Electricity - Floor Heating Exceeding Power Budget
@@ -11,26 +11,23 @@
   condition:
     or:
       - condition: numeric_state
-        entity_id: sensor.sd60_power
+        entity_id: sensor.power_simon_darres_vei_60
         value_template: "{{states('sensor.sd60_power_budget')|float - float(state.state)}}"
         below: 1200
       - condition: numeric_state
         entity_id: sensor.sd60_power_budget
         below: 2000
   action:
-    - service: climate.set_temperature
-      target:
-        entity_id: >
-          {% set ns = namespace(heater="") %}
-          {% for heater in expand('group.heating') if state_attr(heater.entity_id, 'temperature') >= state_attr(heater.entity_id, 'current_temperature')|float %}
-            {% set ns.heater = heater.entity_id %}
-          {% endfor %}
-          {{ ns.heater }}
-
-      data:
-        temperature: >
-          {{ states('input_number.default_minimum_temperature')|float }}
-  mode: single
+    - alias: "choose if there is a heater"
+      choose:
+        - conditions: "{{ state_attr('group.heating', 'entity_id') | select('is_state', 'heat') | list | last is defined }}"
+          sequence:
+            - service: climate.set_hvac_mode
+              target:
+                entity_id: >
+                  {{ state_attr('group.heating', 'entity_id') | select('is_state', 'heat') | list | last }}
+              data:
+                hvac_mode: "off"
 
 # ---------------------------------------------------------------------
 # Electricity usage below low threshold
@@ -49,32 +46,20 @@
       entity_id: sensor.sd60_power_budget
       above: 2200
     - condition: numeric_state
-      entity_id: sensor.sd60_power
+      entity_id: sensor.power_simon_darres_vei_60
       value_template: "{{states('sensor.sd60_power_budget')|float - float(state.state)}}"
       above: 2000
   action:
-    - service: climate.set_temperature
-      target:
-        entity_id: >
-          {% set ns = namespace(heater="") %}
-          {% for heater in expand('group.heating')|reverse if state_attr(heater.entity_id, 'temperature') <= states('input_number.default_minimum_temperature')|float %}
-            {% set ns.heater = heater.entity_id %}
-          {% endfor %}
-          {{ ns.heater }}
-      data:
-        temperature: >
-          {% set ns = namespace(heater="") %}
-          {% set temps = {
-            'climate.heating_living_room': states('input_number.default_temp_living_room')|float, 
-            'climate.heating_downstairs_bathroom': states('input_number.default_temp_downstairs_bathroom')|float,
-            'climate.heating_upstairs_bathroom': states('input_number.default_temp_upstairs_bathroom')|float,
-            'climate.heating_utility_room': states('input_number.default_temp_utility_room')|float
-          } %}
-          {% for heater in expand('group.heating')|reverse if state_attr(heater.entity_id, 'temperature') <= states('input_number.default_minimum_temperature')|float %}
-            {% set ns.heater = heater.entity_id %}
-            {% set ns.temp = temps[heater.entity_id] %}
-          {% endfor %}
-          {{ ns.temp }}
+    - alias: "choose if there is a heater"
+      choose:
+        - conditions: "{{ state_attr('group.heating', 'entity_id') | select('is_state', 'off') | list | first is defined }}"
+          sequence: 
+            - service: climate.set_hvac_mode
+              target:
+                entity_id: >
+                  {{ state_attr('group.heating', 'entity_id') | select('is_state', 'off') | list | first }}
+              data:
+                hvac_mode: "heat"
 
 # ---------------------------------------------------------------------
 # Water Heater - Electricity usage is above threshold
@@ -89,14 +74,14 @@
       minutes: "/1"
     - platform: numeric_state
       entity_id: sensor.sd60_power_budget
-      below: 1000
+      below: 2000
   condition:
     - condition: state
       entity_id: switch.water_heater
       state: "on"
     - condition: numeric_state
       entity_id: sensor.sd60_power_budget
-      below: 1000
+      below: 2000
   action:
     - service: switch.turn_off
       target:
@@ -118,7 +103,7 @@
       minutes: "/1"
     - platform: numeric_state
       entity_id: sensor.sd60_power_budget
-      above: 3100
+      above: 3600
   condition:
     - condition: numeric_state
       entity_id: sensor.sd60_electricity_price
@@ -128,7 +113,7 @@
       state: "off"
     - condition: numeric_state
       entity_id: sensor.sd60_power_budget
-      above: 3100
+      above: 3600
   action:
     - service: switch.turn_on
       target:
