@@ -1,12 +1,16 @@
 alias: TV Off
 sequence:
   - service: light.turn_off
-    entity_id: light.tv_area_zha_group_0x000b
+    target:
+      entity_id: 
+        - light.tv_area_zha_group_0x000b
+        - light.tv_room
     data:
       transition: 1
   - service: light.turn_on
-    entity_id:
-      - light.upstairs_bathroom_hallway2
+    target:
+      entity_id:
+        - light.upstairs_bathroom_hallway2
     data:
       brightness: 20
       kelvin: 2000

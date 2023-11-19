@@ -1,5 +1,5 @@
 - platform: group
   name: devices_to_notify
   services:
-    - service: mobile_app_tmobil14
+    - service: mobile_app_tmobil15
     - service: mobile_app_kirstifonen

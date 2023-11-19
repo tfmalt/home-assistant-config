@@ -11,9 +11,8 @@
   condition:
     or:
       - condition: numeric_state
-        entity_id: sensor.power_simon_darres_vei_60
-        value_template: "{{states('sensor.sd60_power_budget')|float - float(state.state)}}"
-        below: 1200
+        entity_id: sensor.heating_power_budget_delta
+        below: 200
       - condition: numeric_state
         entity_id: sensor.sd60_power_budget
         below: 2000
@@ -46,8 +45,7 @@
       entity_id: sensor.sd60_power_budget
       above: 2200
     - condition: numeric_state
-      entity_id: sensor.power_simon_darres_vei_60
-      value_template: "{{states('sensor.sd60_power_budget')|float - float(state.state)}}"
+      entity_id: sensor.heating_power_budget_delta
       above: 2000
   action:
     - alias: "choose if there is a heater"

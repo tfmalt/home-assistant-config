@@ -37,15 +37,6 @@ influxdb:
       - persistent_notification
       - person
 
-# somfy:
-#   client_id: !secret somfy_client_id
-#   client_secret: !secret somfy_client_secret
-# tahoma: !secret tahoma_config
-
-# netatmo
-netatmo: !secret netatmo_config
-
-home_connect: !secret home_connect_config
 
 # -----------------------------------------------------------------------
 # Z-Wave
@@ -57,28 +48,22 @@ home_connect: !secret home_connect_config
 #   device_config: !include zwave_device_config.yaml
 #   debug: false
 
-# -----------------------------------------------------------------------
-# 433Mhz
-# -----------------------------------------------------------------------
-# rfxtrx:
-#   device: /dev/ttyUSB0
-#
-# switch:
-#   - platform: rfxtrx
-#     automatic_add: true
-#     devices:
-#       0b1100000009965e02010f60:
-#         name: "TV Door Left"
-#         fire_event: true
-#       0b1100020009965e01010f60:
-#         name: "TV Door Right"
-#         fire_event: true
-#       0b1100040009884a02010f60:
-#         name: "Garden Door Left"
-#         fire_event: true
-#       0b1100050009884a01010f60:
-#         name: "Garden Door Right"
-#         fire_event: true
+climate:
+  - platform: generic_thermostat
+    name: Ovn TV Stue
+    unique_id: climateovntvstue
+    heater: switch.ovn_tvstue_switch
+    target_sensor: sensor.d_upstairs_bathroom_air_temperature
+    min_temp: 0
+    max_temp: 30
+    ac_mode: false
+    cold_tolerance: 0.3
+    hot_tolerance: 0
+    min_cycle_duration:
+      seconds: 5
+    initial_hvac_mode: "heat"
+    away_temp: 16
+    precision: 0.1
 
 sensor:
   - platform: openhardwaremonitor

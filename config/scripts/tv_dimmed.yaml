@@ -6,10 +6,10 @@ sequence:
       option: "Dimmed"
   - service: light.turn_on
     entity_id:
-      - light.tv_bookshelf_zha_group_0x0007
-      - light.tv_lights_zha_group_0x0008
+      - light.tv_room
     data:
       brightness: 104
+      color_temp: 450
   - service: light.turn_on
     entity_id:
       - light.entrance_zha_group_0x0005

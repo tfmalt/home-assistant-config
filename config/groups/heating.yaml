@@ -3,6 +3,7 @@ heating:
   entities:
     - climate.heating_living_room
     - climate.heating_downstairs_bathroom
+    - climate.ovn_tv_stue
     - climate.heating_upstairs_bathroom
     - climate.heating_utility_room
   icon: mdi:thermometer

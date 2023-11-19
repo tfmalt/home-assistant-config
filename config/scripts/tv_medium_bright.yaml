@@ -6,10 +6,10 @@ sequence:
       option: "Medium"
   - service: light.turn_on
     entity_id:
-      - light.tv_bookshelf_zha_group_0x0007
-      - light.tv_lights_zha_group_0x0008
+      - light.tv_room
     data:
       brightness: 180
+      color_temp: 400
   - service: light.turn_on
     entity_id:
       - light.tv_couch_zha_group_0x0009
