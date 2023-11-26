@@ -109,3 +109,28 @@ utility_room_off:
       - light.utility_room_hallway_spots
   mode: single
   icon: mdi:washing-machine-off
+'1700998246768':
+  alias: TV Bright
+  sequence:
+  - service: light.turn_on
+    target:
+      entity_id:
+      - light.tv_bookshelf_spots
+      - light.tv_couch
+      - light.stairs_zha_group_0x0006
+      - light.entrance_zha_group_0x0005
+      - light.picture_wall_zha_group_0x000a
+    data:
+      brightness: 255
+      color_temp: 370
+  - service: light.turn_on
+    target:
+      entity_id:
+      - light.hue_play_gradient_lightstrip_1
+    data:
+      brightness: 72
+      color_temp: 370
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.tv_lights
+      option: Bright

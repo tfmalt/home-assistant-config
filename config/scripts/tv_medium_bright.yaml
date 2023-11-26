@@ -12,7 +12,7 @@ sequence:
       color_temp: 400
   - service: light.turn_on
     entity_id:
-      - light.tv_couch_zha_group_0x0009
+      - light.tv_couch
       - light.picture_wall_zha_group_0x000a
       - light.entrance_zha_group_0x0005
       - light.stairs_zha_group_0x0006

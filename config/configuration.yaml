@@ -57,12 +57,16 @@ climate:
     min_temp: 0
     max_temp: 30
     ac_mode: false
-    cold_tolerance: 0.3
-    hot_tolerance: 0
+    cold_tolerance: 0.2
+    hot_tolerance: 0.2
     min_cycle_duration:
       seconds: 5
     initial_hvac_mode: "heat"
     away_temp: 16
+    sleep_temp: 18
+    comfort_temp: 21.5
+    home_temp: 20
+    activity_temp: 19
     precision: 0.1
 
 sensor:

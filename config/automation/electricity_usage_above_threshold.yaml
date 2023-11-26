@@ -12,7 +12,7 @@
     or:
       - condition: numeric_state
         entity_id: sensor.heating_power_budget_delta
-        below: 200
+        below: 0
       - condition: numeric_state
         entity_id: sensor.sd60_power_budget
         below: 2000
@@ -31,6 +31,9 @@
 # ---------------------------------------------------------------------
 # Electricity usage below low threshold
 # ---------------------------------------------------------------------
+#    - condition: numeric_state
+#      entity_id: sensor.sd60_electricity_price_percentile
+#      below: input_number.electricity_price_percentile_limit
 - id: "1638908262869"
   alias: Electricity - Floor Heating Within Power Budget
   description: When floor heating can be turned on.
@@ -39,14 +42,11 @@
       minutes: "/1"
   condition:
     - condition: numeric_state
-      entity_id: sensor.sd60_electricity_price_percentile
-      below: input_number.electricity_price_percentile_limit
-    - condition: numeric_state
       entity_id: sensor.sd60_power_budget
       above: 2200
     - condition: numeric_state
       entity_id: sensor.heating_power_budget_delta
-      above: 2000
+      above: 1000
   action:
     - alias: "choose if there is a heater"
       choose:

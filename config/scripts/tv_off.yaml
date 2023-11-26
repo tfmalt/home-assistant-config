@@ -5,6 +5,7 @@ sequence:
       entity_id: 
         - light.tv_area_zha_group_0x000b
         - light.tv_room
+        - light.tv_couch
     data:
       transition: 1
   - service: light.turn_on
